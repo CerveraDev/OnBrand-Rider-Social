@@ -1,0 +1,669 @@
+html { line-height: 1.15; text-size-adjust: 100%; }
+* { box-sizing: border-box; }
+body { background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 1rem; font-weight: 400; line-height: 1.5; margin: 0px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+h1, h2 { color: inherit; font-family: inherit; font-weight: 500; line-height: 1.2; margin-block: 0.5rem 1rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+p { margin-block: 0px 0.9rem; }
+hr { box-sizing: content-box; height: 0px; overflow: visible; }
+img { border-style: none; height: auto; max-width: 100%; }
+.elementor * { box-sizing: border-box; }
+.elementor hr { background-color: transparent; margin: 0px; }
+.elementor img { border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 0px; box-shadow: none; height: auto; max-width: 100%; }
+.elementor-element { --flex-basis: initial; --flex-grow: initial; --flex-shrink: initial; --order: initial; --align-self: initial; align-self: var(--align-self); flex-basis: var(--flex-basis); flex-grow: var(--flex-grow); flex-shrink: var(--flex-shrink); order: var(--order); }
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+.e-con { --border-radius: 0; --width: 100%; --min-height: initial; --height: auto; --margin-top: 0px; --margin-right: 0px; --margin-bottom: 0px; --margin-left: 0px; --padding-right: var(--container-default-padding-right,10px); --padding-left: var(--container-default-padding-left,10px); --position: relative; --z-index: revert; --overflow: visible; border-radius: var(--border-radius); height: var(--height); min-height: var(--min-height); min-width: 0px; overflow: var(--overflow); position: var(--position); width: var(--width); z-index: var(--z-index); }
+.e-con:where(:not(.e-div-block-base)) { transition: background var(--background-transition,.3s),border var(--border-transition,.3s),box-shadow var(--border-transition,.3s),transform var(--e-con-transform-transition-duration,.4s); }
+.e-con { --margin-block-start: var(--margin-top); --margin-block-end: var(--margin-bottom); --margin-inline-start: var(--margin-left); --margin-inline-end: var(--margin-right); --padding-inline-start: var(--padding-left); --padding-inline-end: var(--padding-right); }
+.e-con { margin-block-end: var(--margin-block-end); margin-block-start: var(--margin-block-start); margin-inline-end: var(--margin-inline-end); margin-inline-start: var(--margin-inline-start); padding-inline-end: var(--padding-inline-end); padding-inline-start: var(--padding-inline-start); }
+.e-con { display: var(--display); }
+:is(.elementor-section-wrap, [data-elementor-id]) > .e-con { --margin-left: auto; --margin-right: auto; max-width: min(100%,var(--width)); }
+.elementor .e-div-block-base { min-width: 30px; padding: 10px; display: block; }
+.elementor .e-flexbox-base { padding: 10px; display: flex; flex-direction: row; }
+.elementor .e-heading-base { margin: 0px; }
+.elementor .e-image-base { display: block; }
+.elementor .e-paragraph-base { margin: 0px; }
+.elementor .e-divider-base { width: 100%; height: 1px; border-width: 0px; border-color: transparent; border-style: none; background-color: rgb(0, 0, 0); }
+.elementor .e-572e378-fd216cc { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-5a89e92-102b69e { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9c8e28f-7abd086 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-9cc35cf-677003c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9adc643-f0a96a2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5964c8c-f31e46c { font-family: Helvetica; font-weight: 400; font-size: 28px; color: rgb(255, 255, 255); line-height: 28px; }
+.elementor .e-f3c00ce-b9067c4 { width: 75%; padding: 0px; flex-direction: column; }
+.elementor .e-eb92840-498796b { min-width: auto; min-height: auto; }
+.elementor .e-eb3095a-b305063 { width: 25%; padding: 0px; flex-direction: column; justify-content: flex-end; }
+.elementor .e-a189464-fb0b9f6 { padding: 20px; background-color: rgb(0, 0, 0); flex-direction: row; }
+.elementor .e-42be371-d7e8341 { height: 654px; padding: 20px; border-block-width: 0px 20px; border-inline-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; flex-direction: row; }
+.elementor .e-d9b7681-0352ea8 { width: 600px; height: 750px; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: auto 88%; background-position: 44% 99px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-82b9d5b-9a242c0 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-e9e8a9f-f551a97 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dfc1d00-1838c62 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-783ee4c-49d4d32 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-1612638-f513ddd { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-bd3e385-332c12b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9b0b6c2-0f94a57 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-884f2f7-c513cdd { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-13ef315-c285e38 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-38057c3-3b74c8d { height: 50px; }
+.elementor .e-ef8977d-4b21eb9 { padding: 20px; background-color: rgb(0, 0, 0); justify-content: center; }
+.elementor .e-386f279-3fbf621 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; }
+.elementor .e-6f79e46-f6ef4c2 { height: 660px; padding: 30px; border-block-width: 0px 20px; border-inline-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 46%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; justify-content: flex-start; align-items: center; }
+.elementor .e-53755c6-973c46a { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-b49ab86-861d393 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-02a8d3b-a11de64 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a4d9ab6-bc7853f { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1c5cf28-65a8c85 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-4c09b53-dc706fa { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-53934e6-0909808 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-79bddac-66ef558 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-263bd69-0697fa2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9d47fb7-3e2149b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e97f6b4-b0f674e { height: 50px; }
+.elementor .e-032c912-d9717d5 { padding: 20px; background-color: rgb(0, 0, 0); justify-content: center; }
+.elementor .e-2b1fa39-2f37392 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-transform: uppercase; }
+.elementor .e-356a2b6-4df46ad { height: 660px; padding: 30px; border-block-width: 0px 20px; border-inline-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 54%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; justify-content: flex-end; align-items: start; }
+.elementor .e-9dffb30-996470b { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-e0ddb31-6e02fee { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-1061904-f5254f1 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-0b083b8-0e0dca6 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dec6035-597f6c6 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-fc23122-5f1e695 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-a4c9c25-50a4a8b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3e3bc1d-519a2bd { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-454da8c-a3e80ac { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3d4bc4e-a4a7264 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7f75a2d-7fc77e2 { height: 50px; }
+.elementor .e-d0226b5-4de147d { padding: 20px; background-color: rgb(0, 0, 0); justify-content: center; }
+.elementor .e-0de0389-51f5c92 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; }
+.elementor .e-92031df-d4683e4 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-0189687-7a3bd76 { height: 660px; padding: 30px; border-block-width: 0px 20px; border-inline-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 46%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 10px; justify-content: flex-start; align-items: center; }
+.elementor .e-1bc5d46-b558aa0 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-3c94c81-ed841e2 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-f7345b9-c107c45 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-49654cd-bf3a57a { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a8da682-b263be3 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-fb3f4e0-4ce5390 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-91831ac-cf538cc { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5c3bcf2-7e1ee4e { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-4a90ce1-160b072 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3d3cbcb-fef068d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2689d3b-8e9b16b { height: 50px; }
+.elementor .e-5380e4e-bf72b63 { padding: 20px; background-color: rgb(0, 0, 0); justify-content: center; }
+.elementor .e-e013d6a-1e5cd46 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; }
+.elementor .e-21e2a42-dc8828c { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; font-style: italic; }
+.elementor .e-a770f7a-9dc4bfa { height: 660px; padding: 30px; border-block-width: 0px 20px; border-inline-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 54%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 10px; justify-content: flex-end; align-items: start; }
+.elementor .e-197db3b-58a360d { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-1fb7c33-daf982d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-e098a14-eeafb2b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-f1c8cda-6ec4342 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-67109b8-d00693d { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-f1d2b03-605967b { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-5760942-07f11c0 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4fe8d40-9230b01 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-208f16f-fb36613 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-11b63e4-be21dca { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-c4988cb-7ac9f58 { max-width: 180px; }
+.elementor .e-d37b603-26ea662 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-9e4fe40-8e15e1d { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-72b1d22-d9631d0 { padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: center; }
+.elementor .e-02a2ad6-8ab0685 { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 46%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 30px; justify-content: flex-start; align-items: center; }
+.elementor .e-b0a65c4-20862a9 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-8e4c035-35d3d2f { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-4bb9e00-11e6d68 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-edc833d-5beea1d { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8b95779-329c334 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-41527f8-5be4fb8 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-612a3c0-59a4c73 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dec7935-fa1f10f { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-dbe51c8-cd5251d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5d65dc8-b21ec28 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-aa412bc-73716e1 { max-width: 180px; }
+.elementor .e-938d1ab-af43c41 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-2396fed-fff349c { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-5a510df-8da0c0d { padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: center; }
+.elementor .e-379ca1d-b13a3d2 { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 54%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 30px; justify-content: space-between; align-items: center; }
+.elementor .e-bab4aca-1b2753e { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-2696b50-ba5743d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-a729626-f80bf97 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-baf83a6-4ffa4e0 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3956967-350cace { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-3a4ad8b-2f97868 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-5d39a01-b21f659 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8bbaa9e-7a2ff38 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-e555c6d-6ecc8e1 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-843482c-c8852a0 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1e50782-d35aa4b { max-width: 180px; }
+.elementor .e-176fdaa-de7dc7b { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-ef5b309-f0e7591 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; font-style: italic; }
+.elementor .e-2bddb41-6547ab7 { padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: start; }
+.elementor .e-5e9ca91-3e22544 { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 54%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 30px; justify-content: space-between; align-items: center; }
+.elementor .e-38e1f21-129f8de { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-3ef68c7-dfc83c6 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-1d628b8-65d6b6c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2229757-3d8407e { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-80a62f2-e6b4620 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-e58b51e-5708ab3 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-e62869c-5471adb { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-07e5f87-0bd12ea { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-e2ab66b-15d1f33 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ae91c0a-19960fa { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-27acc88-c5dd603 { max-width: 180px; }
+.elementor .e-547d623-112a371 { height: 40%; padding: 0px; margin-block-start: 0px; flex-direction: column; justify-content: flex-start; align-items: center; }
+.elementor .e-3d360c4-9a95c90 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-9e24a09-8956218 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-38fa6db-f5d3be7 { height: 60%; padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: center; }
+.elementor .e-04bfc3d-4fc59fd { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: radial-gradient(circle, rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-c6be6dd-b760998 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-b43298e-d4d147d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-9818314-937c3d0 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8209642-99a9c05 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-21fe949-a479e5b { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-f2c62cf-96b6ba3 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-723e741-78207ea { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1e2cfe9-f993248 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-9a567c3-4728ea4 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6dcc11a-bb0afcd { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ac9e809-f38dd18 { max-width: 180px; }
+.elementor .e-0d00636-0c7429e { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-127b5d0-b7f2242 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; font-style: italic; }
+.elementor .e-0696cfe-fc48df3 { padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: start; }
+.elementor .e-e9fc7f8-8fb9870 { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 54%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 30px; justify-content: space-between; align-items: center; }
+.elementor .e-aed07f2-f2d5d88 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-2ee3928-acc0245 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-e2b9af3-9434f67 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-743ca88-1830a0e { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d84ebbb-50d926a { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-735740f-6f5702f { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-192d00f-6c7464b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-da9b10a-6f1c371 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-c4c085c-52a536a { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-88f2d8c-7d3bce7 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dbae3ce-aefa6e6 { max-width: 180px; }
+.elementor .e-ac25b62-307ec48 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 30px; }
+.elementor .e-3940198-ebf427e { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: flex-start; align-items: center; }
+.elementor .e-7a9b88b-65f4f16 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-d4a4c36-2085984 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-3366b93-d77b357 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dfb6b33-c89a8a8 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e7d7f4f-aa34c9c { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-04bd3b5-f64ac43 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-7a8feae-31e5545 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4e5e5f0-3445bee { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-fd88fa6-b9e825d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5f41e63-1e850f5 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-83d493b-2c6c750 { max-width: 180px; }
+.elementor .e-fcbe53a-5a9a4cd { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; margin: 0px; }
+.elementor .e-3cf87ab-5de87e0 { padding: 0px; }
+.elementor .e-a9d857c-420461b { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-82f3f8b-916da29 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-575b91c-427a444 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-2e7b7c4-0b9b13f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-862806d-a82a5fe { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-30db1c6-f71282c { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-07cc804-9847ae6 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-dee16d6-17c7e20 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3382a12-5c29978 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-636b89f-356b78f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-844ebd2-6dc3911 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e41f1c9-c341eb8 { max-width: 180px; }
+.elementor .e-60895b3-28ec282 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin: 0px; }
+.elementor .e-2c08675-8a216c3 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-f67d0c4-ff78c37 { padding-block: 30px 0px; padding-inline: 0px; flex-direction: column; align-items: center; }
+.elementor .e-ff6227d-84e6a25 { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: flex-start; align-items: center; }
+.elementor .e-d8dcd28-f8c2b66 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-89401a5-c2663ac { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-483f472-e39d1d6 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-08bd109-bf33912 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6e398c7-523eab6 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-1679d01-cdeb3bd { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-42326b4-7814d43 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ed55d14-188fa9e { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-fa5c62a-f39e48b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-07f8d34-db39fb2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-cc8dda8-9bc151c { max-width: 180px; }
+.elementor .e-4d135ed-2133a5c { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin: 0px; }
+.elementor .e-e56495a-02afca8 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; font-style: italic; }
+.elementor .e-d9a626e-9a32097 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-66b8cd2-7d25186 { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-a88d580-424ff5f { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-8822882-9a09bc9 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-f4a56f9-27a052e { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-02fdaab-e13939f { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d94b1db-9092349 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-b1f34b8-a998296 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-c12da04-954e272 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-23c9097-5fe99f8 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-3270b36-cfe7836 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7ee6aed-0f85a10 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a6e4aa2-18429a2 { max-width: 180px; }
+.elementor .e-241c982-2196e1a { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; margin: 0px; }
+.elementor .e-f624605-45cb5d4 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; font-style: italic; }
+.elementor .e-9d593da-ec9883f { padding: 0px; flex-direction: column; align-items: start; }
+.elementor .e-3ef5816-2c8010b { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-9f92b3f-280a564 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-95dfd61-3da4028 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-1828188-a349e46 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e62fb5d-9fdcb4e { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8aa0406-0901533 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-c3a2319-44b0e03 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-c3fb5e3-009b1da { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8b1136e-6a20f5b { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-6027137-584e34c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3860be7-a1bdb78 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-34a5bf8-48b76cb { max-width: 180px; }
+.elementor .e-41ad02e-c3fe76d { height: 40%; padding: 0px; margin-block-start: 0px; flex-direction: column; justify-content: flex-start; align-items: center; }
+.elementor .e-4ece4d4-3881fbc { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-15cae5d-e38799b { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 34px; text-align: center; font-style: italic; text-transform: capitalize; }
+.elementor .e-7803f47-784745f { height: 60%; padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: center; }
+.elementor .e-5fb9af5-d655522 { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: radial-gradient(circle, rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-61e0fb7-5684b78 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-ede980e-29fb7e3 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-45a290f-a90de5a { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6dccd3a-e0660e8 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5d9ad20-8e132f1 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-fbca6dd-376f897 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-911a7ec-2569ea1 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-c892b11-368994d { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-cfe5268-066547f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-13b47cf-a7342c2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ab33072-bcf62f2 { max-width: 180px; }
+.elementor .e-e610f87-35b9013 { height: 40%; padding: 0px; margin-block-start: 0px; flex-direction: column; justify-content: flex-start; align-items: center; }
+.elementor .e-4655e11-c104a3c { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-80ae4a4-0dc21f3 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 34px; text-align: center; font-style: italic; text-transform: capitalize; }
+.elementor .e-7e1a4d9-9b796de { height: 60%; padding: 0px; margin-block-start: 0px; flex-direction: column; align-items: center; }
+.elementor .e-6bf4646-00734df { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: radial-gradient(circle, rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-c0bf8c9-3386cfc { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-dae6081-98b74fe { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-936a3ad-b24394f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ad7a061-3dc587d { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dd451ff-4a1447b { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-ef06100-a55426f { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-b748c1c-43baf17 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2d232be-f1d0bda { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-1535085-c6aff4c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ee96fc5-1d693e4 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-773ed47-d0c27ea { max-width: 96px; }
+.elementor .e-8577011-fb66e51 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; padding-block-start: 10px; margin-block-start: 0px; }
+.elementor .e-e1d6ea3-2bc6fec { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 34px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-cdae040-62c66be { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: flex-end; align-items: start; }
+.elementor .e-08d3022-5ed4556 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-e148b0a-0076f39 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-9b08f69-cd41ace { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d310163-85a4ee2 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-b2a1810-9911958 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-a3cb97c-665f4f5 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-8628334-e4c2b5c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7c7eab3-51dea8a { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-bbae1bc-a716dbb { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-63c2c10-093e091 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-dccebdd-1ff5d8d { max-width: 180px; }
+.elementor .e-fa9f033-cf7bf6a { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: uppercase; padding-block-start: 10px; margin-block-start: 0px; }
+.elementor .e-4a112fb-4020212 { width: 75%; font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 34px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-7a14f07-8f9ee3d { padding: 0px; display: block; }
+.elementor .e-d3e833e-7fec143 { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-a46a933-f737aba { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-e184c80-9a24f60 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-c621a50-b7178fe { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2f5afe8-2695159 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3e0f534-43b2106 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-11e1711-6e43099 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-eea2580-1632901 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-446ebfd-0aff85d { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-2613a74-87d3df6 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e193de0-763dda5 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-df63f56-b5183cc { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-ddb5ad3-4fcaa05 { max-width: 120px; align-self: end; }
+.elementor .e-2001adc-7a6d202 { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-b6da4df-a230561 { font-family: Helvetica; font-weight: 400; font-size: 48px; color: rgb(0, 0, 0); line-height: 42px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-fac2b2f-76e4a76 { font-family: "Playfair Display"; font-weight: 400; font-size: 24px; color: rgb(0, 0, 0); letter-spacing: -1px; line-height: 24px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-158bdf3-8a31a56 { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 10px; }
+.elementor .e-d83e06f-69f819f { padding: 0px; flex-direction: column; gap: 5px; }
+.elementor .e-254f31b-a75c353 { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-332c2f8-03568c7 { width: 75%; padding: 0px; margin-block-start: 0px; display: flex; }
+.elementor .e-3566230-fdfc47c { height: 45%; padding-block: 0px; padding-inline: 30px; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
+.elementor .e-38d83df-073010c { height: 55%; padding-block: 0px 30px; padding-inline: 30px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat; background-attachment: scroll; background-size: cover; background-position: center center; background-color: rgb(0, 0, 0); display: flex; justify-content: flex-end; align-items: end; }
+.elementor .e-a7ade3f-eccfc08 { height: 750px; padding-block: 30px 0px; padding-inline: 0px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; display: flex; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-f72b462-b5be356 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-a4bb692-d93b2be { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-b7d809c-4c1766b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5092de8-659cda2 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4eda8ec-321375f { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-5a4c067-da5fa08 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-7f45ebd-532c5dc { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8af1222-d4afea9 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-06350ed-64756fb { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e8ebe58-3cb41c7 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d3ea5aa-8704af6 { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-0f0049b-45910c3 { max-width: 120px; align-self: end; }
+.elementor .e-f489dd1-9252388 { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-b7793f7-f9b4119 { font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(0, 0, 0); line-height: 34px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-605ef6c-2f3b3bd { font-family: "Playfair Display"; font-weight: 400; font-size: 24px; color: rgb(0, 0, 0); letter-spacing: -1px; line-height: 24px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-6d4e3db-1c63b5f { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 10px; }
+.elementor .e-6677502-f0f5ad8 { padding: 0px; flex-direction: column; gap: 5px; }
+.elementor .e-8af3221-6fa5677 { height: 45%; padding-block: 0px; padding-inline: 30px; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
+.elementor .e-a0e661f-e0c74ee { max-width: 96px; align-self: end; }
+.elementor .e-823e1bb-0ff7fe0 { height: 55%; padding-block: 0px 30px; padding-inline: 30px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat; background-attachment: scroll; background-size: cover; background-position: center center; background-color: rgb(0, 0, 0); display: flex; justify-content: flex-end; align-items: end; }
+.elementor .e-6f0a7e4-1a7b99d { height: 750px; padding-block: 30px 0px; padding-inline: 0px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; display: flex; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-1493985-dd2f0a9 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-77ea727-159f561 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-6054160-d834cc2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-000aa04-c995481 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-823bb1e-8851b98 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-94121e0-10f8d52 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-8c7e888-e247301 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3a34a6d-93a3f46 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-cdcc105-71b7c58 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-c12a0a4-8740134 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-15acb0b-d91d293 { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-bf07327-52df385 { height: 60%; padding-block: 0px 30px; padding-inline: 30px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat; background-attachment: scroll; background-size: cover; background-position: center center; background-color: rgb(0, 0, 0); display: flex; justify-content: flex-end; align-items: end; }
+.elementor .e-9d2e68a-e8ea98a { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-66cc664-2d087bd { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-cbef775-41d227d { font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(0, 0, 0); line-height: 34px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-bb169e3-4f3642f { font-family: "Playfair Display"; font-weight: 400; font-size: 24px; color: rgb(0, 0, 0); letter-spacing: -1px; line-height: 24px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-200894e-723727c { padding: 0px; flex-direction: column; gap: 5px; flex: 1 0 auto; }
+.elementor .e-832887f-487cb2b { max-height: 34px; align-self: end; }
+.elementor .e-201c295-575aa8d { max-width: 96px; max-height: 34px; align-self: end; }
+.elementor .e-c5507dc-21f5c1f { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-7da5f30-b24d2e6 { height: 40%; padding-block: 0px 30px; padding-inline: 30px; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; }
+.elementor .e-0bf7ce0-754a912 { height: 750px; padding-block: 0px; padding-inline: 0px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; display: flex; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-b43d056-753239a { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-15a1066-8211a6d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-71549e3-3c01058 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-51d97dd-d631d0b { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-097fab5-93738d0 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-3c33e13-9a3202e { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-a1152f5-5204cbe { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-703b379-6c607c9 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-4d774f8-ceb1df7 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1220eb2-0e02dca { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-cb4ab50-5b295de { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-c231c73-bccc3dc { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-f1e39c0-727deb8 { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-5a09b43-354607e { font-family: Helvetica; font-weight: 400; font-size: 48px; color: rgb(0, 0, 0); line-height: 48px; text-align: start; padding-block-start: 0px; margin-block: 0px 20px; }
+.elementor .e-82fe82e-b65305e { width: 5%; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; }
+.elementor .e-0671090-1e18bbb { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-6e6c5fb-0adee39 { padding: 0px; flex-direction: column; gap: 10px; flex: 1 0 auto; justify-content: center; }
+.elementor .e-7402883-dfe6de0 { max-height: 34px; align-self: end; }
+.elementor .e-c66f6f9-ba7c0f5 { max-width: 96px; max-height: 34px; align-self: end; }
+.elementor .e-01ffc2c-768bb7d { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-3771ec1-0a3e8c2 { height: 100%; padding-block: 30px; padding-inline: 30px; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; }
+.elementor .e-0246b57-6c3d3f6 { height: 750px; padding-block: 0px; padding-inline: 0px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; display: flex; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-61edac2-3168a0a { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-0a83201-7506197 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-df68529-541d64f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6b9b145-97ea777 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-94f6fe3-23ecadc { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-35a26c8-b7e3c2b { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-a3c7645-cb1784a { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7d5545c-753c12e { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-fb2f3aa-33ea5b9 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a72ef7a-c901a1d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-29accee-dcd379a { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-d2e4f00-4818803 { font-family: Helvetica; font-weight: 600; font-size: 12px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 20px; }
+.elementor .e-7df34ac-bec02e5 { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-e1b95a3-0c42541 { font-family: Helvetica; font-weight: 400; font-size: 14px; color: rgb(0, 0, 0); text-align: start; padding-block-start: 0px; }
+.elementor .e-0bc06f1-333d891 { font-family: Helvetica; font-weight: 400; font-size: 14px; color: rgb(0, 0, 0); text-align: start; padding-block-start: 0px; margin-block: 0px 20px; }
+.elementor .e-cc56094-c20c713 { padding: 0px; flex-direction: column; gap: 20px; flex: 1 0 auto; justify-content: flex-start; }
+.elementor .e-6fbb41b-3a6cb64 { max-height: 34px; align-self: end; }
+.elementor .e-86f136c-dbf3933 { max-width: 96px; max-height: 34px; align-self: end; }
+.elementor .e-d6b741d-b8798c6 { padding: 0px; justify-content: space-between; align-items: end; }
+.elementor .e-ffa0c4a-866aa7a { height: 100%; padding-block: 30px; padding-inline: 30px; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; }
+.elementor .e-ae68be0-0f95792 { height: 750px; padding-block: 0px; padding-inline: 0px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; display: flex; flex-direction: column; gap: 0px; justify-content: space-between; align-items: start; }
+.elementor .e-296f9b9-f4f83f6 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-a75c8b8-5252c33 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-d8d654f-650f0ed { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3d08760-b314d64 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-75df771-b44f3d0 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-5b6b0ba-fd77eb4 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-cc79450-9b7b6e6 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-bf0b337-cef54ee { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-058ee15-544e140 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a039f15-3e20656 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-fac282b-df67e04 { font-family: Helvetica; font-weight: 400; font-size: 48px; color: rgb(255, 255, 255); line-height: 42px; text-align: start; text-transform: uppercase; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-0f227df-556e9e7 { font-family: "Playfair Display"; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 34px; text-align: start; font-style: italic; text-transform: capitalize; }
+.elementor .e-d92a286-a75b394 { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(255, 255, 255); line-height: 34px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-0a008aa-bcf26c1 { width: 75%; padding-block: 0px; padding-inline: 0px 20px; flex-direction: column; }
+.elementor .e-feb2cde-4d3056c { height: 750px; padding: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: row; gap: 0px; justify-content: flex-start; align-items: start; }
+.elementor .e-8568b71-7acabbf { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-aa1ffd7-6cd7c16 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-7bdc4c3-9900a30 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8289715-65d4dfe { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-516e2b0-f15ef00 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-f183fd5-1c2db7d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-84f0dcd-b6bb326 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4688c0f-69c5c81 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-1361914-979aa8a { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-c583a9b-422a68f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-b7b5fb7-6140fe9 { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(255, 255, 255); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; }
+.elementor .e-10e67b4-9c9e08e { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(255, 255, 255); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-4526ccc-837dfdb { height: 750px; padding: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 30, 0.71) 0%, rgba(10, 14, 31, 0) 80%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: flex-start; align-items: start; }
+.elementor .e-10b1511-16cbaf8 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-36da682-888d17d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-89e0f82-2d63297 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-159ac18-8bce6b5 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1a35f64-cf6ebd4 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-d530db6-c5c67eb { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-8f0a4e3-4279951 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-1e7b9d4-b8b8d5d { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-6429fe2-9394822 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7679484-d44fdd6 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e1eb882-7452e32 { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(255, 255, 255); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; }
+.elementor .e-8a64981-7910bc1 { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(255, 255, 255); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-8cf678a-0409522 { height: 750px; padding: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(10, 14, 31, 0) 20%, rgba(10, 14, 30, 0.71) 100%), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: flex-end; align-items: start; }
+.elementor .e-e56505b-c3ccc8b { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-772b926-819740e { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-1b568b9-c0e98ac { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-b7182e2-b2c04e9 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7fb70ab-ff2f46c { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-7ecb0d1-4689ca7 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-baaaf59-2e13abd { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2b3c69c-79b7531 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-12d4295-6f0a1da { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-05f4c59-0fc30b7 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-fb24048-3da2b10 { height: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; }
+.elementor .e-e8a45c3-6376f2a { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(255, 255, 255); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; padding-block: 20px; }
+.elementor .e-54e5404-1084c3d { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(255, 255, 255); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-0e20a80-f15f0aa { max-width: 50%; padding: 0px; flex-direction: column; justify-content: flex-end; }
+.elementor .e-99d78a4-a185e63 { max-width: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; flex-direction: column; }
+.elementor .e-3270c06-7120b61 { height: 50%; padding: 0px; gap: 20px; }
+.elementor .e-322bd74-425beaa { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(255, 255, 255); border-style: solid; background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)); background-repeat: repeat; background-attachment: scroll; background-size: auto; background-position: 0% 0%; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 20px; justify-content: flex-end; }
+.elementor .e-40225b6-2cc13f4 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-24f8bec-a7b6b40 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-df29f9a-6ab97f7 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-c6d209e-c8e4944 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8b51f18-b7d0fa4 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-fb02d8a-b4fad13 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-68580fb-4f481de { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-fe95fc6-dd77fec { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-ac14ba0-289a897 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3690349-36f76ca { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d8c4e86-4432b1c { height: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; }
+.elementor .e-687f7c0-d7d6e62 { max-width: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; flex-direction: column; }
+.elementor .e-3fd07d6-f1f54c4 { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(255, 255, 255); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; padding-block: 20px; }
+.elementor .e-66f11c4-2242e74 { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(255, 255, 255); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-b72c3d4-315c3dd { max-width: 50%; padding: 0px; flex-direction: column; justify-content: flex-end; }
+.elementor .e-9bd8413-a199e60 { height: 50%; padding: 0px; gap: 20px; }
+.elementor .e-858b068-a6c0fe7 { height: 750px; padding: 30px; border-width: 20px; border-color: rgb(255, 255, 255); border-style: solid; background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)); background-repeat: repeat; background-attachment: scroll; background-size: auto; background-position: 0% 0%; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 20px; justify-content: flex-end; }
+.elementor .e-526432d-435e38d { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-846bffa-3ac9be8 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-3baad1e-5cfce55 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a16aee1-e0b77a4 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-626f0de-de3f8b5 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-e7c069f-5f3429f { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-9fda321-ee10d37 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-49acfc5-d86134f { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-50718db-c9d2aec { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-5734b04-97bab42 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-d6bbfbd-4f12c84 { height: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; }
+.elementor .e-374ae81-683ea1a { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(0, 0, 0); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; padding-block: 20px; }
+.elementor .e-a5f6aca-665d12b { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-2f598fd-64ff505 { max-width: 50%; padding: 0px; flex-direction: column; justify-content: flex-end; }
+.elementor .e-6bfa05c-1b21c3f { max-width: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; flex-direction: column; }
+.elementor .e-fda7d80-e0ce3bd { height: 50%; padding: 0px; gap: 20px; }
+.elementor .e-240a60d-0946064 { height: 750px; padding: 20px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; background-color: rgb(255, 255, 255); mix-blend-mode: normal; flex-direction: column; gap: 20px; justify-content: flex-end; }
+.elementor .e-c36d1af-9b1c66e { width: 600px; height: 750px; padding: 0px; background-color: rgb(255, 255, 255); flex-direction: column; }
+.elementor .e-bafeb6a-ec7187c { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-8f70ff7-675e1bf { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-19beb27-6a38467 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4d5d7ab-6f32589 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-b2ac5b6-f821e9f { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-2b7e0b3-1dcc3b2 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9732e87-7a37209 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-ff2f1b7-406dd15 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3aca7da-2c4d2ce { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e137a4f-f1ed2aa { height: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; }
+.elementor .e-3e06188-f8baa51 { max-width: 50%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center bottom; flex-direction: column; }
+.elementor .e-0acf3a0-09fb11c { font-family: "Playfair Display"; font-weight: 400; font-size: 40px; color: rgb(0, 0, 0); letter-spacing: -3px; line-height: 40px; text-align: start; font-style: normal; text-transform: uppercase; padding-block: 20px; }
+.elementor .e-267b56c-a492fe7 { font-family: Helvetica; font-weight: 400; font-size: 16px; color: rgb(0, 0, 0); line-height: 16px; text-align: start; text-transform: none; padding-block-start: 0px; margin-block-start: 0px; }
+.elementor .e-88e2c27-1f3aaeb { max-width: 50%; padding: 0px; flex-direction: column; justify-content: flex-end; }
+.elementor .e-a72f3c1-7d21c2b { height: 50%; padding: 0px; gap: 20px; }
+.elementor .e-86a5d56-5841c15 { height: 750px; padding: 20px; border-width: 20px; border-color: rgb(0, 0, 0); border-style: solid; mix-blend-mode: normal; flex-direction: column; gap: 20px; justify-content: flex-end; }
+.elementor .e-d8e6a78-7f0dcf8 { width: 600px; height: 750px; padding: 0px; background-color: rgb(255, 255, 255); flex-direction: column; }
+.elementor .e-ad5c415-68dd39d { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-375797e-e518b9c { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-15a96dc-69eeb7d { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-87a3dd0-a125e8b { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-e66525f-19336ff { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-2330d84-99c5323 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-84691c6-892f69e { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-69c2ef6-88905a0 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-519c85a-814e470 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-47199fa-508ecc5 { max-width: 180px; }
+.elementor .e-e1b5035-560bff6 { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 34px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-4c64fbd-aaea876 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-f8afb5e-09e64be { height: 750px; padding-block: 60px 30px; padding-inline: 30px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-6dacc9a-839ceef { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-ac8f0cb-6cf063a { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-de779f3-1e60a4d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a29c1ea-945ea76 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-ef74a57-d24b41a { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-4fe4222-8480c6b { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-4ce8432-e1b4145 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-4ac96e6-e9e4d52 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-902bdac-0204313 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3dfbc68-065690f { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-7db72c8-c0fe684 { max-width: 180px; }
+.elementor .e-16e71ca-8f559a7 { height: 180px; max-width: 49%; padding: 0px; margin-block: 0% 1%; margin-inline: 0% 1%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-d1bdd17-a820c18 { height: 180px; max-width: 49%; padding: 0px; margin-block: 0% 1%; margin-inline: 1% 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-5491955-66f8a5c { width: 100%; height: 300px; padding: 0px; margin-block: 1% 0%; margin-inline: 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-f163603-592f3c1 { padding: 0px; display: flex; gap: 0px; flex-wrap: wrap; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.elementor .e-e789a77-e83c3f5 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-633e05b-3aa9ca7 { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-dcd2060-632750e { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-bcd6fb2-6c876bf { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-5d58602-1d56166 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-058c38b-b5da2b4 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2785cb9-4d4e041 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-303a3e5-567b533 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-d73ed62-d577063 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-41758f2-e0b6b37 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-6955dce-1000f0e { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a3c86c0-975ba9b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-36cea6b-f39b581 { max-width: 180px; }
+.elementor .e-c97c5c8-c81f320 { height: 250px; max-width: 250px; padding: 0px; margin-block: 0% 1%; margin-inline: 0% 1%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-741c731-fbbd925 { height: 250px; max-width: 250px; padding: 0px; margin-block: 0% 1%; margin-inline: 1% 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-3234cc3-f9269d0 { height: 250px; max-width: 250px; padding: 0px; margin-block: 1% 0%; margin-inline: 0% 1%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-8d4c13d-faf729c { height: 250px; max-width: 250px; padding: 0px; margin-block: 1% 0%; margin-inline: 1% 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-21aba99-b45b118 { padding: 0px; display: flex; gap: 0px; flex-wrap: wrap; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); justify-content: center; }
+.elementor .e-5d613bf-5956cfe { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-3d27094-838c882 { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-e6c8494-7df5252 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-925ac41-be25746 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-ddab342-1eb35f5 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-3824322-a83a5f4 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6e1b074-e21f771 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-d3af373-f7705a8 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-f492730-9d5a149 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-b290d78-e194f10 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-5de5e55-5fcedc1 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e1b38c8-e7b1cba { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-0609e74-85ab720 { max-width: 180px; }
+.elementor .e-7775487-c7bc212 { height: 500px; max-width: 50%; padding: 0px; margin-block: 0%; margin-inline: 0% 1%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-ddf4575-5e09210 { height: 250px; max-width: 100%; padding: 0px; margin-block: 0% 2%; margin-inline: 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-14a40ee-3669c9e { height: 250px; max-width: 100%; padding: 0px; margin-block: 2% 0%; margin-inline: 0%; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-315bb27-cddc19b { height: 500px; max-width: 50%; padding: 0px; margin-block: 0%; margin-inline: 1% 0%; flex-direction: column; }
+.elementor .e-dd8404e-9b50dc0 { padding: 0px; display: flex; gap: 0px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.elementor .e-0544a87-88f3ede { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-89c2dbc-eaa0e8c { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-00e7d10-6ba84da { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-aaf1d69-62b2a07 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-416433e-f55df83 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-81408f2-5c29099 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-a888938-f03806f { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-93c7172-c3983ce { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-f22eb7b-cee7424 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-f066934-e4ff5a9 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-edfa10f-4fa32c3 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-0fb6876-77ab8f3 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-20771b4-10b8627 { max-width: 180px; }
+.elementor .e-50af12c-a13353d { height: 250px; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-2b8d97c-ad83713 { height: 250px; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-296906c-c5dc1d4 { padding: 0px; display: flex; flex-direction: column; gap: 10px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.elementor .e-6cca118-3d3ba57 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-f70993f-e43da76 { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-850182e-93b59c0 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-a0927d6-dc5aab0 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-6945fb3-04b3db5 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8929bf8-ab9f743 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-aa26f0e-8715003 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-9acbf1e-430a085 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-0240869-9eb0c28 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-189c0d9-427f434 { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-e4b287a-cea3269 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-682e63f-e9e0610 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-2103914-c0bf13a { max-width: 180px; }
+.elementor .e-c0a3205-efdb8d6 { height: 250px; padding: 0px; margin: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-ac501f9-8359e8e { max-width: 18.66%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-396a71f-bddf8ee { max-width: 18.66%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-cd38ad4-bcc5e79 { max-width: 18.66%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-9d8503d-a2992fb { max-width: 18.66%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-3bf0e50-21e7e50 { max-width: 18.66%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-ab88ed3-45011c8 { height: 250px; max-width: 100%; padding: 0px; margin: 0%; gap: 10px; }
+.elementor .e-e25246e-d11072d { padding: 0px; display: flex; flex-direction: column; gap: 10px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.elementor .e-304e72c-ca99332 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-3719f60-7fe7c38 { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-00fed7e-e97334e { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-2eacb4d-2787f9a { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-8129b24-4bbb8d8 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-682297c-d0b2ef9 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-9a95189-0ad7fc9 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-f4429ff-9285290 { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-2fd3571-449926e { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-e3bc518-79f4b1c { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-3b95ddc-33e27e6 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-f105cf5-3293e6b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-6927db2-45bc514 { max-width: 180px; }
+.elementor .e-7975d94-f008151 { height: 250px; padding: 0px; margin: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-c083752-9a82081 { max-width: 32.33%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-c487c4d-67546b2 { max-width: 32.33%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-795b4dd-bb43b26 { max-width: 32.33%; padding: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-9bdbd3b-a8caa35 { height: 250px; max-width: 100%; padding: 0px; margin: 0%; gap: 10px; }
+.elementor .e-77155ec-bcfb9b6 { padding: 0px; display: flex; flex-direction: column; gap: 10px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.elementor .e-a3ea930-575a571 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); text-transform: uppercase; }
+.elementor .e-58e1757-5248a5b { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-ff8e765-ae08315 { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-754d3ad-fccee5a { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-d7ef9b3-eeade18 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-01b55d6-0352992 { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-033ec77-6251d29 { padding: 0px; flex-direction: column; align-items: center; }
+.elementor .e-1b22d38-63c64ae { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-81e12fa-bf69b6d { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-591bcab-12bc88a { max-width: 600px; font-size: 12px; color: rgb(0, 0, 0); text-align: center; padding: 5px; margin-inline: auto; }
+.elementor .e-bde7a5e-9a55100 { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(85, 235, 185); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-fe6b2b2-e4eee2b { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.elementor .e-fef6423-b0d3f5f { max-width: 180px; }
+.elementor .e-764ad75-ac7a19c { width: 85%; font-family: Helvetica; font-weight: 400; font-size: 24px; color: rgb(255, 255, 255); line-height: 34px; text-align: center; text-transform: uppercase; margin-block-start: 0px; }
+.elementor .e-616506f-019813c { width: 450px; height: 450px; padding: 0px; margin: 0px; background-image: url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: no-repeat; background-attachment: scroll; background-size: cover; background-position: center center; }
+.elementor .e-5cac98b-abbfdab { padding: 0px; flex-direction: column; gap: 10px; align-items: center; }
+.elementor .e-dec817e-b76b8a7 { font-family: Helvetica; font-weight: 400; font-size: 12px; color: rgb(255, 255, 255); line-height: 20px; text-align: center; text-transform: uppercase; }
+.elementor .e-b511ab9-a07ef82 { height: 750px; padding-block: 60px 30px; padding-inline: 20px; border-width: 0px; border-color: rgb(0, 0, 0); border-style: solid; background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png"); background-repeat: repeat, no-repeat; background-attachment: scroll; background-size: auto, cover; background-position: 0% 0%, center center; background-color: rgb(0, 0, 0); mix-blend-mode: normal; flex-direction: column; gap: 0px; justify-content: space-between; align-items: center; }
+.elementor .e-ad9f47e-e75f68d { width: 600px; height: 750px; padding: 0px; background-color: rgb(0, 0, 0); flex-direction: column; }
+.elementor .e-0716b8b-bae89fd { min-width: 600px; font-size: 12px; color: rgb(255, 255, 255); text-align: center; padding: 5px; }
+.elementor .e-9c4008a-cb479ec { width: 100%; padding: 0px; margin-block: 0px; margin-inline: auto; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-8d26141-fa6f71a { padding: 0px; background-color: rgb(255, 0, 0); display: flex; flex-direction: column; align-items: center; }
+.elementor .e-f0ff7f1-ad2997b { padding: 0px; flex-direction: column; align-items: center; }
+:where(body) { margin: 0px; }
+body { padding: 0px; }

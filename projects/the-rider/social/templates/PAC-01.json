@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0",
+  "code": "PAC-01",
+  "label": "Press Article Carousel",
+  "kind": "carousel",
+  "formats": [
+    "carousel-4x5"
+  ],
+  "approval_status": "draft",
+  "audiences": [
+    "in-house"
+  ],
+  "image_sources": [
+    "approved",
+    "user-supplied"
+  ],
+  "min_slides": 2,
+  "max_slides": 4,
+  "sequence": [
+    {
+      "role": "opener",
+      "min": 1,
+      "max": 1,
+      "frames": [
+        "AC-01"
+      ]
+    },
+    {
+      "role": "detail",
+      "min": 0,
+      "max": 2,
+      "frames": [
+        "AC-02",
+        "AC-03"
+      ]
+    },
+    {
+      "role": "closer",
+      "min": 0,
+      "max": 1,
+      "frames": [
+        "AC-04"
+      ]
+    }
+  ]
+}

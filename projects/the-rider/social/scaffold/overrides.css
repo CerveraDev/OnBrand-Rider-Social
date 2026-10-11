@@ -1,0 +1,16 @@
+/* Owner-directed adjustments applied on top of scaffold.css when slides are rendered.
+   scaffold.css stays an exact copy of the Elementor page; this file survives re-imports.
+   Remove a rule once the Elementor page carries the same change. */
+
+/* 2026-10-10: the space between subheading and body copy matches SC-01 in every
+   carousel frame. SC-01 gets 9px from its copy line height (34px on 16px type). */
+[data-frame-id="SC-02"] [data-slot="copy"],
+[data-frame-id="SC-03"] [data-slot="copy"] {
+  margin-top: 9px;
+}
+[data-frame-id="SC-04"] [data-slot="subheading"],
+[data-frame-id="SC-05"] [data-slot="subheading"],
+[data-frame-id="SC-06"] [data-slot="subheading"],
+[data-frame-id="SC-07"] [data-slot="subheading"] {
+  padding-bottom: 9px;
+}

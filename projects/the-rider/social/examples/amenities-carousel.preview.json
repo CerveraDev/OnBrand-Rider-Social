@@ -1,0 +1,323 @@
+{
+  "schema_version": "1.0",
+  "medium": "social",
+  "campaign": {
+    "slug": "rider-amenities-carousel-preview",
+    "project": "the-rider",
+    "output_dir": "../../../../campaign-output/social",
+    "title": "Rider amenities carousel composition preview"
+  },
+  "audience": "in-house",
+  "build": {
+    "mode": "composition-preview",
+    "representative_variant": "branded"
+  },
+  "variants": {
+    "branded": {}
+  },
+  "composition": {
+    "template": "CAR-01",
+    "format": "carousel-4x5"
+  },
+  "slides": [
+    {
+      "role": "feature",
+      "frame": "SC-01",
+      "images": {
+        "background": {
+          "asset": "Rider_Rooftop Pool_Detail_Rev02.jpg"
+        }
+      },
+      "text": {
+        "heading": "THE RIDER\nAMENITIES",
+        "subheading": "Rooftop, Recovery\n& After Dark",
+        "copy": "Swipe through what comes with the address."
+      },
+      "alt_text": "Woman on a daybed under a fringed umbrella beside the rooftop pool"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-02",
+      "images": {
+        "background": {
+          "asset": "the-rider-rooftop-bar-2.jpg"
+        }
+      },
+      "text": {
+        "subheading": "The *Rooftop* Bar",
+        "copy": "Open air, a marble bar, and vines up the walls.\nThe first round is an elevator ride away."
+      },
+      "alt_text": "Open-air rooftop bar with arched bottle shelving, checkerboard floor, and greenery"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-03",
+      "images": {
+        "background": {
+          "asset": "the-rider-recovery-sauna.jpg"
+        }
+      },
+      "text": {
+        "subheading": "The *Recovery*\nSauna",
+        "copy": "Warm wood, low light, nowhere to be.\nThe hardest part is leaving."
+      },
+      "alt_text": "Woman resting on a bench in a wood-lined sauna with soft ceiling light"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-06",
+      "images": {
+        "image-1": {
+          "crop": "leopard-room-wide"
+        },
+        "image-2": {
+          "crop": "leopard-room-table"
+        }
+      },
+      "text": {
+        "subheading": "THE\n*LEOPARD*\nROOM",
+        "copy": "Brick vaults.\nCrystal chandeliers.\nCocktails made to order."
+      },
+      "alt_text": "Guests in a brick-vaulted lounge with crystal chandeliers, velvet seating, and a bar"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-03",
+      "images": {
+        "background": {
+          "asset": "the-rider-rooftop-terrace-tables-sunset.jpg"
+        }
+      },
+      "text": {
+        "subheading": "Yours, Every\n*Evening*",
+        "copy": "The Rider Residences, Miami.\nSchedule a private presentation."
+      },
+      "alt_text": "Friends at lounge tables on the rooftop terrace at sunset, with palms and lanterns"
+    }
+  ],
+  "caption": "Mornings by the pool, an afternoon in the sauna, and a table waiting upstairs at sunset. The amenities at The Rider Residences are built for the hours you actually keep.",
+  "hashtags": [
+    "#TheRiderResidences",
+    "#MiamiLiving",
+    "#RooftopPool"
+  ],
+  "crops": [
+    {
+      "id": "leopard-room-wide",
+      "source_asset": "the-rider-the-leopard-room-1.jpg",
+      "format": "carousel-4x5",
+      "source_dimensions": {
+        "width": 5000,
+        "height": 2812
+      },
+      "geometry": {
+        "x": 250,
+        "y": 0,
+        "width": 4499,
+        "height": 2812
+      },
+      "focal_point": {
+        "x": 2500,
+        "y": 1300
+      },
+      "approval_status": "planned"
+    },
+    {
+      "id": "leopard-room-table",
+      "source_asset": "the-rider-the-leopard-room-2.jpg",
+      "format": "carousel-4x5",
+      "source_dimensions": {
+        "width": 5000,
+        "height": 2812
+      },
+      "geometry": {
+        "x": 1170,
+        "y": 0,
+        "width": 2163,
+        "height": 2812
+      },
+      "focal_point": {
+        "x": 2250,
+        "y": 1500
+      },
+      "approval_status": "planned"
+    }
+  ],
+  "copy_allocation": {
+    "version": "1.0",
+    "status": "draft",
+    "content_units": [
+      {
+        "id": "caption",
+        "text": "Mornings by the pool, an afternoon in the sauna, and a table waiting upstairs at sunset. The amenities at The Rider Residences are built for the hours you actually keep.",
+        "owner": {
+          "channel": "caption"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "hashtags",
+        "text": "#TheRiderResidences #MiamiLiving #RooftopPool",
+        "owner": {
+          "channel": "hashtags"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-heading",
+        "text": "THE RIDER\nAMENITIES",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "heading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-subheading",
+        "text": "Rooftop, Recovery\n& After Dark",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-copy",
+        "text": "Swipe through what comes with the address.",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-alt",
+        "text": "Woman on a daybed under a fringed umbrella beside the rooftop pool",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 1
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-subheading",
+        "text": "The *Rooftop* Bar",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 2,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-copy",
+        "text": "Open air, a marble bar, and vines up the walls.\nThe first round is an elevator ride away.",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 2,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-alt",
+        "text": "Open-air rooftop bar with arched bottle shelving, checkerboard floor, and greenery",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 2
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-subheading",
+        "text": "The *Recovery*\nSauna",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 3,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-copy",
+        "text": "Warm wood, low light, nowhere to be.\nThe hardest part is leaving.",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 3,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-alt",
+        "text": "Woman resting on a bench in a wood-lined sauna with soft ceiling light",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 3
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s4-subheading",
+        "text": "THE\n*LEOPARD*\nROOM",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 4,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s4-copy",
+        "text": "Brick vaults.\nCrystal chandeliers.\nCocktails made to order.",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 4,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s4-alt",
+        "text": "Guests in a brick-vaulted lounge with crystal chandeliers, velvet seating, and a bar",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 4
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s5-subheading",
+        "text": "Yours, Every\n*Evening*",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 5,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s5-copy",
+        "text": "The Rider Residences, Miami.\nSchedule a private presentation.",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 5,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s5-alt",
+        "text": "Friends at lounge tables on the rooftop terrace at sunset, with palms and lanterns",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 5
+        },
+        "approval_status": "draft"
+      }
+    ]
+  }
+}

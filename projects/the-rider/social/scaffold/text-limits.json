@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "purpose": "Owner-set text limits that replace the estimated ones when frame definitions are regenerated.",
+  "frames": {
+    "AC-01": {
+      "heading": {"max_chars": 68, "max_lines": 3}
+    },
+    "AC-04": {
+      "subheading": {"max_chars": 100, "max_lines": 3}
+    }
+  }
+}

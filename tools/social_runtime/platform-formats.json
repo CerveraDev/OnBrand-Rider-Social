@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "sidecar_version": "2026-10-09.1",
+  "platform": "instagram-feed",
+  "notes": "Provisional. Every value below is a commonly cited figure that has not been verified against the platform's own documentation. Set verified_date and source per format after verification; release builds are blocked until then. The 4:5 export size is 1200x1500 by owner decision of 2026-10-09: the scaffold canvas at 2x.",
+  "formats": {
+    "post-1x1": {
+      "kind": "post",
+      "aspect_ratio": [1, 1],
+      "width": 1080,
+      "height": 1080,
+      "min_slides": 1,
+      "max_slides": 1,
+      "safe_area": {"top": 0, "right": 0, "bottom": 0, "left": 0},
+      "text_limits": {"caption": 2200, "hashtags": 30, "alt-text": 100},
+      "max_file_bytes": 8388608,
+      "verified_date": null,
+      "source": null
+    },
+    "post-4x5": {
+      "kind": "post",
+      "aspect_ratio": [4, 5],
+      "width": 1200,
+      "height": 1500,
+      "min_slides": 1,
+      "max_slides": 1,
+      "safe_area": {"top": 0, "right": 0, "bottom": 0, "left": 0},
+      "text_limits": {"caption": 2200, "hashtags": 30, "alt-text": 100},
+      "max_file_bytes": 8388608,
+      "verified_date": null,
+      "source": null
+    },
+    "carousel-1x1": {
+      "kind": "carousel",
+      "aspect_ratio": [1, 1],
+      "width": 1080,
+      "height": 1080,
+      "min_slides": 2,
+      "max_slides": 10,
+      "safe_area": {"top": 0, "right": 0, "bottom": 0, "left": 0},
+      "text_limits": {"caption": 2200, "hashtags": 30, "alt-text": 100},
+      "max_file_bytes": 8388608,
+      "verified_date": null,
+      "source": null
+    },
+    "carousel-4x5": {
+      "kind": "carousel",
+      "aspect_ratio": [4, 5],
+      "width": 1200,
+      "height": 1500,
+      "min_slides": 2,
+      "max_slides": 10,
+      "safe_area": {"top": 0, "right": 0, "bottom": 0, "left": 0},
+      "text_limits": {"caption": 2200, "hashtags": 30, "alt-text": 100},
+      "max_file_bytes": 8388608,
+      "verified_date": null,
+      "source": null
+    }
+  }
+}

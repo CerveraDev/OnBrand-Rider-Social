@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.0",
+  "code": "PST-01",
+  "label": "Single Post",
+  "kind": "post",
+  "formats": [
+    "post-4x5"
+  ],
+  "approval_status": "draft",
+  "audiences": [
+    "in-house"
+  ],
+  "image_sources": [
+    "approved",
+    "user-supplied"
+  ],
+  "min_slides": 1,
+  "max_slides": 1,
+  "sequence": [
+    {
+      "role": "feature",
+      "min": 1,
+      "max": 1,
+      "frames": [
+        "SP-01",
+        "SP-02",
+        "SP-03",
+        "SP-04",
+        "SP-05",
+        "SP-06",
+        "SP-07",
+        "SP-08",
+        "SP-09",
+        "SP-10",
+        "SP-11",
+        "SP-12",
+        "SP-13",
+        "SP-14",
+        "SP-15",
+        "SP-16",
+        "SP-17",
+        "SP-18",
+        "SP-19"
+      ]
+    }
+  ]
+}

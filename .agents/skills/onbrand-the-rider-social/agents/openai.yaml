@@ -1,0 +1,5 @@
+interface:
+  display_name: "onbrand-the-rider-social"
+  short_description: "Explicit OnBrand the-rider social workflow"
+policy:
+  allow_implicit_invocation: false

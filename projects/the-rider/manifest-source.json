@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "project_slug": "the-rider",
+  "public_url": "",
+  "local_cache_path": "tools/dropbox-manifest/manifest.json",
+  "active_source": "local-cache",
+  "notes": "No stable public manifest URL is configured yet. Current supported portable path is the validated repository local-cache fallback; set public_url and active_source after Cervera approves a stable public JSON URL."
+}

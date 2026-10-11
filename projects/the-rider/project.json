@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "framework": "OnBrand Design",
+  "project_name": "The Rider",
+  "project_slug": "the-rider",
+  "owner": "Cervera Real Estate, Inc.",
+  "author": "Felix Mendoza",
+  "license": "Apache-2.0",
+  "status": "in_progress",
+  "skills": {
+    "email": "onbrand-the-rider-email",
+    "image": "onbrand-the-rider-image",
+    "social": "onbrand-the-rider-social"
+  },
+  "brand_calibration": "pending_canonical_beefree_html",
+  "footer_calibration": "pending_locked_partials",
+  "asset_manifest": "validated_local_cache_fallback"
+}

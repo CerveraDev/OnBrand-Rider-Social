@@ -1,0 +1,17 @@
+{
+  "project": "the-rider",
+  "slug": "wynwood-day-carousel",
+  "slides": [
+    {"layout": "SP-05", "images": {"background": {"catalog": "the-rider-wynwood-station-day.jpg"}},
+     "text": {"heading": "WYNWOOD,\nCONNECTED", "subheading": "Steps from the station"},
+     "alt_text": "Train arriving at the Wynwood station beside a planted walkway"},
+    {"layout": "SC-06", "images": {"image-1": {"catalog": "the-rider-the-leopard-room-1.jpg"}, "image-2": {"catalog": "the-rider-the-leopard-room-2.jpg"}},
+     "text": {"subheading": "THE\n*LEOPARD*\nROOM", "copy": "Brick vaults.\nCrystal chandeliers.\nCocktails made to order."},
+     "alt_text": "Guests in a brick-vaulted lounge with chandeliers and velvet seating"},
+    {"layout": "SC-03", "images": {"background": {"catalog": "the-rider-recovery-sauna.jpg"}},
+     "text": {"subheading": "The *Recovery*\nSauna", "copy": "Warm wood, low light, nowhere to be."},
+     "alt_text": "Woman resting on a bench in a wood-lined sauna"}
+  ],
+  "caption": "From the platform to the lounge to the sauna: a day at The Rider Residences without getting in a car.",
+  "hashtags": ["#TheRiderResidences", "#Wynwood"]
+}

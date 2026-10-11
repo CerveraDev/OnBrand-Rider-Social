@@ -1,0 +1,6 @@
+interface:
+  display_name: "OnBrand Design: The Rider Social"
+  short_description: "Build Rider Instagram posts and carousels"
+  default_prompt: "Use $onbrand-the-rider-social to create a Rider Residences social post."
+policy:
+  allow_implicit_invocation: false

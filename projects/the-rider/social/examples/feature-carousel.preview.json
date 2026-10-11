@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "medium": "social",
+  "campaign": {
+    "slug": "rider-feature-carousel-preview",
+    "project": "the-rider",
+    "output_dir": "../../../../campaign-output/social",
+    "title": "Rider feature carousel composition preview"
+  },
+  "audience": "in-house",
+  "build": {
+    "mode": "composition-preview",
+    "representative_variant": "branded"
+  },
+  "variants": {
+    "branded": {}
+  },
+  "composition": {
+    "template": "CAR-01",
+    "format": "carousel-4x5"
+  },
+  "slides": [
+    {
+      "role": "feature",
+      "frame": "SC-01",
+      "images": {
+        "background": {
+          "asset": "the-rider-tower-apartment-balcony.jpg"
+        }
+      },
+      "text": {
+        "heading": "[Opener heading]",
+        "subheading": "[Opener subheading]",
+        "copy": "[Opener line of copy]"
+      },
+      "alt_text": "[Alt text: residence balcony]"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-02",
+      "images": {
+        "background": {
+          "asset": "the-rider-rooftop-terrace-tables-sunset.jpg"
+        }
+      },
+      "text": {
+        "subheading": "[Feature one title]",
+        "copy": "[Feature one copy]"
+      },
+      "alt_text": "[Alt text: rooftop terrace at sunset]"
+    },
+    {
+      "role": "feature",
+      "frame": "SC-03",
+      "images": {
+        "background": {
+          "asset": "the-rider-recovery-sauna.jpg"
+        }
+      },
+      "text": {
+        "subheading": "[Feature two title]",
+        "copy": "[Feature two copy]"
+      },
+      "alt_text": "[Alt text: recovery sauna]"
+    }
+  ],
+  "caption": "[Caption placeholder]",
+  "copy_allocation": {
+    "version": "1.0",
+    "status": "draft",
+    "content_units": [
+      {
+        "id": "caption",
+        "text": "[Caption placeholder]",
+        "owner": {
+          "channel": "caption"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-heading",
+        "text": "[Opener heading]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "heading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-subheading",
+        "text": "[Opener subheading]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-copy",
+        "text": "[Opener line of copy]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 1,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s1-alt",
+        "text": "[Alt text: residence balcony]",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 1
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-subheading",
+        "text": "[Feature one title]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 2,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-copy",
+        "text": "[Feature one copy]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 2,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s2-alt",
+        "text": "[Alt text: rooftop terrace at sunset]",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 2
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-subheading",
+        "text": "[Feature two title]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 3,
+          "slot": "subheading"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-copy",
+        "text": "[Feature two copy]",
+        "owner": {
+          "channel": "on-image-text",
+          "slide": 3,
+          "slot": "copy"
+        },
+        "approval_status": "draft"
+      },
+      {
+        "id": "s3-alt",
+        "text": "[Alt text: recovery sauna]",
+        "owner": {
+          "channel": "alt-text",
+          "slide": 3
+        },
+        "approval_status": "draft"
+      }
+    ]
+  }
+}

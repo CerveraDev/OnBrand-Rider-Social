@@ -1,0 +1,9 @@
+{
+  "name": "onbrand-the-rider-social",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Slide renderer for OnBrand social posts",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

@@ -1,0 +1,1635 @@
+{
+  "schema_version": "1.0",
+  "project_slug": "the-rider",
+  "medium": "social",
+  "approver": "Felix Mendoza",
+  "approved_date": "2026-10-06",
+  "basis": "Cluster-by-cluster owner decisions recorded in docs/evals/phase-17-rider-social-asset-curation-worksheet.md. Square and portrait assets are approved for direct use; landscape assets are approved only as crop sources because they cannot fill a square or vertical format without an approved crop (LIM-022).",
+  "role_vocabulary": [
+    "social-post",
+    "social-carousel",
+    "social-crop-source"
+  ],
+  "never_social_roles": [
+    "agent-footer",
+    "image-generation-reference"
+  ],
+  "source_manifest": {
+    "path": "tools/dropbox-manifest/manifest.json",
+    "record_count": 206,
+    "sha256": "8313863c05a934ab709e734326c7ad7078711879310afd3a0266b803654167f0"
+  },
+  "entries": [
+    {
+      "filename": "01. Kitchen_K1(K1.1_ADA01_ADA01.1)_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAeg",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "01. Kitchen_K1(K1.1_ADA01_ADA01.1)_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAdA",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "02. Kitchen_K2_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAfA",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "02. Kitchen_K2_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAcw",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "03. Kitchen_K3_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAdw",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "03. Kitchen_K3_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAgA",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "04. Kitchen_K4_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAeA",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "04. Kitchen_K4_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAfw",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "05. Kitchen_K5_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAew",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "05. Kitchen_K5_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAfg",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "06 Pool_Rev04.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAUg",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "06. Kitchen_K6_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAdg",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "06. Kitchen_K6_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAgQ",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "07. Kitchen_MB01_studio_Draft.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAeQ",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "07. Kitchen_MB01_studio_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAfQ",
+      "cluster": "residence-interiors",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "Fl 8 - Floor Plan 15.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABAQ",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Fl 8 - Floor Plan 16.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA-w",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Fl 8 - Floor Plan 17.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA_A",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABCQ",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 02.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABBQ",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 03.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABBA",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 04.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA_Q",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 05.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA-Q",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 06.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA_w",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 07.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABAw",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 08.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABCA",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 09.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABBg",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 10.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA-g",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 12 A6.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABBw",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 12.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABAg",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 13 B2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABAA",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor Plan 14.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABCg",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Floor plan 11.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA_g",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Pool Lounger_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAUw",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Rider_Rooftop Pool_Bar View_Rev03.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAUA",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Rider_Rooftop Pool_Cam02_Rev04.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAATw",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Rider_Rooftop Pool_Detail_Rev02.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAUQ",
+      "cluster": "rooftop-pool",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "Ryder_Bicycle_Rental_Rev01.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAKg",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "Ryder_Motorcycles_Rental_Rev03.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAKQ",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "The Rider.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAKw",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-bike-room.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAALQ",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-brightline-speed.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAWg",
+      "cluster": "brightline",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-brightline-station-closeup.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAVQ",
+      "cluster": "brightline",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-brightline-station.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAWQ",
+      "cluster": "brightline",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-corridor.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAJg",
+      "cluster": "lobby-arrival",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-doggy-style-pet-spa.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAMA",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-golf-simulator.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAjw",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-gym-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAJA",
+      "cluster": "wellness-recovery",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-gym-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAIg",
+      "cluster": "wellness-recovery",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-jacuzzi-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAlQ",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-jacuzzi-afternoon.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAmw",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAcQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAbg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-3.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAcA",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-side-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAgw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-side-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAbw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-sink-wine-fridge.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAgg",
+      "cluster": "residence-interiors",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-kitchen-three-fourths.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAhg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lanai-night.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAnA",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobbby-couch-area-side.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAEw",
+      "cluster": "lobby-arrival",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-arrival-valet.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAFw",
+      "cluster": "lobby-arrival",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-couch-area-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAFg",
+      "cluster": "lobby-arrival",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-motorcycle.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAFQ",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-paintings.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAEg",
+      "cluster": "lobby-arrival",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-reception-three-quarters.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAGA",
+      "cluster": "floor-plans-3d",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-reception.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAEQ",
+      "cluster": "lobby-arrival",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-lobby-shelf-motorcycle.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAEA",
+      "cluster": "lobby-arrival",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-motorcycle-room-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAALA",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-motorcycle-room-far.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAALg",
+      "cluster": "toybox-bike",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-office-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAkQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-office-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAkw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-office-3.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAkg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-pool-bar-view.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAASg",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-pool-deck-side.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAATQ",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-pool-deck-three-fourths-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAATA",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-pool-deck.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAASw",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-recovery-changing-rooms.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAIQ",
+      "cluster": "wellness-recovery",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-recovery-sauna.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAIw",
+      "cluster": "wellness-recovery",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-recovery-spa.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAIA",
+      "cluster": "wellness-recovery",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-recovery-terrace-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAHw",
+      "cluster": "wellness-recovery",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-recovery-terrace.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAHg",
+      "cluster": "wellness-recovery",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rh-303-residence.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAmQ",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rh-315-residence-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAmA",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rh-315-residence-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAlw",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rh-ph-suite-angle.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAjA",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rh-ph-suite-balcony-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAig",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rh-ph-suite-balcony.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAjQ",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rh-ph-suite-bedroom-office.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAiA",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rh-ph-suite-living-room-and-balcony.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAiQ",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rh-ph-suite.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAiw",
+      "cluster": "rh-penthouse",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-rooftop-bar-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAXQ",
+      "cluster": "rooftop-pool",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-bar-sunset.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAYg",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-bar.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAZg",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-retail.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAZQ",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-sky-view-night.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAaA",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-sky-view.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAaQ",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-terrace-area-and-chairs-sunset.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAYw",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-terrace-area-and-chairs.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAYQ",
+      "cluster": "rooftop-pool",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-rooftop-terrace-tables-sunset.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAZw",
+      "cluster": "rooftop-pool",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tanning-bed-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAASQ",
+      "cluster": "rooftop-pool",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-terrace.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAHA",
+      "cluster": "exterior-tower",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-the-leopard-room-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAoQ",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-the-leopard-room-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAoA",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-3-quarters-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAABg",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-apartment-balcony.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAQA",
+      "cluster": "residence-interiors",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-balcony-view.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAANQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-day-front-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAADQ",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-front-porsche.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAABw",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-bed-room-side.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAANg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-bedroom-front.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAQw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-bedroom-side-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAARA",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-bedroom-side-4.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAANA",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-bedroom-three-fourths.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAPg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-full-apartment.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAQg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-kitchen-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAMw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-kitchen.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAMg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room (1).jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAARw",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAOg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room-3.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAOA",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room-4.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAARQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room-5.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAQQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interior-living-room-6.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAARg",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-interiror-bedroom-side-3.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAPQ",
+      "cluster": "residence-interiors",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-night-front-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAACw",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-night-life-sidewalk.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAADA",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-night-three-quarters.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAACA",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-three-quarters-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAACQ",
+      "cluster": "exterior-tower",
+      "orientation": "square",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ]
+    },
+    {
+      "filename": "the-rider-tower-vinyl-room-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAGw",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-vinyl-room-1.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAGg",
+      "cluster": "social-club-bar-pet",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    },
+    {
+      "filename": "the-rider-wynwood-night.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAWA",
+      "cluster": "brightline",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-wynwood-station-day.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAVg",
+      "cluster": "brightline",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-rider-wynwood-station-vignette.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAVw",
+      "cluster": "brightline",
+      "orientation": "portrait",
+      "approved_for_social": [
+        "social-post",
+        "social-carousel"
+      ],
+      "third_party_rights": "confirmed"
+    },
+    {
+      "filename": "the-ryder-lobby-couch-area-close-up.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAAFA",
+      "cluster": "lobby-arrival",
+      "orientation": "landscape",
+      "approved_for_social": [
+        "social-crop-source"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "filename": "Diego Ojeda Portrait.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABhw",
+      "reason": "restricted-likeness-reference"
+    },
+    {
+      "filename": "Large Office With View.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA9Q",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "Private Office With View.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA9w",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "Private Office.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA9A",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "Rider_Offices__KeyMatrix_36.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAAA9g",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 01 -Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABEw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 01 -Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABGA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 01 B3 .pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABFw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 01 B3.1 .pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABJg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 02 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABFA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 02 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABLw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 02 C3.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABNg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 02 C3.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABLQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 - C4.3.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABMQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 - C4.4.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABIQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 - C4.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABJw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABDg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABKA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 -C4.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABIg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 03 -C4.2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABKw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 04 S3.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABQg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 04 S3.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABOQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 05 A1.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABMw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 05 A1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABIw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 06 A4.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABHw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 06 A4.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABFg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 07 C1.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABQQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 07 C1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABJA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 08 S2.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABKQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 08 S2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABQA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 09 S1.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABOA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 09 S1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABJQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 10  A5.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABHQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 10  A5.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABPg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 10 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABDQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 10 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABLA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 11 - B6.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABNQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 11 - B6.2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABRQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 11 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABEg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 11 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABNw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABDw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABGw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 A6.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABKg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 A6.2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABIA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 B5.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABPw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 12 B5.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABHg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 13 - B2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABRA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 13 - B8.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABHA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 13 - B8.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABMg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 13 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABEA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 13 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABOw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 14 S4.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABQw",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 14 S4.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABGg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 15-A7.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABPA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 15-A7.2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABMA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 15-A7.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABOg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 16 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABEQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 16 - Lanai.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABRg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 17 A8.1.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABPQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 17 A8.2.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABLg",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - 17 A8.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABGQ",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "The Rider Floor Plans - Lobby Level.pdf",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABNA",
+      "reason": "pdf-pending-conversion-pipeline"
+    },
+    {
+      "filename": "angelica-cruz-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABkQ",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "diana-kosov-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABlg",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "diego-ojeda-2.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABiA",
+      "reason": "restricted-likeness-reference"
+    },
+    {
+      "filename": "diego-ojeda-3.png",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABiw",
+      "reason": "restricted-likeness-reference"
+    },
+    {
+      "filename": "diego-ojeda-5.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABig",
+      "reason": "restricted-likeness-reference"
+    },
+    {
+      "filename": "diego-ojeda-7.jpg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABiQ",
+      "reason": "restricted-likeness-reference"
+    },
+    {
+      "filename": "julian-oliveros-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABkg",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "omar-santana-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABlA",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "pablo-rodriguez-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABkA",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "paulie-hankin-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABlQ",
+      "reason": "restricted-agent-footer"
+    },
+    {
+      "filename": "yessika-arevalo-headshot.jpeg",
+      "dropbox_id": "id:31E0v0XEN2IAAAAAAAABkw",
+      "reason": "restricted-agent-footer"
+    }
+  ]
+}

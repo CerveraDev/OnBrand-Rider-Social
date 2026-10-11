@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112). Remove an entry once the Elementor page carries the same change.",
+  "frames": {
+    "SP-20": {
+      "id": "PC-01",
+      "family": "press",
+      "slots": {
+        "footer-line": "eyebrow",
+        "footer-line-2": "swipe-cue"
+      },
+      "locked": [
+        "swipe-cue"
+      ]
+    },
+    "SP-21": {
+      "id": "PC-02",
+      "family": "press",
+      "slots": {
+        "footer-line": "eyebrow",
+        "logo-2": "photo-logo"
+      },
+      "optional": [
+        "photo-logo"
+      ]
+    },
+    "SP-22": {
+      "id": "AC-01",
+      "family": "press",
+      "slots": {
+        "copy": "credit",
+        "footer-line": "byline",
+        "logo": "publication-logo",
+        "logo-2": "logo"
+      },
+      "optional": [
+        "credit",
+        "publication-logo"
+      ]
+    },
+    "SP-23": {
+      "id": "AC-02",
+      "family": "press",
+      "slots": {
+        "copy": "source-label",
+        "copy-2": "date",
+        "footer-line": "quote",
+        "copy-3": "byline",
+        "logo": "publication-logo",
+        "logo-2": "logo"
+      },
+      "optional": [
+        "publication-logo"
+      ]
+    },
+    "SP-24": {
+      "id": "AC-03",
+      "family": "press",
+      "slots": {
+        "copy": "source-label",
+        "copy-2": "date",
+        "footer-line": "body",
+        "footer-line-2": "body-2",
+        "logo": "publication-logo",
+        "logo-2": "logo"
+      },
+      "optional": [
+        "image-1",
+        "body-2",
+        "publication-logo"
+      ],
+      "edits": [
+        {
+          "op": "replace",
+          "selector": ":has(> [data-slot=\"body\"]) > div:first-child",
+          "html": "<div data-slot=\"image-1\" style=\"width: 100%; height: 250px; flex: 0 0 250px; background-image: url(&quot;https://d15k2d11r6t6rl.cloudfront.net/pub/bfra/kh2b02wi/rya/sbp/to7/bitcoin-hero.png&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;\"></div>"
+        },
+        {
+          "op": "style",
+          "selector": ":has(> [data-slot=\"source-label\"])",
+          "style": "margin-bottom: 20px;"
+        }
+      ]
+    }
+  },
+  "new_frames": [
+    {
+      "id": "AC-04",
+      "copy_of": "SP-24",
+      "family": "press",
+      "label": [
+        "UNFRAMED, EDGE-TO-EDGE LAYOUT",
+        "THIS LAYOUT IS THE LAST SLIDE OF A PRESS ARTICLE CAROUSEL. IT INVITES PEOPLE TO READ THE FULL STORY.",
+        "EYEBROW READS \"THERE'S MORE TO THE STORY\", THEN A SUBHEADING, THEN A BLACK PILL BUTTON WITH WHITE TEXT THAT READS \"LINK IN BIO\", ALL CENTER-ALIGNED",
+        "THE PUBLICATION LOGO ON THE LEFT AND THE RIDER LOGO ON THE RIGHT",
+        "NO IMAGE"
+      ],
+      "locked": [
+        "eyebrow",
+        "button"
+      ],
+      "optional": [
+        "publication-logo"
+      ],
+      "edits": [
+        {
+          "op": "insert",
+          "selector": ":has(> [data-slot=\"body\"])",
+          "position": "afterbegin",
+          "html": "<p data-slot=\"eyebrow\" style=\"margin: 0px; font-family: Helvetica; font-weight: 600; font-size: 12px; line-height: 16px; color: rgb(0, 0, 0); text-align: center; text-transform: uppercase;\">There's more to the story</p><h2 data-slot=\"subheading\" style=\"margin: 0px; font-family: 'Playfair Display'; font-weight: 400; font-style: italic; font-size: 34px; line-height: 38px; letter-spacing: -1px; color: rgb(0, 0, 0); text-align: center; text-transform: capitalize;\">This is a subheading that invites people to read more</h2><p data-slot=\"button\" style=\"align-self: center; margin: 10px 0px 0px; padding: 18px 36px; border-radius: 999px; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); font-family: Helvetica; font-weight: 600; font-size: 18px; line-height: 24px; text-align: center; text-transform: uppercase;\">Link in bio</p>"
+        },
+        {
+          "op": "style",
+          "selector": ":has(> [data-slot=\"eyebrow\"])",
+          "style": "justify-content: center; align-items: stretch;"
+        },
+        {
+          "op": "remove",
+          "selector": ":has(> [data-slot=\"source-label\"])"
+        },
+        {
+          "op": "remove",
+          "selector": "[data-slot=\"image-1\"]"
+        },
+        {
+          "op": "remove",
+          "selector": "[data-slot=\"body\"]"
+        },
+        {
+          "op": "remove",
+          "selector": "[data-slot=\"body-2\"]"
+        }
+      ]
+    }
+  ]
+}

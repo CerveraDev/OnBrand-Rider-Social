@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="OnBrand Design by Cervera" width="100%">
+</p>
+
 # The Rider Social: Quick Start
 
 Build Instagram posts and carousels for The Rider Residences by describing them to an AI assistant. The assistant fills The Rider's approved layouts with images and text, then opens a phone-style preview of the finished post.

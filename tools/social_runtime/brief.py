@@ -20,6 +20,7 @@ from .assets import CROP_ROLE, DIRECT_ROLE, SocialAssetError, load_social_assets
 from .catalog import default_output_dir, image_sizes
 from .formats import FORMATS_PATH, FormatError, load_formats, require_format
 from .frames import FRAMES_FILE, FrameError
+from .generated import GeneratedImageError, accepts, load_policy, record_problem
 from .schema import SLUG_RE
 from .templates import TemplateError, load_template
 
@@ -76,6 +77,10 @@ def compose_spec(
         raise BriefError(str(err)) from err
 
     direct_role = DIRECT_ROLE[template["kind"]]
+    try:
+        generated_policy = load_policy(project_dir)
+    except GeneratedImageError as err:
+        raise BriefError(str(err)) from err
     # A supplied logo, such as a publication's, is given once and shown on every slide that has room for it.
     shared = {slot: choice for slide in reversed(slides) for slot, choice in slide["images"].items()}
     planned: list[tuple[dict, dict, dict]] = []
@@ -112,9 +117,29 @@ def compose_spec(
             choice = slide["images"][slot]
             if area["fit"] == "contain" and (not isinstance(choice, dict) or set(choice) != {"file"}):
                 raise BriefError(f"Slide {number} '{slot}': give {{\"file\": \"<path>\"}}; this area takes a supplied logo only")
+            if isinstance(choice, dict) and "generated" in choice:
+                record = {"file" if key == "generated" else key: value for key, value in choice.items()}
+                problem = record_problem(record)
+                if problem:
+                    raise BriefError(
+                        f"Slide {number} '{slot}': an AI-generated image is given as {{\"generated\": \"<path>\", "
+                        f"\"prompt\": \"...\", \"tool\": \"...\"}}, optionally with \"based_on\": [\"<catalog file name>\"]"
+                    )
+                if not accepts(generated_policy, slide["layout"]):
+                    raise BriefError(
+                        f"Slide {number}: layout {slide['layout']} does not take AI-generated images; use a catalog "
+                        "image or the user's own, or choose another layout"
+                    )
+                path = Path(record["file"]).expanduser()
+                record["file"] = str(path if path.is_absolute() else (Path(brief_dir) / path).resolve())
+                images[slot] = {"generated": record}
+                continue
             if not isinstance(choice, dict) or len(choice) != 1 or not set(choice) <= {"catalog", "file"} \
                     or not isinstance(next(iter(choice.values())), str):
-                raise BriefError(f"Slide {number} '{slot}': give {{\"catalog\": \"<file name>\"}} or {{\"file\": \"<path>\"}}")
+                raise BriefError(
+                    f"Slide {number} '{slot}': give {{\"catalog\": \"<file name>\"}}, {{\"file\": \"<path>\"}}, "
+                    "or an AI-generated image with its prompt and tool"
+                )
             if "file" in choice:
                 path = Path(choice["file"]).expanduser()
                 images[slot] = {"supplied": str(path if path.is_absolute() else (Path(brief_dir) / path).resolve())}
@@ -185,32 +210,41 @@ def _post_type(templates_dir: Path, layouts: list, wanted: object) -> tuple[dict
     fits = []
     for code in codes:
         template = load_template(templates_dir, code)
-        roles = _deal(template["sequence"], layouts, 0, 0)
-        if roles is not None and template["min_slides"] <= len(layouts) <= template["max_slides"]:
+        steps = _deal(template["sequence"], layouts, 0, 0)
+        if steps is not None and template["min_slides"] <= len(layouts) <= template["max_slides"]:
+            # The closest match gives the most slides a place only one layout can take, such as a cover.
+            fixed = sum(len(step["frames"]) == 1 for step in steps)
             size = len({frame for step in template["sequence"] for frame in step["frames"]})
-            fits.append((size, code, template, roles))
+            fits.append((-fixed, size, code, template, [step["role"] for step in steps]))
     if not fits:
         raise BriefError(
             f"The layouts {', '.join(map(str, layouts))} do not form a post in that order. "
             "Open the layout gallery to see which layouts go together."
         )
-    _, _, template, roles = min(fits, key=lambda item: item[:2])
+    *_, template, roles = min(fits, key=lambda item: item[:3])
     return template, roles
 
 
-def _deal(sequence: list[dict], layouts: list, step: int, at: int) -> list[str] | None:
+def _deal(sequence: list[dict], layouts: list, step: int, at: int) -> list[dict] | None:
+    """The sequence step each layout falls to, in order, or None when they do not fit.
+
+    A layout two steps could take goes to the earlier one, so a carousel's first slide is its opener.
+    """
     if step == len(sequence):
         return [] if at == len(layouts) else None
     current = sequence[step]
-    taken = 0
-    while True:
-        if taken >= current["min"]:
-            rest = _deal(sequence, layouts, step + 1, at + taken)
-            if rest is not None:
-                return [current["role"]] * taken + rest
-        if taken == current["max"] or at + taken >= len(layouts) or layouts[at + taken] not in current["frames"]:
-            return None
-        taken += 1
+    cap = current.get("cap", {"frames": (), "max": 0})
+    most = capped = 0
+    while most < current["max"] and at + most < len(layouts) and layouts[at + most] in current["frames"]:
+        capped += layouts[at + most] in cap["frames"]
+        if capped > cap["max"]:
+            break
+        most += 1
+    for taken in range(most, current["min"] - 1, -1):
+        rest = _deal(sequence, layouts, step + 1, at + taken)
+        if rest is not None:
+            return [current] * taken + rest
+    return None
 
 
 def _centred(width: int, height: int, ratio: float) -> dict:
@@ -283,6 +317,7 @@ def describe_layouts(project_dir: Path | str) -> dict:
             json.loads(path.read_text(encoding="utf-8"))
             for path in sorted(templates_dir.glob("*.json")) if path.name != FRAMES_FILE
         ]
+        generated_policy = load_policy(project_dir)
     except (OSError, ValueError, KeyError) as err:
         raise BriefError(f"This project has no social layouts: {err}") from err
     return {
@@ -291,7 +326,10 @@ def describe_layouts(project_dir: Path | str) -> dict:
                 "code": template["code"], "label": template["label"],
                 "slides": [template["min_slides"], template["max_slides"]],
                 "order": [
-                    {"count": [step["min"], step["max"]], "layouts": _ranges(step["frames"])}
+                    {
+                        "count": [step["min"], step["max"]], "layouts": _ranges(step["frames"]),
+                        **({"at_most": {_ranges(step["cap"]["frames"]): step["cap"]["max"]}} if "cap" in step else {}),
+                    }
                     for step in template["sequence"]
                 ],
             }
@@ -299,6 +337,7 @@ def describe_layouts(project_dir: Path | str) -> dict:
         ],
         "layouts": {
             frame_id: {
+                "ai_images": accepts(generated_policy, frame_id) and any(a["fit"] == "cover" for a in frame["image_slots"]),
                 "images": {
                     area["slot"]: ("a logo file" if area["fit"] == "contain" else area["shape"])
                     + ("" if area["required"] else ", optional")

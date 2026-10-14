@@ -35,6 +35,7 @@ def run_qa(
     resolved_assets: list[dict],
     crops: list[dict],
     supplied: list[dict],
+    generated: list[dict],
     never_social_roles: list[str],
     allocation: dict,
     warnings: list[str],
@@ -57,7 +58,7 @@ def run_qa(
                    "required slots filled" if not missing else "missing: " + ", ".join(missing))
             for image in slide["images"]:
                 _check(checks, f"{label}:image:{image['slot']}", bool(image.get("src")) or image.get("pending") is True,
-                       "image resolved to an approved record, a crop, or a supplied file")
+                       "image resolved to an approved record, a crop, or a supplied or generated file")
             for slot, text in slide["text"].items():
                 limit = step["slots"][slot]["max_chars"]
                 _check(checks, f"{label}:text:{slot}", measured_length(text) <= limit,
@@ -82,6 +83,9 @@ def run_qa(
     for image in supplied:
         _check(checks, f"supplied:{image['name']}:packaged", (package_dir / "images" / image["name"]).is_file(),
                f"{image['width']}x{image['height']}, {image['bytes']} bytes, user-supplied")
+    for image in generated:
+        _check(checks, f"generated:{image['name']}:packaged", (package_dir / "images" / image["name"]).is_file(),
+               f"{image['width']}x{image['height']}, {image['bytes']} bytes, AI-generated with {image['tool']}")
 
     never = set(never_social_roles)
     restricted = sorted(a["filename"] for a in resolved_assets if set(a.get("approved_for") or []) & never)

@@ -47,6 +47,7 @@ def main(argv=None) -> int:
     images.add_argument("--no-open", action="store_true", help="Write the page without opening it.")
     images.add_argument("--list", action="store_true", help="Print the catalog as text instead of writing the page.")
     images.add_argument("--find", help="With --list, keep images whose name or subject contains this text.")
+    images.add_argument("--links", action="store_true", help="With --list, add each image's download link.")
     layouts = commands.add_parser("layouts", help="Print a project's post types and layouts, for writing a brief.")
     layouts.add_argument("--project", required=True, help="Project slug under projects/.")
     post = commands.add_parser("post", help="Build and render a post from a brief, then open its feed preview.")
@@ -63,7 +64,7 @@ def main(argv=None) -> int:
         return run_update(ROOT / "projects" / args.project)
     if args.command == "images":
         if args.list:
-            return _list_images(ROOT / "projects" / args.project, args.find)
+            return _list_images(ROOT / "projects" / args.project, args.find, args.links)
         return _images(ROOT / "projects" / args.project, show=not args.no_open)
     if args.command == "layouts":
         return _layouts(ROOT / "projects" / args.project)
@@ -145,14 +146,14 @@ def _images(project_dir: Path, *, show: bool) -> int:
     return 0
 
 
-def _list_images(project_dir: Path, find: str | None) -> int:
+def _list_images(project_dir: Path, find: str | None, links: bool = False) -> int:
     try:
         images = list_catalog(project_dir, find=find)
     except CatalogError as err:
         print(f"image catalog refused: {err}", file=sys.stderr)
         return 2
     for image in images:
-        print(f"{image['name']}\t{image['subject']}\t{image['shape']}\t{image['use']}")
+        print(f"{image['name']}\t{image['subject']}\t{image['shape']}\t{image['use']}" + (f"\t{image['link']}" if links else ""))
     print(f"{len(images)} image(s)", file=sys.stderr)
     return 0
 
@@ -167,7 +168,9 @@ def _layouts(project_dir: Path) -> int:
     for post_type in described["post_types"]:
         low, high = post_type["slides"]
         order = ", then ".join(
-            f"{step['count'][0]}-{step['count'][1]} of {step['layouts']}" for step in post_type["order"]
+            f"{step['count'][0]}-{step['count'][1]} of {step['layouts']}" + "".join(
+                f" (at most {most} of {layouts})" for layouts, most in step.get("at_most", {}).items()
+            ) for step in post_type["order"]
         )
         print(f"{post_type['code']}  {post_type['label']}: {low}-{high} slide(s); in order: {order}")
     print("\nLAYOUTS  (image areas with the shape each needs; text with max lines and approximate characters)")
@@ -182,6 +185,7 @@ def _layouts(project_dir: Path) -> int:
             f"  |  {label}: {value}" for label, value in (
                 ("fixed text", ", ".join(f"{slot} \"{words}\"" for slot, words in parts["fixed"].items())),
                 ("can hide", ", ".join(parts["can_hide"])),
+                ("AI-generated image", "yes" if parts["ai_images"] else "no" if parts["images"] else ""),
             ) if value
         )
         print(f"{layout}  images: {images}  |  text: {text}{extras}")

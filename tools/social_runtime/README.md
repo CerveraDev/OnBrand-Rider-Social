@@ -85,8 +85,9 @@ An `outside-broker` build needs an approved template that lists that audience, r
 - `schema.py`: spec shape validation, no file access.
 - `formats.py`: the pinned sidecar; an absent format fails rather than defaulting.
 - `frames.py`: frame definitions derived from the scaffold catalog, with estimated draft text limits.
-- `templates.py`: frame sequences with audience availability; resolves each slide to its frame.
+- `templates.py`: frame sequences with audience availability; resolves each slide to its frame. A sequence step may carry `"cap": {"frames": [...], "max": n}` to limit how many of its slides use those frames while the rest of its frames stay unlimited.
 - `assets.py`: resolution against the overlay, and the broker-safe catalog filter.
+- `generated.py`: which layouts take an AI-generated image, from the project's `social/generated-images.json` (every layout except its `excluded_layouts`; no file, no generated images), and the record each one must carry. A spec image `{"generated": {"file", "prompt", "tool", "based_on"}}` is checked like a supplied file, packaged under a `generated-` name, listed under `generated` in `asset-manifest.json`, and reported as a warning; a template must list `ai-generated` in `image_sources`.
 - `supplied.py`: format and orientation checks for an image supplied outside the approved catalog.
 - `crops.py`: provenance validation, against the image slot it fills, for a crop produced elsewhere.
 - `copy_allocation.py`: one approved owner per text surface, in-carousel repetition, and cross-medium repetition against an email campaign spec.

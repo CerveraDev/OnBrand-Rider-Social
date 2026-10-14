@@ -12,7 +12,8 @@
   ],
   "image_sources": [
     "approved",
-    "user-supplied"
+    "user-supplied",
+    "ai-generated"
   ],
   "min_slides": 1,
   "max_slides": 1,

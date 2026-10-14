@@ -23,7 +23,7 @@ Each slide has these four fields, plus `hide` where a layout allows it:
 | Field | What it is |
 |---|---|
 | `layout` | The layout ID, such as `SC-02` |
-| `images` | One entry per image area of that layout, keyed by the area's name (`background`, `image-1`, ...). Each is `{"catalog": "<exact file name>"}` for an official image or `{"file": "<path>"}` for the user's own. A path may be absolute, start with `~`, or be relative to the brief. |
+| `images` | One entry per image area of that layout, keyed by the area's name (`background`, `image-1`, ...). Each is `{"catalog": "<exact file name>"}` for an official image, `{"file": "<path>"}` for the user's own, or a `generated` entry for an AI-generated one (see below). A path may be absolute, start with `~`, or be relative to the brief. |
 | `text` | One entry per text field of that layout, keyed by the field's name (`heading`, `subheading`, `copy`, `footer-line`). Use `\n` for a line break and `*word*` for italics where the layout allows it. |
 | `alt_text` | One sentence describing the slide's image |
 | `hide` | Optional. A list of fixed parts to leave off, from the layout's "can hide" list. Today only `["photo-logo"]` on `PC-02`. |
@@ -56,6 +56,19 @@ A slide using the user's own photo differs only in its image entry:
 ```json
 "images": {"background": {"file": "~/Pictures/top-off/crowd-toast.jpg"}}
 ```
+
+A slide using an AI-generated image the user has chosen, on a layout that takes one (`layouts` says "AI-generated image: yes"):
+
+```json
+"images": {"background": {
+  "generated": "campaign-output/social/generated/sauna-post/candidate-2.png",
+  "prompt": "Extend the approved sauna photo upward to a 4:5 portrait; keep the room unchanged",
+  "tool": "Codex image generation",
+  "based_on": ["the-rider-recovery-sauna.jpg"]
+}}
+```
+
+`prompt` and `tool` are required. `based_on` lists the catalog images it started from, by exact file name; leave it out for a conceptual image. A relative path is read from the folder the brief is in.
 
 A press article slide with the publication's logo and no photographer credit:
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 
+from .generated import record_problem
 from .frames import FRAME_ID_RE
 from .templates import AUDIENCES, SLIDE_ROLES
 
@@ -85,8 +86,15 @@ def validate_social_spec(spec: object) -> dict:
         if not isinstance(hide, list) or any(not isinstance(mark, str) or not mark for mark in hide) or len(set(hide)) != len(hide):
             raise SocialSpecError(f"{label}.hide must be an array of unique names")
         for slot, image in images.items():
-            if not isinstance(image, dict) or len(image) != 1 or not set(image) <= {"asset", "crop", "supplied"}:
-                raise SocialSpecError(f"{label}.images.{slot} must give exactly one of 'asset', 'crop', or 'supplied'")
+            if not isinstance(image, dict) or len(image) != 1 or not set(image) <= {"asset", "crop", "supplied", "generated"}:
+                raise SocialSpecError(
+                    f"{label}.images.{slot} must give exactly one of 'asset', 'crop', 'supplied', or 'generated'"
+                )
+            if "generated" in image:
+                problem = record_problem(image["generated"])
+                if problem:
+                    raise SocialSpecError(f"{label}.images.{slot}.generated {problem}")
+                continue
             _text(image, next(iter(image)), f"{label}.images.{slot}")
         if not isinstance(slide["text"], dict):
             raise SocialSpecError(f"{label}.text must be an object")

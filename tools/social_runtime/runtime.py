@@ -17,6 +17,7 @@ from .copy_allocation import SocialCopyError, validate_copy_allocation
 from .crops import CropError, validate_crop
 from .formats import FORMATS_PATH, FormatError, load_formats, require_format
 from .frames import FrameError
+from .generated import GeneratedImageError, accepts, load_policy
 from .qa import QAResult, run_qa, write_qa_report
 from .schema import validate_social_spec
 from .supplied import SuppliedImageError, load_supplied_image
@@ -59,7 +60,7 @@ def build_social_from_spec(
     try:
         return _build(spec, base_dir, project_dir, manifest_path, formats_path)
     except (FormatError, FrameError, TemplateError, SocialAssetError, SocialApprovalError, ManifestError,
-            CropError, SocialCopyError, SuppliedImageError) as err:
+            CropError, SocialCopyError, SuppliedImageError, GeneratedImageError) as err:
         raise SocialRuntimeError(str(err)) from err
 
 
@@ -83,6 +84,7 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
             f"Format '{format_id}' takes {fmt['min_slides']}-{fmt['max_slides']} slides; got {len(spec['slides'])}"
         )
     steps = match_slides(template, spec["slides"])
+    generated_policy = load_policy(project_dir)
     ratio = fmt["aspect_ratio"]
     crop_targets: dict[str, dict] = {}
     for index, (slide, step) in enumerate(zip(spec["slides"], steps), start=1):
@@ -107,6 +109,12 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
             reference = slide["images"][image["slot"]]
             if image["fit"] == "contain" and "supplied" not in reference:
                 raise TemplateError(f"Slide {index} '{image['slot']}' takes a supplied image file only")
+            if "generated" in reference:
+                if "ai-generated" not in template["image_sources"] or not accepts(generated_policy, step["frame"]):
+                    raise GeneratedImageError(
+                        f"Layout {step['frame']} does not take AI-generated images; slide {index} gives one for "
+                        f"'{image['slot']}'"
+                    )
             if "supplied" in reference and "user-supplied" not in template["image_sources"]:
                 raise TemplateError(
                     f"Template {code} takes approved images only; slide {index} supplies its own for '{image['slot']}'"
@@ -143,6 +151,13 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
         manifest_path = validate_manifest_source_config(project_dir / "manifest-source.json")["local_cache_path"]
     overlay_path = project_dir / "asset-approvals.social.json"
     assets = load_social_assets(manifest_path, overlay_path, audience=audience)
+    based_on = {name for slide in spec["slides"] for reference in slide["images"].values()
+                for name in reference.get("generated", {}).get("based_on", [])}
+    unknown = sorted(based_on - {asset["filename"] for asset in assets if asset.get("social_roles")})
+    if unknown:
+        raise GeneratedImageError(
+            "A generated image says it is based on image(s) not in the approved catalog: " + ", ".join(unknown)
+        )
     never_social_roles = load_social_approvals(overlay_path)["never_social_roles"]
 
     declared = {crop.get("id"): crop for crop in spec.get("crops", [])}
@@ -156,6 +171,7 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
     }
     used: dict[str, dict] = {}
     supplied: dict[str, dict] = {}
+    generated: dict[str, dict] = {}
     slide_images = []
     for index, (slide, step) in enumerate(zip(spec["slides"], steps), start=1):
         resolved = []
@@ -169,15 +185,25 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
                 used[asset["filename"]] = {**asset, "use": "direct"}
                 resolved.append({**entry, "kind": "asset", "filename": asset["filename"], "src": asset["public_url"]})
                 continue
-            if "supplied" in reference:
-                image = load_supplied_image(reference["supplied"], base_dir=base_dir, slot=slot)
-                supplied[image["name"]] = image
+            if "supplied" in reference or "generated" in reference:
+                record = reference.get("generated")
+                image = load_supplied_image(record["file"] if record else reference["supplied"], base_dir=base_dir, slot=slot)
+                if record:
+                    image = {
+                        **image, "name": "generated-" + image["name"].removeprefix("supplied-"),
+                        "prompt": record["prompt"], "tool": record["tool"], "based_on": list(record.get("based_on", [])),
+                    }
+                    generated[image["name"]] = image
+                else:
+                    supplied[image["name"]] = image
                 if slot["fit"] == "cover" and (image["width"] < entry["width"] or image["height"] < entry["height"]):
                     warnings.append(
-                        f"Supplied image '{image['source_name']}' is {image['width']}x{image['height']}, smaller than "
+                        f"{'AI-generated' if record else 'Supplied'} image '{image['source_name']}' is "
+                        f"{image['width']}x{image['height']}, smaller than "
                         f"the {entry['width']}x{entry['height']} '{slot['slot']}' slot on slide {index}; it will be enlarged"
                     )
-                resolved.append({**entry, "kind": "supplied", "filename": image["name"], "src": "images/" + image["name"]})
+                resolved.append({**entry, "kind": "generated" if record else "supplied", "filename": image["name"],
+                                 "src": "images/" + image["name"]})
                 continue
             crop = crops.get(reference["crop"])
             if crop is None:
@@ -202,6 +228,12 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
         warnings.append(
             f"{len(supplied)} image(s) were supplied by the person building this post and are not in the "
             "approved catalog; rights and approval for them rest with that person"
+        )
+
+    if generated:
+        warnings.append(
+            f"{len(generated)} image(s) are AI-generated and are not approved project imagery; saying so when the "
+            "post is published, and the consent of any real person shown, rest with the person posting"
         )
 
     allocation = validate_copy_allocation(spec, steps, mode=mode, base_dir=base_dir)
@@ -242,7 +274,7 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
         if crop["output"] is not None:
             (package_dir / "images").mkdir(exist_ok=True)
             shutil.copyfile(crop["output"]["path"], package_dir / "images" / crop["output"]["name"])
-    for image in supplied.values():
+    for image in (*supplied.values(), *generated.values()):
         (package_dir / "images").mkdir(exist_ok=True)
         shutil.copyfile(image["path"], package_dir / "images" / image["name"])
     package_manifest = _write_json(package_dir / PACKAGE_MANIFEST, package)
@@ -260,12 +292,16 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
         "supplied": [
             {k: v for k, v in image.items() if k != "path"} for _, image in sorted(supplied.items())
         ],
+        "generated": [
+            {k: v for k, v in image.items() if k != "path"} for _, image in sorted(generated.items())
+        ],
     })
     (package_dir / "preview.html").write_text(_preview_html(package, warnings), encoding="utf-8")
 
     qa = run_qa(
         package_dir, package=package, template=template, steps=steps, fmt=fmt,
         resolved_assets=list(used.values()), crops=list(crops.values()), supplied=list(supplied.values()),
+        generated=list(generated.values()),
         never_social_roles=never_social_roles, allocation=allocation, warnings=warnings,
     )
     qa_report = write_qa_report(package_dir / "qa-report.json", qa)

@@ -115,19 +115,18 @@ Give the assistant a file or folder path. Files must be PNG or JPEG, and each im
 - **Text is white or black only.** No other colours and no gradients on text. The skill picks white or black by itself from how light the image is, swaps the logo to match, and tells you when it has done so.
 - **Text has to fit.** Each field has a line limit. If your text runs over, the build stops and names the field.
 - **Layouts are fixed.** Fonts, spacing, logo position, and the layouts themselves cannot be changed from a conversation.
-- **Only approved catalog images**, or images you supply yourself.
+- **Only approved catalog images**, images you supply yourself, or AI-generated images on the layouts that take them.
 
 ## AI-Generated And AI-Edited Images
 
-This skill does **not** create or edit images. It only places them.
+You can ask the assistant to create or change an image with AI, for example to extend a square photo into a taller one.
 
-Some assistants have an image tool of their own. Codex, for example, can extend a square photo into a taller one or generate a new picture when asked. If you ask for that:
-
-- It is the assistant's own tool at work, not this skill, and it runs on your own account.
-- The result is AI-generated or AI-altered. The skill then treats it like any other image you supplied and keeps no record that AI was involved.
-- Disclosing that an image is AI-made, and having the consent of any real person shown in it, are your responsibility. Do not alter official Rider renderings in ways that change the architecture.
-
-Claude Code has no built-in image tool, so it will decline such a request.
+- **It needs an image tool.** The skill has none of its own. Codex has one built in. Claude Code has one only if you connected it; otherwise it will tell you it cannot and offer a catalog image instead. The tool runs on your own account.
+- **Not every layout takes one.** All layouts do except `SC-04` to `SC-07` and `SG-02` to `SG-07`. The layout gallery says which.
+- **Real Rider places start from an official image.** The assistant bases the picture on a catalog image and keeps the architecture unchanged. Anything else is a concept and is labelled as one.
+- **You choose.** The assistant shows candidates and uses only the one you pick.
+- **It is recorded.** The package lists each AI-generated image with the prompt and tool that made it, and the build reminds you.
+- **Disclosure is yours.** Saying that an image is AI-made when you post it, and having the consent of any real person shown, are your responsibility.
 
 ## Getting Updates
 

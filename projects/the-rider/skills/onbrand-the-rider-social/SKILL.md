@@ -48,9 +48,23 @@ Both pages open in the user's browser on their own; do not send the user looking
 - **Shape matters.** Each image area needs a portrait, landscape, or square image. A user's file of the wrong shape is refused; ask for another image or choose a layout that fits. Files must be PNG or JPEG; ask the user to export HEIC photos as JPEG.
 - **Catalog images that need a crop** are placed centred in their area automatically and reported as a planned crop. Tell the user the framing is automatic and centred, since this workflow cannot move it.
 - **An attachment you cannot reach as a file** cannot be used. Ask the user to save it and give you its path.
-- **Images made or changed by AI.** This skill does not generate or edit images. If the user asks for an image to be created, extended, or retouched, that is separate from this skill: do it only if you have an image tool of your own, say that it runs on the user's own account, and say plainly that the result is AI-generated or AI-altered. The build records such a file as supplied by the user and keeps no note that AI was involved, so remind the user that disclosing it, and the consent of any real person shown, are theirs to handle.
+- **Images made or changed by AI** follow [AI-Generated Images](#ai-generated-images). Never pass one off as the user's own file.
 - **Do not judge rights.** A user's own image is recorded as supplied by them, not as approved by the project. Say so once when you report: permission to post it, and the consent of anyone in it, are theirs to confirm.
 - Photo gallery layouts (`SG-*`) also take a portrait `background` image, which shows dimly behind the photos.
+
+## AI-Generated Images
+
+When the user asks for an image to be created, extended, or changed with AI, you may make it for a layout that takes one. Do this only when the user asks; never generate an image on your own to fill a gap.
+
+- **Which layouts.** Every layout takes an AI-generated image except `SC-04` to `SC-07` and `SG-02` to `SG-07`. The `layouts` command says "AI-generated image: yes" or "no" for each. The publication-logo area never takes one.
+- **You need an image tool of your own.** This skill has none. Codex has one built in; Claude Code has one only if the user connected it. If you have none, say so and offer a catalog image or the user's own instead. Say that the tool runs on the user's own account.
+- **Start from an official image for any real Rider place.** For the building, an amenity, or an interior, pick a catalog image as the base and keep the architecture and the room as they are. `python3 -m tools.social_runtime.cli images --project the-rider --list --find <word> --links` gives each image's download link. An image not based on a catalog image is for a concept only, at the user's request; say that it is conceptual.
+- **Keep the image clean.** No text, logos, or signage in it; the layout adds the text and the logo. No people unless the user asked for them, and never a real, recognisable person.
+- **Make it the shape the area needs**, portrait, landscape, or square, and at least as large as the area on the finished slide (a full-slide background is 1200 by 1500).
+- **Show candidates and wait.** Offer two unless the user asks for another number. Only an image the user has chosen goes into a brief.
+- **Save the chosen image** as a PNG or JPEG under `campaign-output/social/generated/<slug>/`.
+- **Record it in the brief** as `{"generated": "<path>", "prompt": "<the prompt used>", "tool": "<the tool used>", "based_on": ["<catalog file name>"]}`, leaving `based_on` out for a conceptual image. An image the user made with AI elsewhere is recorded the same way, with what they tell you about the tool and the request. Never give an AI-generated image as `file`.
+- **Tell the user.** When you report, name the slides that carry an AI-generated image. The package records each one with its prompt and tool. Saying so when the post is published, and the consent of anyone shown, are the user's to handle.
 
 ## Text
 
@@ -62,6 +76,21 @@ Both pages open in the user's browser on their own; do not send the user looking
 - The caption can run long; the preview shows how it is cut off in the feed. Hashtags are separate, each written as `#Word`.
 - Use the names in the project profile: "The Rider Residences" as the official name and `theriderresidences` as the Instagram handle.
 
+## Mixing Layouts In A Carousel
+
+Any single-post layout (`SP-*`) and any carousel layout (`SC-*`) can go in any carousel, between that carousel's own slides and in any order with them.
+
+| Carousel | What stays fixed | What can go after the cover |
+|---|---|---|
+| Editorial | Nothing | Any `SP-*`, `SC-*`, and `SG-*` layouts, from the first slide on |
+| Photo gallery | `SG-01` first, `SG-08` last | `SG-02` to `SG-07`, `SP-*`, and `SC-*` layouts |
+| Multi-press | `PC-01` first | `PC-02`, `SP-*`, and `SC-*` layouts |
+| Press article | `AC-01` first; `AC-04`, if used, last | `AC-02`, `AC-03`, `SP-*`, and `SC-*` layouts, with no more than two of `AC-02` and `AC-03` together |
+
+- Every carousel holds at most 10 slides.
+- The press layouts (`PC-*`, `AC-*`) stay in their own carousels: they do not go in an Editorial or Photo gallery carousel, the two press carousels do not share layouts, and `SG-*` layouts do not go in a press carousel.
+- The publication's logo appears only on the `AC-*` slides; a single-post or carousel layout in a press carousel carries The Rider logo as usual.
+
 ## Press Carousels
 
 Two post types present press coverage. The build recognises each from its layouts; you do not name the type.
@@ -69,7 +98,9 @@ Two post types present press coverage. The build recognises each from its layout
 | Post type | Use it for | Slides |
 |---|---|---|
 | Multi-press carousel | Coverage from several outlets | `PC-01` as the cover, which stands for the whole set, then one `PC-02` per outlet (2 to 10 slides) |
-| Press article carousel | One article, read across a carousel | `AC-01` as the cover, then up to two of `AC-02` (a quote) and `AC-03` (a piece of the article, with a landscape image if there is one), then `AC-04` as an optional last slide inviting people to read more (2 to 4 slides) |
+| Press article carousel | One article, read across a carousel | `AC-01` as the cover, then up to two of `AC-02` (a quote) and `AC-03` (a piece of the article, with a landscape image if there is one), then `AC-04` as an optional last slide inviting people to read more (2 to 10 slides) |
+
+Either one also takes single-post and carousel layouts after its cover; see [Mixing Layouts In A Carousel](#mixing-layouts-in-a-carousel).
 
 - **Quote and article text must be the publication's exact words**, given by the user or copied from the article they gave you. Never write, paraphrase, shorten, or tidy a quote, and never invent a byline, date, outlet, or photographer credit. If something is missing, ask.
 - **The publication's logo** goes bottom left on `AC-01` to `AC-04` and is optional: `"publication-logo": {"file": "<path>"}`, a PNG or JPEG of any shape. Give it on one slide and it appears on every slide of the carousel that has the space; leave it out of the whole brief and the space stays empty. It is another organisation's logo, so tell the user once that permission to use it is theirs to confirm. The Rider logo on the right is fixed.
@@ -89,7 +120,7 @@ Two post types present press coverage. The build recognises each from its layout
 
 - **It makes previews, not approved releases.** Every build is a draft preview: the post types and the export sizes are still awaiting owner approval, and the runtime refuses a release build until they are approved. The slide images are full size and usable, but say they are previews.
 - **It does not post.** Nothing is sent to Instagram or any other service.
-- **It does not crop or retouch images**, generate images, or make video.
+- **It does not crop images or make video.** It generates or retouches an image only through an image tool of your own, as described under AI-Generated Images.
 - **It serves the in-house team only.** There is no outside-broker version yet.
 - Do not edit the scaffold, the templates, the image approvals, or anything under `tools/`. If a request needs one of those changed, say so and stop.
 

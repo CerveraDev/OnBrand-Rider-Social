@@ -108,7 +108,7 @@ def list_catalog(project_dir: Path | str, *, manifest_path: Path | str | None = 
     return [
         {
             "name": asset["filename"], "subject": asset["social_cluster"], "shape": asset["orientation"],
-            "use": "needs-crop" if asset["social_roles"] == [CROP_ROLE] else "ready",
+            "use": "needs-crop" if asset["social_roles"] == [CROP_ROLE] else "ready", "link": asset.get("public_url", ""),
         }
         for asset in sorted(assets, key=lambda asset: (asset.get("social_cluster") or "", asset["filename"].lower()))
         if asset.get("social_roles") and asset.get("media_type") == "image"

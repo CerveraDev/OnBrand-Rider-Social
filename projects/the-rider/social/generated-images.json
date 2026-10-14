@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "purpose": "Owner decision on AI-generated images: every layout takes one except those listed here.",
+  "excluded_layouts": [
+    "SC-04", "SC-05", "SC-06", "SC-07",
+    "SG-02", "SG-03", "SG-04", "SG-05", "SG-06", "SG-07"
+  ]
+}

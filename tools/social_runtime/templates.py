@@ -21,8 +21,10 @@ TEMPLATE_FIELDS = {
     "schema_version", "code", "label", "kind", "formats", "approval_status",
     "audiences", "image_sources", "min_slides", "max_slides", "sequence",
 }
-IMAGE_SOURCES = ("approved", "user-supplied")
+IMAGE_SOURCES = ("approved", "user-supplied", "ai-generated")
 STEP_FIELDS = {"role", "min", "max", "frames"}
+# Optional: {"frames": [...], "max": n} limits how many of a step's slides may use those frames.
+STEP_OPTIONAL = {"cap"}
 
 
 class TemplateError(ValueError):
@@ -99,7 +101,7 @@ def match_slides(template: dict, slides: list[dict]) -> list[dict]:
     steps = []
     position = 0
     for step in template["sequence"]:
-        count = 0
+        count = capped = 0
         while position < len(slides) and slides[position]["role"] == step["role"] and count < step["max"]:
             frame_id = slides[position]["frame"]
             if frame_id not in step["frames"]:
@@ -107,6 +109,13 @@ def match_slides(template: dict, slides: list[dict]) -> list[dict]:
                     f"Template {code} does not allow frame '{frame_id}' for role '{step['role']}' "
                     f"at slide {position + 1}; allowed: {', '.join(step['frames'])}"
                 )
+            if frame_id in step.get("cap", {}).get("frames", ()):
+                capped += 1
+                if capped > step["cap"]["max"]:
+                    raise TemplateError(
+                        f"Template {code} takes at most {step['cap']['max']} of "
+                        f"{', '.join(step['cap']['frames'])}; slide {position + 1} is one too many"
+                    )
             frame = template["frame_definitions"][frame_id]
             steps.append({
                 "role": step["role"], "frame": frame_id, "canvas": frame["canvas"],
@@ -128,7 +137,7 @@ def match_slides(template: dict, slides: list[dict]) -> list[dict]:
 
 
 def _validate_step(step: object, label: str) -> None:
-    if not isinstance(step, dict) or set(step) != STEP_FIELDS:
+    if not isinstance(step, dict) or set(step) - STEP_OPTIONAL != STEP_FIELDS:
         raise TemplateError(f"{label} must define exactly: {', '.join(sorted(STEP_FIELDS))}")
     if step["role"] not in SLIDE_ROLES:
         raise TemplateError(f"{label} role must be one of {', '.join(SLIDE_ROLES)}")
@@ -139,3 +148,9 @@ def _validate_step(step: object, label: str) -> None:
         not isinstance(frame, str) or not FRAME_ID_RE.fullmatch(frame) for frame in frames
     ) or len(set(frames)) != len(frames):
         raise TemplateError(f"{label} frames must be a non-empty array of unique frame ids")
+    if "cap" in step:
+        cap = step["cap"]
+        if not isinstance(cap, dict) or set(cap) != {"frames", "max"} or type(cap["max"]) is not int or not (
+            1 <= cap["max"] < step["max"]
+        ) or not isinstance(cap["frames"], list) or not cap["frames"] or not set(cap["frames"]) < set(frames):
+            raise TemplateError(f"{label} cap must limit some of the step's frames to fewer slides than the step takes")

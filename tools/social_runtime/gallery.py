@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 
 from .frames import FRAMES_FILE, FrameError, load_frames
+from .generated import GeneratedImageError, accepts, load_policy
 from .profile import ProfileError, load_profile
 
 
@@ -41,8 +42,9 @@ def write_gallery(project_dir: Path | str) -> Path:
             for path in sorted(templates_dir.glob("*.json")) if path.name != FRAMES_FILE
         ]
         profile = load_profile(project_dir)
+        generated_policy = load_policy(project_dir)
         project = json.loads((project_dir / "project.json").read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError, FrameError, ProfileError) as err:
+    except (OSError, json.JSONDecodeError, FrameError, ProfileError, GeneratedImageError) as err:
         raise GalleryError(f"The layout gallery could not be built: {err}") from err
 
     frames = []
@@ -50,7 +52,7 @@ def write_gallery(project_dir: Path | str) -> Path:
         definition = definitions.get(entry["id"])
         if definition is None or not (scaffold_dir / "previews" / f"{entry['id']}.jpg").is_file():
             raise GalleryError(f"Frame {entry['id']} has no definition or preview; re-run the scaffold import")
-        frames.append(_frame(entry, definition, templates))
+        frames.append(_frame(entry, definition, templates, accepts(generated_policy, entry["id"])))
     data = {
         "families": [
             {"key": key, "label": label} for key, label in FAMILY_LABELS.items()
@@ -73,7 +75,7 @@ def write_gallery(project_dir: Path | str) -> Path:
     return path
 
 
-def _frame(entry: dict, definition: dict, templates: list[dict]) -> dict:
+def _frame(entry: dict, definition: dict, templates: list[dict], ai_images: bool) -> dict:
     observed = entry["observed"]
     placed = {slot["slot"]: slot for slot in observed["text_slots"]}
     overlays = {slot["slot"]: slot.get("overlay") or {} for slot in observed["image_slots"]}
@@ -97,6 +99,8 @@ def _frame(entry: dict, definition: dict, templates: list[dict]) -> dict:
             layout.append(f"Fixed text: \u201c{words}\u201d")
     if definition["optional_marks"]:
         layout.append("Small logo on the photo, which can be left off")
+    if any(slot["fit"] == "cover" for slot in definition["image_slots"]):
+        layout.append("Can take an AI-generated image" if ai_images else "Does not take AI-generated images")
     photos = [
         {"slot": slot["slot"], "shape": slot["shape"] + ("" if slot["required"] else ", optional"),
          "size": f"{slot['width']}×{slot['height']}"}
@@ -135,22 +139,32 @@ def _rule(template: dict) -> str:
         first, last = roles[0], roles[-1]
         if first["min"] >= 1 and len(first["frames"]) == 1:
             parts.append(f"starts with {first['frames'][0]}")
+        elif first["min"] == 0 and set(first["frames"]) <= set(roles[1]["frames"]):
+            parts.append(f"any {_sets(roles[1])} layouts in any order")
         elif first["min"] == 0 and first["max"] == 1:
             parts.append(f"can open with one {_sets(first)} layout")
             parts.append(f"then {_sets(roles[1])} layouts")
-        for middle in roles[1:-1]:
-            if middle["min"] == 0 and len(middle["frames"]) <= 3:
-                parts.append(f"then up to {middle['max']} of {' or '.join(middle['frames'])}")
-        if last["min"] >= 1 and len(last["frames"]) == 1:
-            parts.append(f"ends with {last['frames'][0]}" if len(roles) > 2 else f"then {last['frames'][0]} slides")
-        elif last["min"] == 0 and len(last["frames"]) == 1 and len(roles) > 2:
+        for middle in roles[1:-1] if len(roles) > 2 else roles[1:] if first["min"] >= 1 else []:
+            cap = middle.get("cap")
+            parts.append(f"then {_sets(middle)} layouts" + (
+                f" (up to {cap['max']} of {' or '.join(cap['frames'])})" if cap else ""
+            ))
+        if len(roles) < 3:
+            pass
+        elif last["min"] >= 1 and len(last["frames"]) == 1:
+            parts.append(f"ends with {last['frames'][0]}")
+        elif last["min"] == 0 and len(last["frames"]) == 1:
             parts.append(f"can end with {last['frames'][0]}")
     return ", ".join(parts)
 
 
 def _sets(role: dict) -> str:
-    """Name the layout sets a role draws on by their ID prefix, as in 'SC or SG'."""
-    return " or ".join(sorted({frame.split("-")[0] for frame in role["frames"]}))
+    """Name the layout sets a role draws on by their ID prefix, as in 'SC or SG'; a lone layout keeps its ID."""
+    sets: dict[str, list[str]] = {}
+    for frame in role["frames"]:
+        sets.setdefault(frame.split("-")[0], []).append(frame)
+    names = sorted(frames[0] if len(frames) == 1 else prefix for prefix, frames in sets.items())
+    return " or ".join((", ".join(names[:-1]), names[-1]) if len(names) > 1 else names)
 
 
 _PAGE = """<!doctype html>
@@ -320,13 +334,18 @@ _PAGE = """<!doctype html>
   }
 
   // A sequence fits a post type when its slides can be dealt, in order, to the type's roles.
-  function fits(template, ids, role = 0, at = 0) {
-    if (role === template.sequence.length) return at === ids.length;
+  // Returns the step each slide falls to, or null. A step's cap limits how many slides may use some of its layouts.
+  function deal(template, ids, role = 0, at = 0) {
+    if (role === template.sequence.length) return at === ids.length ? [] : null;
     const step = template.sequence[role];
+    const cap = step.cap || { frames: [], max: 0 };
     let taken = 0;
+    let capped = 0;
     while (true) {
-      if (taken >= step.min && fits(template, ids, role + 1, at + taken)) return true;
-      if (taken === step.max || at + taken >= ids.length || !step.frames.includes(ids[at + taken])) return false;
+      const rest = taken >= step.min ? deal(template, ids, role + 1, at + taken) : null;
+      if (rest) return [...Array(taken).fill(step), ...rest];
+      if (taken === step.max || at + taken >= ids.length || !step.frames.includes(ids[at + taken])) return null;
+      if (cap.frames.includes(ids[at + taken]) && (capped += 1) > cap.max) return null;
       taken += 1;
     }
   }
@@ -340,10 +359,15 @@ _PAGE = """<!doctype html>
       return el('div', { className: 'chip' }, el('img', { src: byId[id].preview, alt: '' }), `${i + 1}. ${id}`, remove);
     }));
     if (!picked.length) return;
-    // When several post types fit, the one with the fewest layouts to choose from is the closest match.
+    // When several post types fit, the closest match gives the most slides a place only one layout can take,
+    // such as a cover; after that, the one with the fewest layouts to choose from.
     const size = (t) => new Set(t.sequence.flatMap((step) => step.frames)).size;
-    const match = data.templates.filter((t) => picked.length >= t.min && picked.length <= t.max && fits(t, picked))
-      .sort((a, b) => size(a) - size(b))[0];
+    const match = data.templates
+      .map((t) => ({ t, steps: picked.length >= t.min && picked.length <= t.max ? deal(t, picked) : null }))
+      .filter((fit) => fit.steps)
+      .map((fit) => ({ t: fit.t, fixed: fit.steps.filter((step) => step.frames.length === 1).length }))
+      .sort((a, b) => b.fixed - a.fixed || size(a.t) - size(b.t) || (a.t.code < b.t.code ? -1 : 1))
+      .map((fit) => fit.t)[0];
     const named = match && `${/^[aeiou]/i.test(match.label) ? 'an' : 'a'} ${match.label}`;
     let message;
     if (match) {

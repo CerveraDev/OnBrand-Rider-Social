@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "generated_from": {
-    "scaffold_html_sha256": "f2f8c218679280dfabfe23c9504667ee25e4868380032df315bfc2633ec289e4",
+    "scaffold_html_sha256": "79db46d833645dac309f14c71dddf68ba8a9cfd1b041e815f85f87fbc1dc1314",
     "scaffold_css_sha256": "8935bcfca681e4e11a74335de4616de466d55a00620fc61defcb056f08454f6f"
   },
   "limit_basis": "Estimated from each slot's rendered line count, available width, and font size in the scaffold, except where the project's text-limits.json sets an owner-decided limit. Estimates are draft pending owner review.",
@@ -740,6 +740,14 @@
           "shape": "landscape",
           "fit": "cover",
           "required": true
+        },
+        {
+          "slot": "publication-logo",
+          "width": 220,
+          "height": 34,
+          "shape": "any",
+          "fit": "contain",
+          "required": false
         }
       ],
       "text_slots": {
@@ -775,9 +783,7 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": [
-        "photo-logo"
-      ]
+      "optional_marks": []
     },
     "AC-01": {
       "family": "press",

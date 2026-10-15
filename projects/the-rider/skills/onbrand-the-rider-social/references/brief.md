@@ -26,7 +26,7 @@ Each slide has these four fields, plus `hide` where a layout allows it:
 | `images` | One entry per image area of that layout, keyed by the area's name (`background`, `image-1`, ...). Each is `{"catalog": "<exact file name>"}` for an official image, `{"file": "<path>"}` for the user's own, or a `generated` entry for an AI-generated one (see below). A path may be absolute, start with `~`, or be relative to the brief. |
 | `text` | One entry per text field of that layout, keyed by the field's name (`heading`, `subheading`, `copy`, `footer-line`). Use `\n` for a line break and `*word*` for italics where the layout allows it. |
 | `alt_text` | One sentence describing the slide's image |
-| `hide` | Optional. A list of fixed parts to leave off, from the layout's "can hide" list. Today only `["photo-logo"]` on `PC-02`. |
+| `hide` | Optional. A list of fixed parts to leave off, from the layout's "can hide" list. No layout has one today. |
 
 Run `python3 -m tools.social_runtime.cli layouts --project the-rider` to see every layout's image areas, text fields, and limits. Every image area and every text field of a layout must be filled unless the listing marks it optional; an optional one is left off the slide when you leave it out. Text listed as fixed cannot be set; a name the layout does not have is refused.
 
@@ -75,13 +75,13 @@ A press article slide with the publication's logo and no photographer credit:
 ```json
 {
   "layout": "AC-01",
-  "images": {"image-1": {"file": "~/Desktop/article-photo.jpg"}, "publication-logo": {"file": "~/Desktop/outlet-logo.png"}},
+  "images": {"image-1": {"file": "~/Desktop/article-photo.jpg"}, "publication-logo": {"file": "campaign-output/social/logos/therealdeal.com.svg"}},
   "text": {"byline": "By Author Name", "heading": "THE ARTICLE'S\nHEADLINE", "subheading": "Its subheading"},
   "alt_text": "Tower exterior at dusk"
 }
 ```
 
-A layout with no image areas filled takes `"images": {}`. A `publication-logo` given on any one slide is used on every slide that has that area, so give it once.
+A layout with no image areas filled takes `"images": {}`. In a press article carousel, a `publication-logo` given on one `AC-*` slide is used on every `AC-*` slide, so give it once. In a multi-press carousel, give each `PC-02` its own outlet's logo; a slide without one keeps the area empty. The logo file comes from the `press-logo` command and may be a PNG, JPEG, or SVG.
 
 ## What The Command Works Out
 

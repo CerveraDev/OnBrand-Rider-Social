@@ -9,12 +9,12 @@
       "width": 1512,
       "height": 900
     },
-    "additions_sha256": "795e456c889afc1575e6ab664ea83fb07b768743f23c614627e7ee0b3852b5d0"
+    "additions_sha256": "80d137c7d5b58e12c52231d9aaccfb5ef2d2ad967d0d8a967ceca804e47ab6f0"
   },
   "files": {
     "scaffold.html": {
-      "sha256": "f2f8c218679280dfabfe23c9504667ee25e4868380032df315bfc2633ec289e4",
-      "byte_size": 87821
+      "sha256": "79db46d833645dac309f14c71dddf68ba8a9cfd1b041e815f85f87fbc1dc1314",
+      "byte_size": 87994
     },
     "scaffold.css": {
       "sha256": "8935bcfca681e4e11a74335de4616de466d55a00620fc61defcb056f08454f6f",
@@ -2374,18 +2374,7 @@
           },
           "src": "https://media.beefree.cloud/pub/bfra/9dgc1zff/hdg/vck/41q/The%20Rider-logo-black.png"
         },
-        "marks": [
-          {
-            "slot": "photo-logo",
-            "box": {
-              "x": 474,
-              "y": 685,
-              "width": 96,
-              "height": 35
-            },
-            "src": "https://media.beefree.cloud/pub/bfra/9dgc1zff/q5f/g1q/k7w/The%20Rider-logo-white.png"
-          }
-        ],
+        "marks": [],
         "image_slots": [
           {
             "slot": "image-1",
@@ -2398,6 +2387,18 @@
             "shape": "landscape",
             "background_size": "cover",
             "background_position": "50% 50%",
+            "overlay": null
+          },
+          {
+            "slot": "publication-logo",
+            "box": {
+              "x": 461,
+              "y": 686,
+              "width": 110,
+              "height": 34
+            },
+            "shape": "any",
+            "element": "img",
             "overlay": null
           }
         ],
@@ -2504,7 +2505,7 @@
       "rules": {
         "locked": [],
         "optional": [
-          "photo-logo"
+          "publication-logo"
         ]
       },
       "label_corrections": [],
@@ -2566,7 +2567,7 @@
             "box": {
               "x": 30,
               "y": 686,
-              "width": 93,
+              "width": 141,
               "height": 34
             },
             "shape": "any",
@@ -2726,7 +2727,7 @@
             "box": {
               "x": 30,
               "y": 686,
-              "width": 93,
+              "width": 141,
               "height": 34
             },
             "shape": "any",
@@ -2900,7 +2901,7 @@
             "box": {
               "x": 30,
               "y": 686,
-              "width": 93,
+              "width": 141,
               "height": 34
             },
             "shape": "any",
@@ -3063,7 +3064,7 @@
             "box": {
               "x": 30,
               "y": 686,
-              "width": 93,
+              "width": 141,
               "height": 34
             },
             "shape": "any",

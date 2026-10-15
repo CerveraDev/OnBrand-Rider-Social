@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112). Remove an entry once the Elementor page carries the same change.",
+  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112, AUD-119). Remove an entry once the Elementor page carries the same change.",
   "frames": {
     "SP-20": {
       "id": "PC-01",
@@ -18,10 +18,20 @@
       "family": "press",
       "slots": {
         "footer-line": "eyebrow",
-        "logo-2": "photo-logo"
+        "logo-2": "publication-logo"
       },
       "optional": [
-        "photo-logo"
+        "publication-logo"
+      ],
+      "edits": [
+        {
+          "op": "attr",
+          "selector": "[data-slot=\"publication-logo\"]",
+          "attrs": {
+            "src": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+            "style": "height: 24px; max-height: 24px; width: auto; max-width: none; padding: 5px; box-sizing: content-box; background-color: rgb(255, 255, 255);"
+          }
+        }
       ]
     },
     "SP-22": {
@@ -36,6 +46,16 @@
       "optional": [
         "credit",
         "publication-logo"
+      ],
+      "edits": [
+        {
+          "op": "attr",
+          "selector": "[data-slot=\"publication-logo\"]",
+          "attrs": {
+            "src": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+            "style": "height: 34px; width: auto;"
+          }
+        }
       ]
     },
     "SP-23": {
@@ -51,6 +71,16 @@
       },
       "optional": [
         "publication-logo"
+      ],
+      "edits": [
+        {
+          "op": "attr",
+          "selector": "[data-slot=\"publication-logo\"]",
+          "attrs": {
+            "src": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+            "style": "height: 34px; width: auto;"
+          }
+        }
       ]
     },
     "SP-24": {
@@ -79,6 +109,14 @@
           "op": "style",
           "selector": ":has(> [data-slot=\"source-label\"])",
           "style": "margin-bottom: 20px;"
+        },
+        {
+          "op": "attr",
+          "selector": "[data-slot=\"publication-logo\"]",
+          "attrs": {
+            "src": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+            "style": "height: 34px; width: auto;"
+          }
         }
       ]
     }

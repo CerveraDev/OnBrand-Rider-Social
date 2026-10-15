@@ -107,7 +107,11 @@ Each change is listed under `adjustments` in `render-report.json` and in the `po
 
 `projects/<slug>/social/scaffold/text-limits.json` holds text limits the owner has decided, by layout and slot (`max_chars`, `max_lines`, or both). The `frames` command applies them over the estimated limits, so they survive regeneration; a limit for a slot the layout does not have is refused. The Rider sets `AC-01` `heading` to 68 characters and `AC-04` `subheading` to 100, each on up to three lines.
 
-In `frames.json`, an image slot carries `required` and a `fit` of `cover` or `contain`. A `contain` slot (shape `any`) holds another organisation's logo: it takes a supplied file only, of any shape, fitted inside the area from its left edge. `optional_marks` lists fixed marks a slide may leave off with `hide`. At render, optional text and image areas a slide does not fill, and marks it hides, are taken off the slide; a logo keeps its place so its neighbour does not move.
+In `frames.json`, an image slot carries `required` and a `fit` of `cover` or `contain`. A `contain` slot (shape `any`) holds another organisation's logo: it takes a supplied file only, a PNG, JPEG, or SVG of any shape, fitted inside the area from its left edge. An SVG is sized from its `viewBox` and refused if it carries scripts or embedded content. In a brief, a logo given on one press article (`AC-*`) slide is used on every `AC-*` slide; each `PC-02` slide is its own outlet and keeps only its own logo.
+
+## Press logos
+
+`press-logo --url <article>` runs `find_press_logo.cjs`: it opens the article in Chromium, scores the pictures near the top of the page (in the header or navigation, named as a logo, linking to the front page, wordmark-shaped), and keeps the best one, as the site's own SVG when it serves one and otherwise as a transparent PNG of the logo as drawn. A logo with almost no dark ink is a white logo for a dark header and is passed over. When the header has none, the publisher logo in the page's structured data is tried. The logo and a `-preview.png` are saved under `campaign-output/social/logos/<outlet>`. Exit code 0 means found, 1 means none was found (the reason is printed), 2 means the search was refused. Sites that block automated visits cannot be read; see LIM-024. `optional_marks` lists fixed marks a slide may leave off with `hide`. At render, optional text and image areas a slide does not fill, and marks it hides, are taken off the slide; a logo keeps its place so its neighbour does not move.
 
 ## Setup, updates, and the social-only distribution
 

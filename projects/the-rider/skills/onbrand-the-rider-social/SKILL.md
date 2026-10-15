@@ -89,7 +89,7 @@ Any single-post layout (`SP-*`) and any carousel layout (`SC-*`) can go in any c
 
 - Every carousel holds at most 10 slides.
 - The press layouts (`PC-*`, `AC-*`) stay in their own carousels: they do not go in an Editorial or Photo gallery carousel, the two press carousels do not share layouts, and `SG-*` layouts do not go in a press carousel.
-- The publication's logo appears only on the `AC-*` slides; a single-post or carousel layout in a press carousel carries The Rider logo as usual.
+- The publication's logo appears only on the `AC-*` and `PC-02` slides; a single-post or carousel layout in a press carousel carries The Rider logo as usual.
 
 ## Press Carousels
 
@@ -103,12 +103,25 @@ Two post types present press coverage. The build recognises each from its layout
 Either one also takes single-post and carousel layouts after its cover; see [Mixing Layouts In A Carousel](#mixing-layouts-in-a-carousel).
 
 - **Quote and article text must be the publication's exact words**, given by the user or copied from the article they gave you. Never write, paraphrase, shorten, or tidy a quote, and never invent a byline, date, outlet, or photographer credit. If something is missing, ask.
-- **The publication's logo** goes bottom left on `AC-01` to `AC-04` and is optional: `"publication-logo": {"file": "<path>"}`, a PNG or JPEG of any shape. Give it on one slide and it appears on every slide of the carousel that has the space; leave it out of the whole brief and the space stays empty. It is another organisation's logo, so tell the user once that permission to use it is theirs to confirm. The Rider logo on the right is fixed.
+- **The publication's logo** goes bottom left on `AC-01` to `AC-04`, and bottom right on the photo of each `PC-02`, on a small white backing. Find it yourself; never ask the user for a logo file or where to find one. See [Finding The Publication's Logo](#finding-the-publications-logo).
+- **In a press article carousel**, give the logo once, on the `AC-01` slide, and it appears on every `AC-*` slide. **In a multi-press carousel**, each `PC-02` is a different outlet: give each one its own outlet's logo. A logo is never carried from one `PC-02` to another.
+- It is another organisation's logo, so tell the user once that permission to use it is theirs to confirm. The Rider logo is fixed.
 - **Optional parts** are left out by leaving them out of the brief: the photographer `credit` on `AC-01`, the image and second paragraph (`body-2`) on `AC-03`.
-- **The small logo on the photo in `PC-02`** shows unless the slide says `"hide": ["photo-logo"]`.
 - **Fixed words** cannot be changed: "SWIPE" on `PC-01`, and on `AC-04` the eyebrow "There's more to the story" and the "Link in bio" button. Only the `AC-04` subheading is yours to fill.
 - The eyebrow on `PC-01` and `PC-02` is black like all other text on a white block.
 
+### Finding The Publication's Logo
+
+For every outlet in a press post, run, with the address of that outlet's article:
+
+`python3 -m tools.social_runtime.cli press-logo --url <article address>`
+
+It opens the article in the slide renderer's browser, takes the outlet's logo from the page header or navigation (or, failing that, the publisher logo the page names), and saves it under `campaign-output/social/logos/`.
+
+- **When it finds one** it prints `Logo file:` and `Look at it first:`. Open the preview image and check that it is the outlet's own logo, not a sponsor, a section badge, or another site's. If it is right, use the logo file: `"publication-logo": {"file": "<logo file>"}`. If it is wrong, leave the area empty.
+- **When it finds none** it says why, for example that the site blocked the visit or only has a white logo for a dark header. Leave `publication-logo` out of that slide: the area stays empty. Tell the user in one line which outlet has no logo and why; do not ask them for one.
+- **The article address.** Use the link the user gave. If they gave only the article's text and you can search the web, find the article by its headline and outlet; otherwise leave the logo out.
+- **A logo the user supplies anyway** is used as given, a PNG, JPEG, or SVG file.
 ## Text And Logo Colour
 
 - **Text is white (`#ffffff`) or black (`#000000`), nothing else.** The build chooses between them; the brief has no colour setting. If the user asks for any other text colour, or for a gradient on text or on a word, say that the brand allows only white or black text and do not attempt it by any route.

@@ -107,7 +107,7 @@ Give the assistant a file or folder path. Files must be PNG or JPEG, and each im
 ### Press Carousels
 
 - Quotes and article text must be the publication's exact words. The assistant will not write or tidy a quote.
-- Give the publication's logo file once and it appears bottom left on every slide of the article carousel. Permission to use another organisation's logo is yours to confirm.
+- The assistant finds the publication's logo on the article's own page, so you only give the article link. It appears bottom left on every slide of an article carousel, and on the photo of each outlet's slide in a multi-press carousel. If the site blocks the visit or has no usable logo, that space stays empty and the assistant tells you. Permission to use another organisation's logo is yours to confirm.
 - Some words are fixed and cannot be changed: "SWIPE", "There's more to the story", and the "Link in bio" button.
 
 ## Rules The Skill Enforces

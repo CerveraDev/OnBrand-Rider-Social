@@ -30,6 +30,8 @@ BRIEF_FIELDS = {"project", "slug", "slides", "caption"}
 BRIEF_OPTIONAL = {"title", "hashtags", "post_type"}
 SLIDE_FIELDS = {"layout", "images", "text", "alt_text"}
 SLIDE_OPTIONAL = {"hide"}
+# Press article layouts: one article, so one publication logo for all of them.
+SHARED_LOGO_LAYOUTS = ("AC-",)
 
 
 class BriefError(ValueError):
@@ -81,15 +83,18 @@ def compose_spec(
         generated_policy = load_policy(project_dir)
     except GeneratedImageError as err:
         raise BriefError(str(err)) from err
-    # A supplied logo, such as a publication's, is given once and shown on every slide that has room for it.
-    shared = {slot: choice for slide in reversed(slides) for slot, choice in slide["images"].items()}
+    # One article's publication logo is given once and shown on every press article slide with room for it.
+    # Each multi-press slide is a different outlet, so its logo is never shared.
+    shared = {slot: choice for slide in reversed(slides) if slide["layout"].startswith(SHARED_LOGO_LAYOUTS)
+              for slot, choice in slide["images"].items()}
     planned: list[tuple[dict, dict, dict]] = []
     spec_slides = []
     for number, (slide, role) in enumerate(zip(slides, roles), start=1):
         frame = template["frame_definitions"][slide["layout"]]
         areas = {area["slot"]: area for area in frame["image_slots"]}
         slide = {**slide, "images": {
-            **{slot: shared[slot] for slot, area in areas.items() if area["fit"] == "contain" and slot in shared},
+            **{slot: shared[slot] for slot, area in areas.items()
+               if area["fit"] == "contain" and slot in shared and slide["layout"].startswith(SHARED_LOGO_LAYOUTS)},
             **slide["images"],
         }}
         _same_keys(slide["images"], areas, f"Slide {number} ({slide['layout']}) image areas",

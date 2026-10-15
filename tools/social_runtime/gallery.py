@@ -92,8 +92,10 @@ def _frame(entry: dict, definition: dict, templates: list[dict], ai_images: bool
     elif overlay.get("type") == "radial-scrim":
         layout.append("Photo darkened in the centre so text stays readable")
 
-    if any(slot["fit"] == "contain" for slot in definition["image_slots"]):
-        layout.append("Room for a publication's logo, bottom left, from a file you supply")
+    for slot in entry["observed"]["image_slots"]:
+        if slot.get("element") == "img":
+            layout.append(f"Room for the publication's logo, {_position(slot['box'], entry['canvas'])}, "
+                          "taken from the article's page")
     for slot, words in definition["locked"].items():
         if slot != "logo":
             layout.append(f"Fixed text: \u201c{words}\u201d")

@@ -7,6 +7,7 @@ python3 -m tools.social_runtime.cli gallery --project <slug>
 python3 -m tools.social_runtime.cli images --project <slug> [--list] [--find <text>]
 python3 -m tools.social_runtime.cli layouts --project <slug>
 python3 -m tools.social_runtime.cli post --brief <path>
+python3 -m tools.social_runtime.cli press-logo --url <article address>
 python3 -m tools.social_runtime.cli setup --project <slug>
 python3 -m tools.social_runtime.cli update --project <slug>
 """
@@ -24,6 +25,7 @@ from .brief import BriefError, compose_spec, describe_layouts
 from .catalog import CatalogError, list_catalog, write_catalog
 from .frames import FRAMES_FILE, LIMITS_FILE, FrameError, build_frame_definitions, load_text_limits
 from .gallery import GalleryError, write_gallery
+from .press_logo import LOGO_DIR, PressLogoError, find_press_logo
 from .render import RenderError, render_package
 from .runtime import ROOT, SocialRuntimeError, build_social
 from .schema import SocialSpecError
@@ -53,6 +55,9 @@ def main(argv=None) -> int:
     post = commands.add_parser("post", help="Build and render a post from a brief, then open its feed preview.")
     post.add_argument("--brief", required=True, help="Path to a post brief JSON.")
     post.add_argument("--no-open", action="store_true", help="Do not open the feed preview.")
+    press_logo = commands.add_parser("press-logo", help="Find a publication's logo on one of its article pages.")
+    press_logo.add_argument("--url", required=True, help="The article's web address.")
+    press_logo.add_argument("--output", help=f"Folder to save the logo in (default: {LOGO_DIR}).")
     setup = commands.add_parser("setup", help="Check this machine and install what rendering needs.")
     setup.add_argument("--project", required=True, help="Project slug under projects/.")
     update = commands.add_parser("update", help="Fetch the latest published layouts, image list, and approvals.")
@@ -70,6 +75,8 @@ def main(argv=None) -> int:
         return _layouts(ROOT / "projects" / args.project)
     if args.command == "post":
         return _post(Path(args.brief), show=not args.no_open)
+    if args.command == "press-logo":
+        return _press_logo(args.url, Path(args.output) if args.output else ROOT / LOGO_DIR)
     if args.command == "gallery":
         return _gallery(ROOT / "projects" / args.project, show=not args.no_open)
     if args.command == "frames":
@@ -94,6 +101,21 @@ def main(argv=None) -> int:
     )
     sys.stdout.write("\n")
     return 0 if result.qa.passed else 1
+
+
+def _press_logo(url: str, output_dir: Path) -> int:
+    try:
+        result = find_press_logo(url, output_dir=output_dir)
+    except PressLogoError as err:
+        print(f"press logo search refused: {err}", file=sys.stderr)
+        return 2
+    if result["found"]:
+        print(f"Found the {result['outlet']} logo in the {result['where']}.")
+        print(f"Logo file: {result['file']}")
+        print(f"Look at it first: {result['preview']}")
+        return 0
+    print(f"No logo found for {result['outlet']}: {result['reason']}. Leave the logo area empty.")
+    return 1
 
 
 def _render(package: str) -> int:

@@ -68,7 +68,7 @@ A slide using an AI-generated image the user has chosen, on a layout that takes 
 }}
 ```
 
-`prompt` and `tool` are required. `tool` is `Codex ImageGen` or `OpenAI GPT Image`; the build refuses any other. `based_on` lists the catalog images it started from, by exact file name; leave it out for a conceptual image. A relative path is read from the folder the brief is in.
+`prompt` and `tool` are required. `tool` is `Codex ImageGen`; the build refuses any other. The `image` command prints this entry for you. `based_on` lists the catalog images it started from, by exact file name; leave it out for a conceptual image. A relative path is read from the folder the brief is in.
 
 A press article slide with the publication's logo and no photographer credit:
 

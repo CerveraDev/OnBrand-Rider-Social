@@ -21,7 +21,7 @@ RECORD_FIELDS = {"file", "prompt", "tool"}
 # Catalog images the generation started from, by exact file name.
 RECORD_OPTIONAL = {"based_on"}
 # Owner decision: the only image generators the skill may use, as recorded in 'tool'.
-ALLOWED_TOOLS = ("Codex ImageGen", "OpenAI GPT Image")
+ALLOWED_TOOLS = ("Codex ImageGen",)
 
 
 class GeneratedImageError(ValueError):

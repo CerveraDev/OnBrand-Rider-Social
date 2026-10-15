@@ -8,6 +8,7 @@ python3 -m tools.social_runtime.cli images --project <slug> [--list] [--find <te
 python3 -m tools.social_runtime.cli layouts --project <slug>
 python3 -m tools.social_runtime.cli post --brief <path>
 python3 -m tools.social_runtime.cli press-logo --url <article address>
+python3 -m tools.social_runtime.cli image --project <slug> --prompt <text> --shape <shape> --output <path>
 python3 -m tools.social_runtime.cli setup --project <slug>
 python3 -m tools.social_runtime.cli update --project <slug>
 """
@@ -25,6 +26,7 @@ from .brief import BriefError, compose_spec, describe_layouts
 from .catalog import CatalogError, list_catalog, write_catalog
 from .frames import FRAMES_FILE, LIMITS_FILE, FrameError, build_frame_definitions, load_text_limits
 from .gallery import GalleryError, write_gallery
+from .imagegen import SHAPES, ImageGenError, generate_image
 from .press_logo import LOGO_DIR, PressLogoError, find_press_logo
 from .render import RenderError, render_package
 from .runtime import ROOT, SocialRuntimeError, build_social
@@ -58,6 +60,12 @@ def main(argv=None) -> int:
     press_logo = commands.add_parser("press-logo", help="Find a publication's logo on one of its article pages.")
     press_logo.add_argument("--url", required=True, help="The article's web address.")
     press_logo.add_argument("--output", help=f"Folder to save the logo in (default: {LOGO_DIR}).")
+    image = commands.add_parser("image", help="Make an AI-generated image with Codex ImageGen.")
+    image.add_argument("--project", required=True, help="Project slug under projects/.")
+    image.add_argument("--prompt", required=True, help="What the image should show.")
+    image.add_argument("--shape", required=True, choices=sorted(SHAPES), help="The shape of the image area it fills.")
+    image.add_argument("--output", required=True, help="Where to save it, a .png or .jpg path.")
+    image.add_argument("--based-on", action="append", default=[], help="A catalog image to start from, by exact file name.")
     setup = commands.add_parser("setup", help="Check this machine and install what rendering needs.")
     setup.add_argument("--project", required=True, help="Project slug under projects/.")
     update = commands.add_parser("update", help="Fetch the latest published layouts, image list, and approvals.")
@@ -77,6 +85,8 @@ def main(argv=None) -> int:
         return _post(Path(args.brief), show=not args.no_open)
     if args.command == "press-logo":
         return _press_logo(args.url, Path(args.output) if args.output else ROOT / LOGO_DIR)
+    if args.command == "image":
+        return _image(args)
     if args.command == "gallery":
         return _gallery(ROOT / "projects" / args.project, show=not args.no_open)
     if args.command == "frames":
@@ -116,6 +126,19 @@ def _press_logo(url: str, output_dir: Path) -> int:
         return 0
     print(f"No logo found for {result['outlet']}: {result['reason']}. Leave the logo area empty.")
     return 1
+
+
+def _image(args) -> int:
+    try:
+        record = generate_image(args.prompt, output=Path(args.output), shape=args.shape, based_on=args.based_on,
+                                project_dir=ROOT / "projects" / args.project)
+    except ImageGenError as err:
+        print(f"image refused: {err}", file=sys.stderr)
+        return 2
+    size = (record.pop("width"), record.pop("height"))
+    print(f"Saved a {size[0]}x{size[1]} image made with Codex ImageGen. Brief entry:")
+    print(json.dumps(record, ensure_ascii=False))
+    return 0
 
 
 def _render(package: str) -> int:

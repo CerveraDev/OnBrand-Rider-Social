@@ -19,6 +19,7 @@ This guide covers everything needed to go from nothing installed to a first post
 | [Git](https://git-scm.com/downloads) | Downloads the skill and its updates. |
 | About 500 MB of free disk space | Mostly the browser used to render slides. |
 | An internet connection | For setup, for updates, and to load catalog images. |
+| A ChatGPT account that includes Codex | For AI-generated images. Setup asks you to sign in once in your browser. |
 
 ### Who Pays For What
 
@@ -43,7 +44,7 @@ Nothing in this skill is billed to The Rider, Cervera, or the author. The conver
    - Claude Code: `/onbrand-the-rider-social set me up`
    - Codex: `$onbrand-the-rider-social set me up`
 
-Setup takes a few minutes the first time because it downloads a browser of about 150 MB. It finishes with `Ready.` If it says Node.js is missing, install it from [nodejs.org](https://nodejs.org) and ask again.
+Setup takes a few minutes the first time because it downloads a browser of about 150 MB and sets up Codex ImageGen for AI images. If Codex is not signed in on this computer, a browser window opens: sign in with your ChatGPT account. It finishes with `Ready.` If it says Node.js is missing, install it from [nodejs.org](https://nodejs.org) and ask again.
 
 To run setup yourself instead: `python3 -m tools.social_runtime.cli setup --project the-rider`
 
@@ -121,7 +122,7 @@ Give the assistant a file or folder path. Files must be PNG or JPEG, and each im
 
 You can ask the assistant to create or change an image with AI, for example to extend a square photo into a taller one.
 
-- **Only two image tools are used.** Codex ImageGen (built into Codex, and the one proven on this project) or OpenAI GPT Image through your own OpenAI API key. The assistant will not use Canva or any other image app or connector, even if one is connected; without an allowed tool it will tell you and offer a catalog image instead. The tool runs on your own account.
+- **One image tool is used: Codex ImageGen.** It is built into Codex, and setup installs it for Claude Code too, signed in with your ChatGPT account. No API key is needed. The assistant will not use Canva or any other image app or connector, even if one is connected. Images are made on your own ChatGPT account.
 - **Not every layout takes one.** All layouts do except `SC-04` to `SC-07` and `SG-02` to `SG-07`. The layout gallery says which.
 - **Real Rider places start from an official image.** The assistant bases the picture on a catalog image and keeps the architecture unchanged. Anything else is a concept and is labelled as one.
 - **You choose.** The assistant shows candidates and uses only the one you pick.

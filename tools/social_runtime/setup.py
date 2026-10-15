@@ -1,7 +1,9 @@
 """First-run setup and updates for a workspace that builds social posts.
 
-`setup` checks what the social runtime needs on this machine and installs the
-browser tooling it renders with. `update` fetches the latest published version
+`setup` checks what the social runtime needs on this machine, installs the
+browser tooling it renders with, and makes sure Codex ImageGen, the one image
+generator the skill uses, can run: it installs the Codex command line into the
+workspace when the machine has none and asks for the one-time ChatGPT sign-in. `update` fetches the latest published version
 of the workspace, which is how a user receives new layouts and a refreshed
 image list together with the approvals that match it.
 """
@@ -16,6 +18,7 @@ import sys
 from tools.asset_selection.manifest_source import validate_manifest_source_config
 
 from .assets import load_social_assets
+from .imagegen import LOCAL_DIR, PACKAGE, codex_binary, signed_in
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -55,6 +58,8 @@ def run_setup(project_dir: Path, *, out=sys.stdout) -> int:
     if not _run(["npx", "playwright", "install", "chromium"], packages, say):
         return 1
     say("Browser: ok")
+    if not _codex_ready(say):
+        return 1
     try:
         manifest = validate_manifest_source_config(project_dir / "manifest-source.json")["local_cache_path"]
         load_social_assets(manifest, project_dir / "asset-approvals.social.json", audience="in-house")
@@ -82,6 +87,31 @@ def run_update(project_dir: Path, *, out=sys.stdout) -> int:
     after = _output(["git", "rev-parse", "HEAD"], ROOT)
     say("Already up to date." if before == after else f"Updated to {after[:7]}.")
     return run_setup(project_dir, out=out)
+
+
+def _codex_ready(say) -> bool:
+    """Codex ImageGen is a required part of the skill: install Codex and sign in once."""
+    binary = codex_binary()
+    if binary is None:
+        say("Installing Codex for AI-generated images (one time)...")
+        LOCAL_DIR.mkdir(parents=True, exist_ok=True)
+        if not _run(["npm", "install", "--prefix", str(LOCAL_DIR), "--no-audit", "--no-fund", PACKAGE], LOCAL_DIR, say):
+            return False
+        binary = codex_binary()
+        if binary is None:
+            say("Codex did not install. Run setup again; if it still fails, install Codex from https://developers.openai.com/codex")
+            return False
+    if not signed_in(binary):
+        say("Sign in to Codex with your ChatGPT account (one time). A browser window opens; finish signing in there.")
+        try:
+            subprocess.run([str(binary), "login"], timeout=900)
+        except (OSError, subprocess.TimeoutExpired) as err:
+            say(f"The sign-in did not finish: {err}")
+        if not signed_in(binary):
+            say(f"Codex is not signed in. Run this, sign in in the browser, then run setup again: {binary} login")
+            return False
+    say("Codex ImageGen: ok")
+    return True
 
 
 def _run(command: list[str], cwd: Path, say) -> bool:

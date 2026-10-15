@@ -27,7 +27,7 @@ Both pages open in the user's browser on their own; do not send the user looking
 
 ## Setup And Updates
 
-- **First use in a folder.** If there is no `node_modules` folder at the repository root or under `tools/email_render_matrix/`, run `setup` before anything else and tell the user it is a one-time step of a few minutes that downloads a browser of about 150 MB. It prints one line per check and ends with "Ready."; if a line reports a problem, relay it in plain words. Node.js is the one thing it cannot install: the user installs it from https://nodejs.org and you run `setup` again.
+- **First use in a folder.** If there is no `node_modules` folder at the repository root or under `tools/email_render_matrix/`, run `setup` before anything else and tell the user it is a one-time step of a few minutes that downloads a browser of about 150 MB and sets up Codex ImageGen for AI images. If the machine has no Codex, it installs it into the folder; if Codex is not signed in, a browser window opens for the user to sign in with their ChatGPT account. Tell the user that before you run it. Setup is not finished until it says "Codex ImageGen: ok". It prints one line per check and ends with "Ready."; if a line reports a problem, relay it in plain words. Node.js is the one thing it cannot install: the user installs it from https://nodejs.org and you run `setup` again.
 - **Updates.** `update` fetches the latest published layouts, image list, and image approvals, which always arrive as a matching set, then repeats the setup checks. Run it when the user asks for it or asks whether there are new layouts or images. Never fetch or edit the image list any other way.
 
 ## Workflow
@@ -57,13 +57,18 @@ Both pages open in the user's browser on their own; do not send the user looking
 When the user asks for an image to be created, extended, or changed with AI, you may make it for a layout that takes one. Do this only when the user asks; never generate an image on your own to fill a gap.
 
 - **Which layouts.** Every layout takes an AI-generated image except `SC-04` to `SC-07` and `SG-02` to `SG-07`. The `layouts` command says "AI-generated image: yes" or "no" for each. The publication-logo area never takes one.
-- **Use only Codex ImageGen or OpenAI GPT Image.** These are the only image generators allowed; the build refuses any other `tool`. Use Codex ImageGen, Codex's built-in image tool, when you are Codex; it is the one proven on this project. Use OpenAI GPT Image, the latest model, only through the OpenAI API with the user's own key. Never use Canva, Adobe Firefly, Midjourney, Gemini, or any other connector or app, even when one is connected. If neither allowed tool is available, say so and offer a catalog image or the user's own instead; do not try another tool. Say that the tool runs on the user's own account.
-- **Start from an official image for any real Rider place.** For the building, an amenity, or an interior, pick a catalog image as the base and keep the architecture and the room as they are. `python3 -m tools.social_runtime.cli images --project the-rider --list --find <word> --links` gives each image's download link. An image not based on a catalog image is for a concept only, at the user's request; say that it is conceptual.
+- **Use only Codex ImageGen.** It is the one image generator the skill uses, and the build refuses any other `tool`. When you are Codex, use your built-in image tool. In any other assistant, such as Claude Code, run:
+
+  `python3 -m tools.social_runtime.cli image --project the-rider --shape <portrait|landscape|square> --output campaign-output/social/generated/<slug>/candidate-<n>.png --prompt "<what to show>" [--based-on <catalog file name>]`
+
+  It makes the image with Codex ImageGen through the Codex command line, signed in with the user's ChatGPT account, and prints the brief entry to use. It takes about a minute. Run it once per candidate.
+- **Never ask for an API key, and never use another tool.** No OpenAI API key, Canva, Adobe Firefly, Midjourney, Gemini, or any other connector or app, even when one is connected. If `image` says Codex is not installed or not signed in, run `setup`, which installs it and asks for the one-time sign-in, then try again. Say that images are made on the user's own ChatGPT account.
+- **Start from an official image for any real Rider place.** For the building, an amenity, or an interior, pick a catalog image as the base and keep the architecture and the room as they are. Find it with `python3 -m tools.social_runtime.cli images --project the-rider --list --find <word>` and pass its exact file name to `--based-on`; the command downloads it and gives it to Codex as the base. An image not based on a catalog image is for a concept only, at the user's request; say that it is conceptual.
 - **Keep the image clean.** No text, logos, or signage in it; the layout adds the text and the logo. No people unless the user asked for them, and never a real, recognisable person.
 - **Make it the shape the area needs**, portrait, landscape, or square, and at least as large as the area on the finished slide (a full-slide background is 1200 by 1500).
 - **Show candidates and wait.** Offer two unless the user asks for another number. Only an image the user has chosen goes into a brief.
 - **Save the chosen image** as a PNG or JPEG under `campaign-output/social/generated/<slug>/`.
-- **Record it in the brief** as `{"generated": "<path>", "prompt": "<the prompt used>", "tool": "Codex ImageGen", "based_on": ["<catalog file name>"]}`, leaving `based_on` out for a conceptual image. An image the user made with AI elsewhere is accepted only if it came from one of the two allowed tools, and is recorded the same way with what they tell you about the request. Never give an AI-generated image as `file`.
+- **Record it in the brief** as `{"generated": "<path>", "prompt": "<the prompt used>", "tool": "Codex ImageGen", "based_on": ["<catalog file name>"]}`, leaving `based_on` out for a conceptual image. An image the user made with AI elsewhere is accepted only if it came from Codex ImageGen, and is recorded the same way with what they tell you about the request. Never give an AI-generated image as `file`.
 - **Tell the user.** When you report, name the slides that carry an AI-generated image. The package records each one with its prompt and tool. Saying so when the post is published, and the consent of anyone shown, are the user's to handle.
 
 ## Text
@@ -133,7 +138,7 @@ It opens the article in the slide renderer's browser, takes the outlet's logo fr
 
 - **It makes previews, not approved releases.** Every build is a draft preview: the post types and the export sizes are still awaiting owner approval, and the runtime refuses a release build until they are approved. The slide images are full size and usable, but say they are previews.
 - **It does not post.** Nothing is sent to Instagram or any other service.
-- **It does not crop images or make video.** It generates or retouches an image only with Codex ImageGen or OpenAI GPT Image, as described under AI-Generated Images.
+- **It does not crop images or make video.** It generates or retouches an image only with Codex ImageGen, as described under AI-Generated Images.
 - **It serves the in-house team only.** There is no outside-broker version yet.
 - Do not edit the scaffold, the templates, the image approvals, or anything under `tools/`. If a request needs one of those changed, say so and stop.
 

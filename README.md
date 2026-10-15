@@ -121,7 +121,7 @@ Give the assistant a file or folder path. Files must be PNG or JPEG, and each im
 
 You can ask the assistant to create or change an image with AI, for example to extend a square photo into a taller one.
 
-- **It needs an image tool.** The skill has none of its own. Codex has one built in. Claude Code has one only if you connected it; otherwise it will tell you it cannot and offer a catalog image instead. The tool runs on your own account.
+- **Only two image tools are used.** Codex ImageGen (built into Codex, and the one proven on this project) or OpenAI GPT Image through your own OpenAI API key. The assistant will not use Canva or any other image app or connector, even if one is connected; without an allowed tool it will tell you and offer a catalog image instead. The tool runs on your own account.
 - **Not every layout takes one.** All layouts do except `SC-04` to `SC-07` and `SG-02` to `SG-07`. The layout gallery says which.
 - **Real Rider places start from an official image.** The assistant bases the picture on a catalog image and keeps the architecture unchanged. Anything else is a concept and is labelled as one.
 - **You choose.** The assistant shows candidates and uses only the one you pick.

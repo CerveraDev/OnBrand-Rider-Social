@@ -63,12 +63,12 @@ A slide using an AI-generated image the user has chosen, on a layout that takes 
 "images": {"background": {
   "generated": "campaign-output/social/generated/sauna-post/candidate-2.png",
   "prompt": "Extend the approved sauna photo upward to a 4:5 portrait; keep the room unchanged",
-  "tool": "Codex image generation",
+  "tool": "Codex ImageGen",
   "based_on": ["the-rider-recovery-sauna.jpg"]
 }}
 ```
 
-`prompt` and `tool` are required. `based_on` lists the catalog images it started from, by exact file name; leave it out for a conceptual image. A relative path is read from the folder the brief is in.
+`prompt` and `tool` are required. `tool` is `Codex ImageGen` or `OpenAI GPT Image`; the build refuses any other. `based_on` lists the catalog images it started from, by exact file name; leave it out for a conceptual image. A relative path is read from the folder the brief is in.
 
 A press article slide with the publication's logo and no photographer credit:
 

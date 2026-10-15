@@ -123,7 +123,7 @@ def compose_spec(
                 if problem:
                     raise BriefError(
                         f"Slide {number} '{slot}': an AI-generated image is given as {{\"generated\": \"<path>\", "
-                        f"\"prompt\": \"...\", \"tool\": \"...\"}}, optionally with \"based_on\": [\"<catalog file name>\"]"
+                        f"\"prompt\": \"...\", \"tool\": \"...\"}}, optionally with \"based_on\": [\"<catalog file name>\"]; {problem}"
                     )
                 if not accepts(generated_policy, slide["layout"]):
                     raise BriefError(

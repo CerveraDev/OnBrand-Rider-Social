@@ -14,3 +14,10 @@
 [data-frame-id="SC-07"] [data-slot="subheading"] {
   padding-bottom: 9px;
 }
+
+/* 2026-10-16 (AUD-135): the photographer credit on AC-01 sits closer to the photo's
+   corner, with half the scaffold's 30px space to the bottom and right edges. */
+[data-frame-id="AC-01"] [data-slot="image-1"] {
+  padding-bottom: 15px;
+  padding-right: 15px;
+}

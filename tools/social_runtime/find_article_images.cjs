@@ -11,6 +11,11 @@
 // as the site serves it when that is a JPEG or PNG; any other format, such as WebP
 // or AVIF, is redrawn by the browser and saved as a JPEG.
 //
+// Each picture's photo credit is read from beside it: an element marked as a credit,
+// copyright, or attribution in its figure or near it, a credit line in its caption
+// ("Photo: ...", "Courtesy of ...", "Getty Images"), or, for the share image, the
+// credit the page's structured data gives. Credits are kept word for word.
+//
 // Called by tools/social_runtime/press_images.py, which writes the job file:
 //   node tools/social_runtime/find_article_images.cjs --job <job.json>
 // The result is printed to stdout as JSON.
@@ -56,7 +61,8 @@ async function main() {
         continue;
       }
       seen.add(saved.digest);
-      images.push({ file: saved.file, source_url: candidate.url, where: candidate.where, caption: candidate.caption });
+      images.push({ file: saved.file, source_url: candidate.url, where: candidate.where, caption: candidate.caption,
+        credit: candidate.credit, hero_credit: candidate.hero_credit || null });
     }
     const reason = images.length ? null : candidates.length
       ? 'the article\'s pictures could not be downloaded'
@@ -88,12 +94,68 @@ function findImagesInPage({ minSide, limit }) {
     document.querySelector('main') || document.body;
   const found = [];
   const urls = new Set();
-  const add = (url, where, caption) => {
+  const add = (url, where, caption, credit) => {
     if (!url || url.startsWith('data:')) return;
     const absolute = new URL(url, location.href).href;
     if (urls.has(absolute)) return;
     urls.add(absolute);
-    found.push({ url: absolute, where, caption: caption || null });
+    found.push({ url: absolute, where, caption: caption || null, credit: credit || null });
+  };
+  // Visible words of an element, leaving out style and script text.
+  const words = (el) => {
+    const parts = [];
+    const walk = (node) => {
+      if (node.nodeType === 3) parts.push(node.textContent);
+      else if (node.nodeType === 1 && !/^(STYLE|SCRIPT|NOSCRIPT|SVG)$/.test(node.tagName)) node.childNodes.forEach(walk);
+    };
+    walk(el);
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  };
+  const CREDIT_MARK = /credit|copyright|attribution|courtesy|photographer|byline-photo|image-source|photo-source/i;
+  const CREDIT_LINE = /((?:photo(?:graph)?s?|images?|renderings?|credits?|source)\s*(?:by|:)\s*[^.;|\n]+|courtesy(?: of)?\s+[^.;|\n]+|©\s*[^.;|\n]+|\b(?:getty images|shutterstock|ap photo|reuters|unsplash)\b[^.;|\n]*)/i;
+  const marked = (el) => [el.className && typeof el.className === 'string' ? el.className : '', el.id,
+    el.getAttribute('itemprop'), ...[...el.attributes].filter((a) => a.name.startsWith('data-')).map((a) => a.name)].join(' ');
+  const creditOf = (img, caption) => {
+    const own = img.getAttribute('data-credit') || img.getAttribute('data-photo-credit');
+    if (own && own.trim()) return own.trim();
+    const scopes = [img.closest('figure, [class*="caption" i]')];
+    let el = img;
+    for (let level = 0; level < 3 && el.parentElement; level += 1) {
+      el = el.parentElement;
+      scopes.push(el, el.nextElementSibling);
+    }
+    for (const scope of scopes.filter(Boolean)) {
+      const candidates = [scope, ...scope.querySelectorAll('*')].filter((node) => CREDIT_MARK.test(marked(node)));
+      for (const node of candidates) {
+        const text = words(node);
+        if (text && text.length <= 160 && !node.querySelector('img')) return text;
+      }
+    }
+    const line = caption && caption.match(CREDIT_LINE);
+    return line ? line[0].trim() : null;
+  };
+  const structuredCredit = () => {
+    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+      let data;
+      try {
+        data = JSON.parse(script.textContent);
+      } catch (error) {
+        continue;
+      }
+      const stack = [data];
+      while (stack.length) {
+        const node = stack.pop();
+        if (!node || typeof node !== 'object') continue;
+        if (Array.isArray(node)) { stack.push(...node); continue; }
+        const types = [].concat(node['@type'] || []);
+        if (types.includes('ImageObject')) {
+          const holder = node.creditText || node.copyrightHolder?.name || node.copyrightHolder || node.author?.name;
+          if (typeof holder === 'string' && holder.trim()) return holder.trim();
+        }
+        stack.push(...Object.values(node));
+      }
+    }
+    return null;
   };
   const largest = (img) => {
     const sources = [img.getAttribute('srcset'), img.getAttribute('data-srcset'),
@@ -110,7 +172,8 @@ function findImagesInPage({ minSide, limit }) {
     return best || img.currentSrc || img.src || img.getAttribute('data-src');
   };
   const meta = document.querySelector('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[property="twitter:image"]');
-  if (meta && meta.content) add(meta.content, 'share image', null);
+  const shareCredit = structuredCredit();
+  const shareUrl = meta && meta.content;
   for (const img of body.querySelectorAll('img')) {
     if (found.length >= limit) break;
     if (img.closest(OUTSIDE)) continue;
@@ -119,9 +182,23 @@ function findImagesInPage({ minSide, limit }) {
     const width = img.naturalWidth || img.width;
     const height = img.naturalHeight || img.height;
     if (Math.max(width, height) < minSide && !img.getAttribute('srcset')) continue;
-    const figure = img.closest('figure');
-    const caption = figure?.querySelector('figcaption')?.innerText.trim().replace(/\s+/g, ' ');
-    add(largest(img), 'article', caption);
+    // The caption: a figure's figcaption, or the caption element of a captioned block,
+    // such as WordPress's wp-caption-text.
+    const holder = img.closest('figure, [class*="caption" i]');
+    const captionEl = holder && [...holder.querySelectorAll('figcaption, [class*="caption" i]')]
+      .find((node) => node !== img && !node.querySelector('img') && words(node));
+    const caption = captionEl ? words(captionEl) : null;
+    add(largest(img), 'article', caption, creditOf(img, caption));
+  }
+  // The share image goes first; it is often the article's own hero photo, so it takes
+  // the credit of the first article photo when the structured data gives none.
+  if (shareUrl) {
+    const absolute = new URL(shareUrl, location.href).href;
+    if (!urls.has(absolute)) {
+      urls.add(absolute);
+      found.unshift({ url: absolute, where: 'share image', caption: null,
+        credit: shareCredit || null, hero_credit: found.find((item) => item.where === 'article')?.credit || null });
+    }
   }
   return found;
 }

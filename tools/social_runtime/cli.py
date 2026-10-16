@@ -154,8 +154,16 @@ def _press_images(url: str, output_dir: Path) -> int:
         return 1
     print(f"Saved {len(result['images'])} photo(s) from the {result['outlet']} article in {result['folder']}:")
     for image in result["images"]:
-        caption = f"  caption: {image['caption']}" if image.get("caption") else ""
-        print(f"- {image['file']}  {image['shape']} {image['width']}x{image['height']}  ({image['where']}){caption}")
+        print(f"- {image['file']}  {image['shape']} {image['width']}x{image['height']}  ({image['where']})")
+        if image.get("credit"):
+            print(f"    credit: {image['credit']}")
+        elif image.get("hero_credit"):
+            print(f"    credit: none of its own; the first article photo is credited \"{image['hero_credit']}\""
+                  " (use it only if this is the same photo)")
+        else:
+            print("    credit: none found beside it")
+        if image.get("caption"):
+            print(f"    caption: {image['caption']}")
     print("Look at each one before using it. Use one as {\"file\": \"<path>\"} in the brief.")
     return 0
 

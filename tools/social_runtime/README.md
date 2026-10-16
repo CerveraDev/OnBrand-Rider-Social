@@ -68,7 +68,7 @@ A template whose `image_sources` lists `user-supplied` lets a slide take a local
 "images": {"image-1": {"supplied": "~/Pictures/top-off/crowd-toast.jpg"}}
 ```
 
-The path may be absolute or relative to the spec. The file must be a PNG or JPEG whose orientation, after the JPEG EXIF orientation tag is applied, equals the slot's shape. It is copied into the package as `images/supplied-<hash>` and listed under `supplied` in `asset-manifest.json`; the original path is not recorded. A supplied image is not an owner-approved record: every build that uses one carries a warning that rights and approval rest with the person who supplied it, and an image smaller than its slot is reported as enlarged.
+The path may be absolute or relative to the spec. The file must be a PNG or JPEG whose orientation, after the JPEG EXIF orientation tag is applied, equals the slot's shape. It is copied into the package as `images/supplied-<hash>` and listed under `supplied` in `asset-manifest.json`; the original path is not recorded. A supplied image is not an owner-approved record: every build that uses one carries a warning that rights and approval rest with the person who supplied it, and an image more than 10% smaller than its slot is reported as enlarged; a smaller shortfall, such as a Codex ImageGen portrait of about 1122x1402 in a 1200x1500 slot, is enlarged without a warning (AUD-132).
 
 ## Build modes
 

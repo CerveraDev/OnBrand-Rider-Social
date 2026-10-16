@@ -16,7 +16,7 @@ import shutil
 import subprocess
 import tempfile
 
-from .crops import CropError, image_dimensions
+from .crops import CropError, enlarged_noticeably, image_dimensions
 from .formats import FORMATS_PATH, FormatError, load_formats, require_format
 from .frames import FRAMES_FILE, FrameError, load_frames
 from .profile import AVATAR_SUFFIXES, ProfileError, avatar_path, load_profile, logo_on_light
@@ -153,7 +153,7 @@ def render_package(
         for image, target in zip(result["images"], slide["images"]):
             if target["slot"] in contained:
                 continue
-            if image["natural_width"] < target["width"] or image["natural_height"] < target["height"]:
+            if enlarged_noticeably(image["natural_width"], image["natural_height"], target["width"], target["height"]):
                 warnings.append(
                     f"{label}: the image in '{image['slot']}' is {image['natural_width']}x{image['natural_height']}, "
                     f"smaller than its {target['width']}x{target['height']} area, and was enlarged"

@@ -18,6 +18,17 @@ CROP_STATUSES = ("planned", "approved")
 ASPECT_TOLERANCE = 0.005
 
 
+# An image up to 10% smaller than its area is enlarged without a warning. Codex ImageGen's
+# largest 4:5 portrait is about 1122x1402, 7% short of a 1200x1500 slide, and an
+# enlargement that small does not show (AUD-132).
+ENLARGE_TOLERANCE = 1.10
+
+
+def enlarged_noticeably(width: int, height: int, target_width: int, target_height: int) -> bool:
+    """Whether filling the target area enlarges the image by more than the tolerance."""
+    return width * ENLARGE_TOLERANCE < target_width or height * ENLARGE_TOLERANCE < target_height
+
+
 class CropError(ValueError):
     """Raised when a derived crop's provenance is incomplete or does not verify."""
 

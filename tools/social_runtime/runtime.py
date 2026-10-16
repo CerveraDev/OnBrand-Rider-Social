@@ -14,7 +14,7 @@ from tools.asset_selection.social_approvals import SocialApprovalError, load_soc
 
 from .assets import SocialAssetError, load_social_assets, resolve_direct_asset
 from .copy_allocation import SocialCopyError, validate_copy_allocation
-from .crops import CropError, validate_crop
+from .crops import CropError, enlarged_noticeably, validate_crop
 from .formats import FORMATS_PATH, FormatError, load_formats, require_format
 from .frames import FrameError
 from .generated import GeneratedImageError, accepts, load_policy
@@ -196,7 +196,7 @@ def _build(spec, base_dir, project_dir, manifest_path, formats_path) -> BuildRes
                     generated[image["name"]] = image
                 else:
                     supplied[image["name"]] = image
-                if slot["fit"] == "cover" and (image["width"] < entry["width"] or image["height"] < entry["height"]):
+                if slot["fit"] == "cover" and enlarged_noticeably(image["width"], image["height"], entry["width"], entry["height"]):
                     warnings.append(
                         f"{'AI-generated' if record else 'Supplied'} image '{image['source_name']}' is "
                         f"{image['width']}x{image['height']}, smaller than "

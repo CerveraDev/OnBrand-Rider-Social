@@ -75,13 +75,13 @@ A press article slide with the publication's logo and no photographer credit:
 ```json
 {
   "layout": "AC-01",
-  "images": {"image-1": {"file": "~/Desktop/article-photo.jpg"}, "publication-logo": {"file": "campaign-output/social/logos/therealdeal.com.svg"}},
+  "images": {"image-1": {"file": "campaign-output/social/article-images/therealdeal.com-story/image-01.jpg"}, "publication-logo": {"file": "campaign-output/social/logos/therealdeal.com.svg"}},
   "text": {"byline": "By Author Name", "heading": "THE ARTICLE'S\nHEADLINE", "subheading": "Its subheading"},
   "alt_text": "Tower exterior at dusk"
 }
 ```
 
-A layout with no image areas filled takes `"images": {}`. In a press article carousel, a `publication-logo` given on one `AC-*` slide is used on every `AC-*` slide, so give it once. In a multi-press carousel, give each `PC-02` its own outlet's logo; a slide without one keeps the area empty. The logo file comes from the `press-logo` command and may be a PNG, JPEG, or SVG.
+A layout with no image areas filled takes `"images": {}`. In a press article carousel, a `publication-logo` given on one `AC-*` slide is used on every `AC-*` slide, so give it once. In a multi-press carousel, give each `PC-02` its own outlet's logo; a slide without one keeps the area empty. The logo file comes from the `press-logo` command and may be a PNG, JPEG, or SVG. The photos come from the `press-images` command. `subheading` holds the article's subheading or, when it has none, the rest of a long headline, and is left out when there is neither; it is never the date or byline, which go in `date` on `AC-02` and `AC-03` and in `byline`.
 
 ## What The Command Works Out
 

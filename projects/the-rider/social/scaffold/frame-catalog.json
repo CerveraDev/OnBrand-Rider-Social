@@ -3,13 +3,13 @@
   "tool": "onbrand-social-scaffold-import",
   "source": {
     "url": "http://start-up.local/social-scaffolding/",
-    "imported": "2026-10-11",
-    "raw_page_sha256": "d9319fbae6d4826374e57c5ecf1d89094f69d7c69453a69b038fe9faa830acea",
+    "imported": "2026-10-15",
+    "raw_page_sha256": "1b00eaecfa48351b43c43ac0015e286c57e16eaac6d8a100b49587751a76952d",
     "viewport": {
       "width": 1512,
       "height": 900
     },
-    "additions_sha256": "35c286f2c74d784d6bde13bf4cc865b67f7e0f7db934b78ec3b71a3aa3082668"
+    "additions_sha256": "dd8e07b890122eeba4a0b44e8eaa04290098658558688dfcdf256cb89a24d1f2"
   },
   "files": {
     "scaffold.html": {
@@ -29,7 +29,7 @@
   },
   "verification": {
     "method": "element-by-element box and computed-style comparison against the live page",
-    "elements_compared": 863,
+    "elements_compared": 866,
     "properties_compared": 63,
     "differences": 0
   },
@@ -2331,7 +2331,9 @@
         "locked": [
           "swipe-cue"
         ],
-        "optional": []
+        "optional": [
+          "subheading"
+        ]
       },
       "label_corrections": [],
       "same_label_as": [],
@@ -2505,6 +2507,7 @@
       "rules": {
         "locked": [],
         "optional": [
+          "subheading",
           "publication-logo"
         ]
       },
@@ -2678,6 +2681,7 @@
         "locked": [],
         "optional": [
           "credit",
+          "subheading",
           "publication-logo"
         ]
       },

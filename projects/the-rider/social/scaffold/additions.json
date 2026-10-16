@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112, AUD-119, AUD-122). Remove an entry once the Elementor page carries the same change.",
+  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112, AUD-119, AUD-122, AUD-133). Remove an entry once the Elementor page carries the same change.",
   "frames": {
     "SP-20": {
       "id": "PC-01",
@@ -11,6 +11,9 @@
       },
       "locked": [
         "swipe-cue"
+      ],
+      "optional": [
+        "subheading"
       ]
     },
     "SP-21": {
@@ -21,6 +24,7 @@
         "logo-2": "publication-logo"
       },
       "optional": [
+        "subheading",
         "publication-logo"
       ],
       "edits": [
@@ -45,6 +49,7 @@
       },
       "optional": [
         "credit",
+        "subheading",
         "publication-logo"
       ],
       "edits": [

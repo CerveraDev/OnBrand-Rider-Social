@@ -8,6 +8,7 @@ python3 -m tools.social_runtime.cli images --project <slug> [--list] [--find <te
 python3 -m tools.social_runtime.cli layouts --project <slug>
 python3 -m tools.social_runtime.cli post --brief <path>
 python3 -m tools.social_runtime.cli press-logo --url <article address>
+python3 -m tools.social_runtime.cli press-images --url <article address>
 python3 -m tools.social_runtime.cli image --project <slug> --prompt <text> --shape <shape> --output <path>
 python3 -m tools.social_runtime.cli setup --project <slug>
 python3 -m tools.social_runtime.cli update --project <slug>
@@ -28,6 +29,7 @@ from .frames import (FRAMES_FILE, LABELS_FILE, LIMITS_FILE, FrameError, build_fr
                      load_text_limits)
 from .gallery import GalleryError, write_gallery
 from .imagegen import SHAPES, ImageGenError, generate_image
+from .press_images import ARTICLE_IMAGE_DIR, PressImagesError, find_article_images
 from .press_logo import LOGO_DIR, PressLogoError, find_press_logo
 from .render import RenderError, render_package
 from .runtime import ROOT, SocialRuntimeError, build_social
@@ -61,6 +63,9 @@ def main(argv=None) -> int:
     press_logo = commands.add_parser("press-logo", help="Find a publication's logo on one of its article pages.")
     press_logo.add_argument("--url", required=True, help="The article's web address.")
     press_logo.add_argument("--output", help=f"Folder to save the logo in (default: {LOGO_DIR}).")
+    press_images = commands.add_parser("press-images", help="Save the photos of a press article for its carousel.")
+    press_images.add_argument("--url", required=True, help="The article's web address.")
+    press_images.add_argument("--output", help=f"Folder to save the photos in (default: {ARTICLE_IMAGE_DIR}).")
     image = commands.add_parser("image", help="Make an AI-generated image with Codex ImageGen.")
     image.add_argument("--project", required=True, help="Project slug under projects/.")
     image.add_argument("--prompt", required=True, help="What the image should show.")
@@ -86,6 +91,8 @@ def main(argv=None) -> int:
         return _post(Path(args.brief), show=not args.no_open)
     if args.command == "press-logo":
         return _press_logo(args.url, Path(args.output) if args.output else ROOT / LOGO_DIR)
+    if args.command == "press-images":
+        return _press_images(args.url, Path(args.output) if args.output else ROOT / ARTICLE_IMAGE_DIR)
     if args.command == "image":
         return _image(args)
     if args.command == "gallery":
@@ -127,6 +134,23 @@ def _press_logo(url: str, output_dir: Path) -> int:
         return 0
     print(f"No logo found for {result['outlet']}: {result['reason']}. Leave the logo area empty.")
     return 1
+
+
+def _press_images(url: str, output_dir: Path) -> int:
+    try:
+        result = find_article_images(url, output_dir=output_dir)
+    except PressImagesError as err:
+        print(f"press image search refused: {err}", file=sys.stderr)
+        return 2
+    if not result["images"]:
+        print(f"No article photos saved for {result['outlet']}: {result['reason']}. Ask the user what to use.")
+        return 1
+    print(f"Saved {len(result['images'])} photo(s) from the {result['outlet']} article in {result['folder']}:")
+    for image in result["images"]:
+        caption = f"  caption: {image['caption']}" if image.get("caption") else ""
+        print(f"- {image['file']}  {image['shape']} {image['width']}x{image['height']}  ({image['where']}){caption}")
+    print("Look at each one before using it. Use one as {\"file\": \"<path>\"} in the brief.")
+    return 0
 
 
 def _image(args) -> int:

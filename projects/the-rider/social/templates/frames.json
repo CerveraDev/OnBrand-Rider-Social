@@ -897,7 +897,7 @@
         },
         "subheading": {
           "channel": "on-image-text",
-          "required": true,
+          "required": false,
           "max_lines": 1,
           "max_chars": 49,
           "italic_accent": false
@@ -967,7 +967,7 @@
         },
         "subheading": {
           "channel": "on-image-text",
-          "required": true,
+          "required": false,
           "max_lines": 1,
           "max_chars": 49,
           "italic_accent": false
@@ -1044,7 +1044,7 @@
         },
         "subheading": {
           "channel": "on-image-text",
-          "required": true,
+          "required": false,
           "max_lines": 1,
           "max_chars": 49,
           "italic_accent": false

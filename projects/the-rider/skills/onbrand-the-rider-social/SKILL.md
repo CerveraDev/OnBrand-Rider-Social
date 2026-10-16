@@ -65,6 +65,7 @@ If no layout fits a slide, say so and what is missing; do not force a layout tha
 ## Choosing Images
 
 - **The user's own images win.** If the user gives a file, a folder, or an attachment, use those images. Any layout accepts them. Use `{"file": "<path>"}`.
+- **A press carousel uses the article's own photos**, never catalog images chosen on your own. See [The Article's Photos](#the-articles-photos).
 - **Use the catalog when the request points to official project imagery**, such as "the rooftop pool rendering" or "an amenities carousel". Find candidates with `python3 -m tools.social_runtime.cli images --project the-rider --list --find <word>`, which prints each image's name, subject, shape, and whether it is ready or needs a crop. Use `{"catalog": "<file name>"}` with the exact name.
 - **If it is unclear which the user means, ask.** Do not guess between their photo and a catalog image.
 - **Shape matters.** Each image area needs a portrait, landscape, or square image. A user's file of the wrong shape is refused; ask for another image or choose a layout that fits. Files must be PNG or JPEG; ask the user to export HEIC photos as JPEG.
@@ -129,13 +130,42 @@ Two post types present press coverage. The build recognises each from its layout
 
 Either one also takes single-post and carousel layouts after its cover; see [Mixing Layouts In A Carousel](#mixing-layouts-in-a-carousel).
 
-- **Quote and article text must be the publication's exact words**, given by the user or copied from the article they gave you. Never write, paraphrase, shorten, or tidy a quote, and never invent a byline, date, outlet, or photographer credit. If something is missing, ask.
+- **Quote and article text must be the publication's exact words**, given by the user or copied from the article they gave you. Never write, paraphrase, shorten, or tidy a quote (the one exception is a long subheading; see [Heading And Subheading](#heading-and-subheading)), and never invent a byline, date, outlet, or photographer credit. If something is missing, ask.
 - **The publication's logo** goes bottom left on `AC-01` to `AC-04`, and bottom right on the photo of each `PC-02`, on a small white backing. Find it yourself; never ask the user for a logo file or where to find one. See [Finding The Publication's Logo](#finding-the-publications-logo).
 - **In a press article carousel**, give the logo once, on the `AC-01` slide, and it appears on every `AC-*` slide. **In a multi-press carousel**, each `PC-02` is a different outlet: give each one its own outlet's logo. A logo is never carried from one `PC-02` to another.
 - It is another organisation's logo, so tell the user once that permission to use it is theirs to confirm. The Rider logo is fixed.
-- **Optional parts** are left out by leaving them out of the brief: the photographer `credit` on `AC-01`, the image and second paragraph (`body-2`) on `AC-03`.
+- **Optional parts** are left out by leaving them out of the brief: the photographer `credit` and the `subheading` on `AC-01`, the `subheading` on `PC-01` and `PC-02`, the image and second paragraph (`body-2`) on `AC-03`.
+- **The article's date** goes only in the `date` field of `AC-02` and `AC-03`, and the author only in `byline`. Never put a date, byline, outlet name, or credit in a `heading` or `subheading`.
 - **Fixed words** cannot be changed: "SWIPE" on `PC-01`, and on `AC-04` the eyebrow "There's more to the story" and the "Link in bio" button. Only the `AC-04` subheading is yours to fill.
 - The eyebrow on `PC-01` and `PC-02` is black like all other text on a white block.
+
+### Heading And Subheading
+
+`AC-01`, `PC-01`, and `PC-02` each have a `heading` and an optional `subheading`. When they come from an article:
+
+1. **The article has a subheading** (the line under its headline, sometimes called a dek or standfirst): put the headline in `heading` and the article's subheading in `subheading`, both word for word.
+2. **The article has no subheading and its headline is too long for `heading`:** the `subheading` continues the headline. Put as much of the headline in `heading` as fits, then the rest in `subheading`, breaking between words, ideally at a natural pause. Keep every word as written and add no dash or other punctuation; if the rest is too long for `subheading`, truncate it as below.
+3. **The article has no subheading and its headline fits in `heading`:** leave `subheading` out of the brief, and the area is left off the slide. Do not fill it with the date, the byline, or words of your own.
+
+**A subheading too long for its one line is truncated.** This applies to the article's subheading and to the end of a split headline. Keep the words from the start, cut after the last whole word that fits, and end with an ellipsis (…). Change nothing else. Tell the user which subheading was truncated.
+
+`PC-01` is the cover for several outlets: when its heading is one article's headline, these rules apply; when the user gives their own words for it, use those.
+
+### The Article's Photos
+
+Every image area in a press carousel, on `AC-*` and `PC-*` slides and on any `SP-*` or `SC-*` slide mixed in, is filled with photos from the article it presents. For every article in the post, run, with its address:
+
+`python3 -m tools.social_runtime.cli press-images --url <article address>`
+
+It opens the article in the slide renderer's browser, saves the photos in the article and the share image the page names for itself under `campaign-output/social/article-images/`, and lists each one with its shape, size, and caption. It skips small pictures, icons, and logos.
+
+- **Look at each photo first** and drop any that is not part of the story, such as an advert or a photo of another article. Then match the photos to the image areas by shape. Use one as `{"file": "<path>"}`.
+- **In a multi-press carousel**, each `PC-02` takes a photo from its own outlet's article, and `PC-01` takes one from any of the articles.
+- **`AC-03`'s image is optional.** Give it another photo from the article if there is one; otherwise leave it out.
+- **The photographer `credit` on `AC-01`** is used only when the article names the photographer, for example in the photo's caption, and in its exact words.
+- **When the article has no usable photo**, because it has none, the site blocked the visit, or none is the shape an area needs, tell the user which and ask whether they want an image from the catalog or one of their own. Do not choose a catalog image without asking, and do not make one with AI unless the user asks for that.
+- **The article address** is found the same way as for the logo, below.
+- The photos belong to the publication or its photographers, so tell the user once that permission to post them is theirs to confirm.
 
 ### Finding The Publication's Logo
 

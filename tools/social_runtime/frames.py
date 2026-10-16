@@ -14,12 +14,16 @@ import math
 from pathlib import Path
 import re
 
+from tools.layout_labels import VOCABULARY_VERSION, LabelError, check_labels, computed_content
+
 
 FRAMES_VERSION = "1.0"
 FRAMES_FILE = "frames.json"
 # Owner-set text limits that replace the estimates; regenerating definitions keeps them.
 LIMITS_FILE = "text-limits.json"
 LIMIT_FIELDS = {"max_lines", "max_chars"}
+# Owner labels (purpose, content, tone) merged into each frame; regenerating definitions keeps them.
+LABELS_FILE = "layout-labels.json"
 FRAME_ID_RE = re.compile(r"[A-Z]{2}-\d{2}")
 SHAPES = ("landscape", "portrait", "square")
 # A contain-fitted area, such as another organisation's logo, takes an image of any shape.
@@ -48,8 +52,9 @@ class FrameError(ValueError):
     """Raised when frame definitions are malformed or out of date."""
 
 
-def build_frame_definitions(catalog: dict, *, logo_label: str, limits: dict | None = None) -> dict:
-    """Derive frame definitions from a scaffold frame catalog, applying owner-set text limits."""
+def build_frame_definitions(catalog: dict, *, logo_label: str, limits: dict | None = None,
+                            labels: dict | None = None) -> dict:
+    """Derive frame definitions from a scaffold frame catalog, applying owner-set text limits and labels."""
     frames = {}
     for entry in catalog["frames"]:
         observed = entry["observed"]
@@ -92,6 +97,15 @@ def build_frame_definitions(catalog: dict, *, logo_label: str, limits: dict | No
             if slot not in frames.get(frame_id, {}).get("text_slots", {}):
                 raise FrameError(f"{LIMITS_FILE} sets a limit for '{slot}' on {frame_id}, which has no such text slot")
             frames[frame_id]["text_slots"][slot].update(rule)
+    if labels:
+        unknown = sorted(set(labels) - set(frames))
+        missing = sorted(set(frames) - set(labels))
+        if unknown:
+            raise FrameError(f"{LABELS_FILE} labels {', '.join(unknown)}, which the scaffold does not have")
+        if missing:
+            raise FrameError(f"{LABELS_FILE} has no labels for {', '.join(missing)}; every layout needs them")
+        for frame_id, frame in frames.items():
+            frame["labels"] = _check_frame_labels(frame_id, frame, labels[frame_id], LABELS_FILE)
     return {
         "schema_version": FRAMES_VERSION,
         "generated_from": {
@@ -118,6 +132,9 @@ def load_frames(path: Path | str) -> dict:
         raise FrameError("Frame definitions must define at least one frame")
     for frame_id, frame in frames.items():
         _validate_frame(frame_id, frame)
+    labeled = [frame_id for frame_id, frame in frames.items() if "labels" in frame]
+    if labeled and len(labeled) != len(frames):
+        raise FrameError(f"Frame definitions label some layouts but not {', '.join(sorted(set(frames) - set(labeled)))}")
     return data
 
 
@@ -137,6 +154,30 @@ def load_text_limits(path: Path | str) -> dict:
     return frames
 
 
+def load_layout_labels(path: Path | str) -> dict:
+    """Read a project's owner labels: layout id to purpose, content, and tone. No file means no labels yet."""
+    path = Path(path)
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        layouts = data["layouts"]
+    except (json.JSONDecodeError, KeyError, TypeError) as err:
+        raise FrameError(f"Invalid {LABELS_FILE}: {err}") from err
+    if data.get("vocabulary") != VOCABULARY_VERSION:
+        raise FrameError(f"{LABELS_FILE} must use vocabulary {VOCABULARY_VERSION}")
+    if not isinstance(layouts, dict) or not layouts:
+        raise FrameError(f"{LABELS_FILE} must label at least one layout")
+    return layouts
+
+
+def frame_content(frame: dict) -> list[str]:
+    """The content values a frame's image areas decide: its photo count and any outlet logo area."""
+    areas = frame["image_slots"]
+    return computed_content(sum(area["fit"] == "cover" for area in areas),
+                            any(area["fit"] == "contain" for area in areas))
+
+
 def catalog_sha256(path: Path | str) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -153,8 +194,8 @@ def _validate_frame(frame_id: str, frame: object) -> None:
     label = f"frame {frame_id}"
     if not FRAME_ID_RE.fullmatch(frame_id):
         raise FrameError(f"Invalid frame id: {frame_id!r}")
-    if not isinstance(frame, dict) or set(frame) != FRAME_FIELDS:
-        raise FrameError(f"{label} must define exactly: {', '.join(sorted(FRAME_FIELDS))}")
+    if not isinstance(frame, dict) or set(frame) - {"labels"} != FRAME_FIELDS:
+        raise FrameError(f"{label} must define exactly: {', '.join(sorted(FRAME_FIELDS))}, and may add labels")
     canvas = frame["canvas"]
     if not isinstance(canvas, dict) or set(canvas) != {"width", "height"} or not all(_positive_int(v) for v in canvas.values()):
         raise FrameError(f"{label} canvas must give positive integer width and height")
@@ -191,6 +232,15 @@ def _validate_frame(frame_id: str, frame: object) -> None:
         not isinstance(v, str) or not v for v in locked.values()
     ) or set(locked) & set(slots):
         raise FrameError(f"{label} locked must map names distinct from text slots to non-empty strings")
+    if "labels" in frame and _check_frame_labels(frame_id, frame, frame["labels"], FRAMES_FILE) != frame["labels"]:
+        raise FrameError(f"{label} labels must list content in vocabulary order; re-run the frames command")
+
+
+def _check_frame_labels(frame_id: str, frame: dict, labels: object, source: str) -> dict:
+    try:
+        return check_labels(labels, frame_content(frame), f"{source} {frame_id}")
+    except LabelError as err:
+        raise FrameError(str(err)) from err
 
 
 def _positive_int(value: object) -> bool:

@@ -24,7 +24,8 @@ import webbrowser
 from .assets import SocialAssetError
 from .brief import BriefError, compose_spec, describe_layouts
 from .catalog import CatalogError, list_catalog, write_catalog
-from .frames import FRAMES_FILE, LIMITS_FILE, FrameError, build_frame_definitions, load_text_limits
+from .frames import (FRAMES_FILE, LABELS_FILE, LIMITS_FILE, FrameError, build_frame_definitions, load_layout_labels,
+                     load_text_limits)
 from .gallery import GalleryError, write_gallery
 from .imagegen import SHAPES, ImageGenError, generate_image
 from .press_logo import LOGO_DIR, PressLogoError, find_press_logo
@@ -231,6 +232,8 @@ def _layouts(project_dir: Path) -> int:
                 ("fixed text", ", ".join(f"{slot} \"{words}\"" for slot, words in parts["fixed"].items())),
                 ("can hide", ", ".join(parts["can_hide"])),
                 ("AI-generated image", "yes" if parts["ai_images"] else "no" if parts["images"] else ""),
+                ("labels", "" if "labels" not in parts else f"{' and '.join(parts['labels']['purpose'])}, {parts['labels']['tone']}; "
+                 f"holds {', '.join(parts['labels']['content'])}"),
             ) if value
         )
         print(f"{layout}  images: {images}  |  text: {text}{extras}")
@@ -285,8 +288,10 @@ def _write_frames(project_dir: Path) -> int:
         return 2
     path = project_dir / "social" / "templates" / FRAMES_FILE
     try:
+        scaffold_dir = project_dir / "social" / "scaffold"
         definitions = build_frame_definitions(catalog, logo_label=f"{project['project_name']} logo",
-                                              limits=load_text_limits(project_dir / "social" / "scaffold" / LIMITS_FILE))
+                                              limits=load_text_limits(scaffold_dir / LIMITS_FILE),
+                                              labels=load_layout_labels(scaffold_dir / LABELS_FILE))
     except FrameError as err:
         print(f"frame generation refused: {err}", file=sys.stderr)
         return 2

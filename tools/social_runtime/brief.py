@@ -358,6 +358,7 @@ def describe_layouts(project_dir: Path | str) -> dict:
                     }
                     for slot, rule in frame["text_slots"].items()
                 },
+                **({"labels": frame["labels"]} if "labels" in frame else {}),
             }
             for frame_id, frame in frames.items()
         },

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "generated_from": {
-    "scaffold_html_sha256": "79db46d833645dac309f14c71dddf68ba8a9cfd1b041e815f85f87fbc1dc1314",
+    "scaffold_html_sha256": "80ebe429d722bbcf99a96a81883cb40a8fc8baf35e42e0d0ebc2300b72d6fc28",
     "scaffold_css_sha256": "8935bcfca681e4e11a74335de4616de466d55a00620fc61defcb056f08454f6f"
   },
   "limit_basis": "Estimated from each slot's rendered line count, available width, and font size in the scaffold, except where the project's text-limits.json sets an owner-decided limit. Estimates are draft pending owner review.",
@@ -34,7 +34,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-02": {
       "family": "post",
@@ -64,7 +74,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-03": {
       "family": "post",
@@ -94,7 +114,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-04": {
       "family": "post",
@@ -131,7 +161,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-05": {
       "family": "post",
@@ -168,7 +208,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-06": {
       "family": "post",
@@ -205,7 +255,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-07": {
       "family": "post",
@@ -242,7 +302,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-08": {
       "family": "post",
@@ -279,7 +349,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-09": {
       "family": "post",
@@ -316,7 +396,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-10": {
       "family": "post",
@@ -353,7 +443,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "SP-11": {
       "family": "post",
@@ -383,7 +483,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-12": {
       "family": "post",
@@ -413,7 +523,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-13": {
       "family": "post",
@@ -450,7 +570,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-14": {
       "family": "post",
@@ -487,7 +617,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-15": {
       "family": "post",
@@ -524,7 +664,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-16": {
       "family": "post",
@@ -561,7 +711,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-17": {
       "family": "post",
@@ -598,7 +758,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-18": {
       "family": "post",
@@ -635,7 +805,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SP-19": {
       "family": "post",
@@ -672,7 +852,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "PC-01": {
       "family": "press",
@@ -724,7 +914,17 @@
         "logo": "The Rider logo",
         "swipe-cue": "SWIPE"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "introduce"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "editorial"
+      }
     },
     "PC-02": {
       "family": "press",
@@ -783,7 +983,18 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo",
+          "outlet logo"
+        ],
+        "tone": "editorial"
+      }
     },
     "AC-01": {
       "family": "press",
@@ -842,7 +1053,18 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "introduce"
+        ],
+        "content": [
+          "short headline",
+          "single photo",
+          "outlet logo"
+        ],
+        "tone": "editorial"
+      }
     },
     "AC-02": {
       "family": "press",
@@ -893,7 +1115,18 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "quote"
+        ],
+        "content": [
+          "quote",
+          "no photo",
+          "outlet logo"
+        ],
+        "tone": "editorial"
+      }
     },
     "AC-03": {
       "family": "press",
@@ -952,7 +1185,18 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "explain"
+        ],
+        "content": [
+          "long text",
+          "single photo",
+          "outlet logo"
+        ],
+        "tone": "editorial"
+      }
     },
     "AC-04": {
       "family": "press",
@@ -984,7 +1228,19 @@
         "eyebrow": "THERE'S MORE TO THE STORY",
         "button": "LINK IN BIO"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "close",
+          "invite"
+        ],
+        "content": [
+          "short headline",
+          "no photo",
+          "outlet logo"
+        ],
+        "tone": "quiet"
+      }
     },
     "SC-01": {
       "family": "carousel",
@@ -1026,7 +1282,18 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase",
+          "introduce"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SC-02": {
       "family": "carousel",
@@ -1061,7 +1328,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SC-03": {
       "family": "carousel",
@@ -1096,7 +1373,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SC-04": {
       "family": "carousel",
@@ -1139,7 +1426,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "several photos"
+        ],
+        "tone": "editorial"
+      }
     },
     "SC-05": {
       "family": "carousel",
@@ -1182,7 +1479,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "several photos"
+        ],
+        "tone": "editorial"
+      }
     },
     "SC-06": {
       "family": "carousel",
@@ -1225,7 +1532,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SC-07": {
       "family": "carousel",
@@ -1268,7 +1585,17 @@
         }
       },
       "locked": {},
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "showcase"
+        ],
+        "content": [
+          "short headline",
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-01": {
       "family": "gallery",
@@ -1305,7 +1632,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "introduce"
+        ],
+        "content": [
+          "short headline",
+          "single photo"
+        ],
+        "tone": "bold"
+      }
     },
     "SG-02": {
       "family": "gallery",
@@ -1359,7 +1696,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-03": {
       "family": "gallery",
@@ -1421,7 +1767,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-04": {
       "family": "gallery",
@@ -1475,7 +1830,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-05": {
       "family": "gallery",
@@ -1521,7 +1885,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-06": {
       "family": "gallery",
@@ -1599,7 +1972,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-07": {
       "family": "gallery",
@@ -1661,7 +2043,16 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "gallery"
+        ],
+        "content": [
+          "several photos"
+        ],
+        "tone": "quiet"
+      }
     },
     "SG-08": {
       "family": "gallery",
@@ -1706,7 +2097,17 @@
       "locked": {
         "logo": "The Rider logo"
       },
-      "optional_marks": []
+      "optional_marks": [],
+      "labels": {
+        "purpose": [
+          "close"
+        ],
+        "content": [
+          "short headline",
+          "several photos"
+        ],
+        "tone": "warm"
+      }
     }
   }
 }

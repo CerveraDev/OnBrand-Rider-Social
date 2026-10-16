@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112, AUD-119). Remove an entry once the Elementor page carries the same change.",
+  "purpose": "Owner-directed changes applied on top of the Elementor page at import (AUD-112, AUD-119, AUD-122). Remove an entry once the Elementor page carries the same change.",
   "frames": {
     "SP-20": {
       "id": "PC-01",
@@ -61,6 +61,14 @@
     "SP-23": {
       "id": "AC-02",
       "family": "press",
+      "label": [
+        "UNFRAMED, EDGE-TO-EDGE LAYOUT",
+        "THIS LAYOUT IS IDEAL AS A SLIDE AFTER THE COVER OF A PRESS ARTICLE CAROUSEL. IT FEATURES ONE QUOTE FROM THE ARTICLE. A CAROUSEL USES AT MOST TWO SLIDES OF THIS LAYOUT AND AC-03 COMBINED.",
+        "NO IMAGE. BLACK TEXT ON A WHITE BACKGROUND.",
+        "SOURCE LABEL TOP LEFT AND ARTICLE DATE TOP RIGHT.",
+        "LARGE QUOTE IN THE MIDDLE, LEFT-ALIGNED, WITH THE AUTHOR BYLINE BELOW IT.",
+        "PUBLICATION LOGO BOTTOM LEFT AND THE RIDER LOGO BOTTOM RIGHT."
+      ],
       "slots": {
         "copy": "source-label",
         "copy-2": "date",
@@ -86,6 +94,15 @@
     "SP-24": {
       "id": "AC-03",
       "family": "press",
+      "label": [
+        "UNFRAMED, EDGE-TO-EDGE LAYOUT",
+        "THIS LAYOUT IS IDEAL AS A SLIDE AFTER THE COVER OF A PRESS ARTICLE CAROUSEL. IT FEATURES AN EXCERPT FROM THE ARTICLE. A CAROUSEL USES AT MOST TWO SLIDES OF THIS LAYOUT AND AC-02 COMBINED.",
+        "BLACK TEXT ON A WHITE BACKGROUND.",
+        "SOURCE LABEL TOP LEFT AND ARTICLE DATE TOP RIGHT.",
+        "OPTIONAL LANDSCAPE IMAGE BELOW THEM, AI GENERATED FROM A PROMPT OR PROVIDED BY THE USER.",
+        "EXCERPT BELOW THE IMAGE IN ONE OR TWO LEFT-ALIGNED PARAGRAPHS OF BODY TEXT; THE SECOND PARAGRAPH IS OPTIONAL. NO HEADING AND NO BYLINE.",
+        "PUBLICATION LOGO BOTTOM LEFT AND THE RIDER LOGO BOTTOM RIGHT."
+      ],
       "slots": {
         "copy": "source-label",
         "copy-2": "date",

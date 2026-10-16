@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "approved": "2026-10-15",
+  "decision": "AUD-121, amended by AUD-123",
+  "fields": {
+    "purpose": {
+      "pick": "one or two",
+      "order": "main purpose first",
+      "meaning": "The job the layout or block does in the post or email. A second purpose is for a layout that truly does two jobs, not a hedge.",
+      "values": ["introduce", "showcase", "explain", "quote", "gallery", "invite", "close"]
+    },
+    "content": {
+      "pick": "one or more",
+      "meaning": "What the layout or block holds well.",
+      "values": ["short headline", "long text", "quote", "single photo", "several photos", "no photo", "outlet logo"],
+      "computed": ["single photo", "several photos", "no photo", "outlet logo"]
+    },
+    "tone": {
+      "pick": "one",
+      "meaning": "How the layout or block feels.",
+      "values": ["editorial", "bold", "quiet", "warm"]
+    }
+  }
+}

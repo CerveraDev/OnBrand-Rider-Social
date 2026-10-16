@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "vocabulary": "v1",
+  "purpose": "Owner labels for each layout, merged into the frame definitions by the frames command (AUD-121).",
+  "layouts": {
+    "SP-01": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-02": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-03": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-04": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-05": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-06": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-07": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-08": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-09": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-10": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "SP-11": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-12": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-13": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-14": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-15": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-16": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-17": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-18": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SP-19": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "PC-01": {
+      "purpose": [
+        "introduce"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "editorial"
+    },
+    "PC-02": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo",
+        "outlet logo"
+      ],
+      "tone": "editorial"
+    },
+    "AC-01": {
+      "purpose": [
+        "introduce"
+      ],
+      "content": [
+        "short headline",
+        "single photo",
+        "outlet logo"
+      ],
+      "tone": "editorial"
+    },
+    "AC-02": {
+      "purpose": [
+        "quote"
+      ],
+      "content": [
+        "quote",
+        "no photo",
+        "outlet logo"
+      ],
+      "tone": "editorial"
+    },
+    "AC-03": {
+      "purpose": [
+        "explain"
+      ],
+      "content": [
+        "long text",
+        "single photo",
+        "outlet logo"
+      ],
+      "tone": "editorial"
+    },
+    "AC-04": {
+      "purpose": [
+        "close",
+        "invite"
+      ],
+      "content": [
+        "short headline",
+        "no photo",
+        "outlet logo"
+      ],
+      "tone": "quiet"
+    },
+    "SC-01": {
+      "purpose": [
+        "showcase",
+        "introduce"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SC-02": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SC-03": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SC-04": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "several photos"
+      ],
+      "tone": "editorial"
+    },
+    "SC-05": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "several photos"
+      ],
+      "tone": "editorial"
+    },
+    "SC-06": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SC-07": {
+      "purpose": [
+        "showcase"
+      ],
+      "content": [
+        "short headline",
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-01": {
+      "purpose": [
+        "introduce"
+      ],
+      "content": [
+        "short headline",
+        "single photo"
+      ],
+      "tone": "bold"
+    },
+    "SG-02": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-03": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-04": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-05": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-06": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-07": {
+      "purpose": [
+        "gallery"
+      ],
+      "content": [
+        "several photos"
+      ],
+      "tone": "quiet"
+    },
+    "SG-08": {
+      "purpose": [
+        "close"
+      ],
+      "content": [
+        "short headline",
+        "several photos"
+      ],
+      "tone": "warm"
+    }
+  }
+}

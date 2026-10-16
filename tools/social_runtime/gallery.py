@@ -124,6 +124,7 @@ def _frame(entry: dict, definition: dict, templates: list[dict], ai_images: bool
     return {
         "id": entry["id"], "family": entry["family"], "preview": f"previews/{entry['id']}.jpg",
         "layout": layout, "photos": photos, "text": text, "used": used,
+        **({"labels": definition["labels"]} if "labels" in definition else {}),
     }
 
 
@@ -265,6 +266,8 @@ _PAGE = """<!doctype html>
     return `${total} photo${total > 1 ? 's' : ''}: ` + Object.entries(count).map(([shape, n]) => `${n} ${shape}`).join(', ');
   };
   const textLine = (frame) => frame.text.length ? frame.text.map((slot) => slot.label).join(', ') : 'No text';
+  const labelLine = (frame) => frame.labels
+    ? `${frame.labels.purpose.join(' and ')}, ${frame.labels.tone}; holds ${frame.labels.content.join(', ')}` : null;
   const usedLine = (frame) => frame.used.length
     ? [...new Set(frame.used.map((use) => use.label))].join(', ') : 'Not in a post type yet';
 
@@ -295,7 +298,8 @@ _PAGE = """<!doctype html>
     const facts = el('ul', { className: 'facts' },
       el('li', {}, el('b', { textContent: 'Photos ' }), photoLine(frame).replace(/^\\d+ photos?: /, '')),
       el('li', {}, el('b', { textContent: 'Text ' }), textLine(frame)),
-      el('li', {}, el('b', { textContent: 'Look ' }), frame.layout.slice(0, 2).join(' · ')));
+      el('li', {}, el('b', { textContent: 'Look ' }), frame.layout.slice(0, 2).join(' · ')),
+      ...(frame.labels ? [el('li', {}, el('b', { textContent: 'Labels ' }), labelLine(frame))] : []));
     const add = el('button', { className: 'pill add', type: 'button', textContent: 'Add to my post' });
     add.onclick = () => pick(frame.id);
     const node = el('div', { className: 'card' + (picked.includes(frame.id) ? ' picked' : '') }, shot,
@@ -324,6 +328,9 @@ _PAGE = """<!doctype html>
           + (slot.italic ? ', one word or phrase can be italic' : '') : 'None',
       }))),
       el('h4', { textContent: 'Can be used in' }), el('ul', {}, el('li', { textContent: usedLine(frame) })),
+      ...(frame.labels ? [el('h4', { textContent: 'Labels' }), el('ul', {},
+        el('li', { textContent: `Purpose: ${frame.labels.purpose.join(' and ')}` }), el('li', { textContent: `Tone: ${frame.labels.tone}` }),
+        el('li', { textContent: `Holds: ${frame.labels.content.join(', ')}` }))] : []),
       el('div', { className: 'row' }, add, close));
     $('dialog').showModal();
   }

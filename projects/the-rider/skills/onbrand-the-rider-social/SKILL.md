@@ -32,13 +32,35 @@ Both pages open in the user's browser on their own; do not send the user looking
 
 ## Workflow
 
-1. **Layouts.** If the user named layouts, use them in that order. If not, either offer to open the layout gallery or propose a sequence and say which layouts you chose. Read the current rules with `python3 -m tools.social_runtime.cli layouts --project the-rider`; it lists the post types, which layouts go where, each layout's image areas with the shape they need, and each text field's line limit and approximate length.
+1. **Layouts.** If the user named layouts, use them in that order. If not, either offer to open the layout gallery or propose a sequence and say which layouts you chose. Read the current rules with `python3 -m tools.social_runtime.cli layouts --project the-rider`; it lists the post types, which layouts go where, each layout's image areas with the shape they need, and each text field's line limit and approximate length. When you choose layouts yourself, shortlist them by their labels first; see [Layout labels](#layout-labels).
 2. **Images.** See [Choosing images](#choosing-images).
 3. **Text.** See [Text](#text).
 4. **Brief.** Write the brief to `campaign-output/social/briefs/<slug>.json` in the format described in [references/brief.md](references/brief.md).
 5. **Build.** Run `python3 -m tools.social_runtime.cli post --brief campaign-output/social/briefs/<slug>.json`. It works out the post type, builds the package, renders every slide, and opens the phone-style preview in the user's browser.
 6. **Read the result.** The command prints a summary. Exit code 0 means every check passed. Exit code 2 means it was refused before building; the message says what to change in the brief. Exit code 1 means a check failed; `failed_checks` names it. The usual one is `text:<field>: N of M lines`, which means that text wraps onto more lines than the layout allows: shorten it or move a line break, then run the command again. Never edit the output by hand to get around a refusal or a failed check.
 7. **Report.** Tell the user the preview is open, where the slide images are (`slides/branded/slide-NN.jpg` inside the package folder in the summary), and anything in `warnings` they need to know, in plain words. Offer changes; a change is an edit to the brief and another run.
+
+## Layout Labels
+
+Each layout carries the owner's labels, shown at the end of its line in `layouts` and on its card in the gallery: one or two purposes (main purpose first), a tone, and what it holds. When you choose layouts yourself:
+
+1. **Shortlist by purpose.** For each slide, keep the layouts whose purposes include that slide's job:
+   - **introduce:** opens the piece.
+   - **showcase:** presents one feature of the property, mostly through a photo.
+   - **explain:** gives information to read.
+   - **quote:** sets someone else's words apart, with their name or source.
+   - **gallery:** lets several photos carry the message.
+   - **invite:** asks the reader to act.
+   - **close:** ends the piece.
+2. **Then by what it holds.** Keep the layouts that hold what the user has:
+   - `quote` for a quotation.
+   - `long text` for a paragraph.
+   - `short headline` for a heading.
+   - `several photos`, `single photo`, or `no photo` for the images available.
+   - `outlet logo` for a publication's logo.
+3. **Then choose by tone and the post type's rules.** The tones are editorial, bold, quiet, and warm. Say which layouts you chose and why.
+
+If no layout fits a slide, say so and what is missing; do not force a layout that does not fit. Labels guide the choice only: the post type rules and the build's checks still decide what is allowed, and layouts the user names are used as named.
 
 ## Choosing Images
 

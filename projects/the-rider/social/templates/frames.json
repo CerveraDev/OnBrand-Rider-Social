@@ -877,7 +877,11 @@
           "height": 396,
           "shape": "landscape",
           "fit": "cover",
-          "required": true
+          "required": true,
+          "fluid": {
+            "min_height": 250,
+            "max_height": 396
+          }
         }
       ],
       "text_slots": {
@@ -939,7 +943,11 @@
           "height": 396,
           "shape": "landscape",
           "fit": "cover",
-          "required": true
+          "required": true,
+          "fluid": {
+            "min_height": 250,
+            "max_height": 396
+          }
         },
         {
           "slot": "publication-logo",
@@ -1009,7 +1017,11 @@
           "height": 450,
           "shape": "landscape",
           "fit": "cover",
-          "required": true
+          "required": true,
+          "fluid": {
+            "min_height": 250,
+            "max_height": 450
+          }
         },
         {
           "slot": "publication-logo",
@@ -1141,7 +1153,11 @@
           "height": 250,
           "shape": "landscape",
           "fit": "cover",
-          "required": false
+          "required": false,
+          "fluid": {
+            "min_height": 225,
+            "max_height": 304
+          }
         },
         {
           "slot": "publication-logo",

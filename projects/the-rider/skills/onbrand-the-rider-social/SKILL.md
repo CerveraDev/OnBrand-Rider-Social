@@ -131,7 +131,7 @@ Two post types present press coverage. The build recognises each from its layout
 Either one also takes single-post and carousel layouts after its cover; see [Mixing Layouts In A Carousel](#mixing-layouts-in-a-carousel).
 
 - **Quote and article text must be the publication's exact words**, given by the user or copied from the article they gave you. Never write, paraphrase, shorten, or tidy a quote (the one exception is a long subheading; see [Heading And Subheading](#heading-and-subheading)), and never invent a byline, date, outlet, or photographer credit. If something is missing, ask.
-- **The publication's logo** goes bottom left on `AC-01` to `AC-04`, and bottom right on the photo of each `PC-02`, on a small white backing. Find it yourself; never ask the user for a logo file or where to find one. See [Finding The Publication's Logo](#finding-the-publications-logo).
+- **The publication's logo** goes bottom left on `AC-01` to `AC-04`, and bottom right on the photo of each `PC-02`, on a small white backing. Find it yourself; never ask the user for a logo file or where to find one. When there is no usable logo picture, the outlet's name is typeset in its place. See [Finding The Publication's Logo](#finding-the-publications-logo).
 - **In a press article carousel**, give the logo once, on the `AC-01` slide, and it appears on every `AC-*` slide. **In a multi-press carousel**, each `PC-02` is a different outlet: give each one its own outlet's logo. A logo is never carried from one `PC-02` to another.
 - It is another organisation's logo, so tell the user once that permission to use it is theirs to confirm. The Rider logo is fixed.
 - **Optional parts** are left out by leaving them out of the brief: the photographer `credit` and the `subheading` on `AC-01`, the `subheading` on `PC-01` and `PC-02`, the image and second paragraph (`body-2`) on `AC-03`.
@@ -169,16 +169,23 @@ It opens the article in the slide renderer's browser, saves the photos in the ar
 
 ### Finding The Publication's Logo
 
-For every outlet in a press post, run, with the address of that outlet's article:
+The logo area on `PC-02` and `AC-01` to `AC-04` is never left empty: it shows the outlet's logo or, when there is no usable logo picture, the outlet's name typeset in its place. For every outlet in a press post, run, with the address of that outlet's article and the outlet's name as the article gives it:
 
-`python3 -m tools.social_runtime.cli press-logo --url <article address>`
+`python3 -m tools.social_runtime.cli press-logo --url <article address> --name "<outlet name>"`
 
-It opens the article in the slide renderer's browser, takes the outlet's logo from the page header or navigation (or, failing that, the publisher logo the page names), and saves it under `campaign-output/social/logos/`.
+It opens the article in the slide renderer's browser and takes the outlet's logo from the page header or navigation, including a logo the page keeps hidden while it loads, or else the publisher logo the page names. When none is usable, because the site blocked the visit, it serves only a white logo, or its logo is plain text, it typesets the name instead, in black Helvetica bold capitals. It saves the result under `campaign-output/social/logos/`.
 
-- **When it finds one** it prints `Logo file:` and `Look at it first:`. Open the preview image and check that it is the outlet's own logo, not a sponsor, a section badge, or another site's. If it is right, use the logo file: `"publication-logo": {"file": "<logo file>"}`. If it is wrong, leave the area empty.
-- **When it finds none** it says why, for example that the site blocked the visit or only has a white logo for a dark header. Leave `publication-logo` out of that slide: the area stays empty. Tell the user in one line which outlet has no logo and why; do not ask them for one.
-- **The article address.** Use the link the user gave. If they gave only the article's text and you can search the web, find the article by its headline and outlet; otherwise leave the logo out.
+- **Look at the preview every time.** The command prints `Logo file:` and `Look at it first:`. Open the preview and check that it is the outlet's own logo, not a sponsor, a section badge, a parent company, or another site's. If it is right, use it: `"publication-logo": {"file": "<logo file>"}`.
+- **When the logo found is wrong,** run the command again with `--typeset` added, which skips the search and typesets the name, and use that file.
+- **When the name was typeset,** the command says so and why. Check the name is spelled as the outlet writes it, and tell the user in one line that the slide shows the outlet's name in place of its logo.
+- **The outlet's name** is the publication's own name, such as "The Wall Street Journal", not its web address. Take it from the article or the user's request.
+- **The article address.** Use the link the user gave. If they gave only the article's text and you can search the web, find the article by its headline and outlet; otherwise run the command with `--typeset` and any address of the outlet's site.
 - **A logo the user supplies anyway** is used as given, a PNG, JPEG, or SVG file.
+
+### Photo Areas That Follow The Photo
+
+The photo areas on `PC-01`, `PC-02`, `AC-01`, and `AC-03` take the shape of the photo they hold, so an article's photo shows whole, and the white text block grows or shrinks to match. Each area has limits that keep room for the text: on `PC-01` and `PC-02` it is at most its designed height, on `AC-01` the same, and on `AC-03` it can grow to a 16:9 photo. A photo wider than 2.4:1, or taller than the limit allows, is cropped, centred. The photo must still be landscape.
+
 ## Text And Logo Colour
 
 - **Text is white (`#ffffff`) or black (`#000000`), nothing else.** The build chooses between them; the brief has no colour setting. If the user asks for any other text colour, or for a gradient on text or on a word, say that the brand allows only white or black text and do not attempt it by any route.

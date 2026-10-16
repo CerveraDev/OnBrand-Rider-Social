@@ -81,7 +81,7 @@ A press article slide with the publication's logo and no photographer credit:
 }
 ```
 
-A layout with no image areas filled takes `"images": {}`. In a press article carousel, a `publication-logo` given on one `AC-*` slide is used on every `AC-*` slide, so give it once. In a multi-press carousel, give each `PC-02` its own outlet's logo; a slide without one keeps the area empty. The logo file comes from the `press-logo` command and may be a PNG, JPEG, or SVG. The photos come from the `press-images` command. `subheading` holds the article's subheading or, when it has none, the rest of a long headline, and is left out when there is neither; it is never the date or byline, which go in `date` on `AC-02` and `AC-03` and in `byline`.
+A layout with no image areas filled takes `"images": {}`. In a press article carousel, a `publication-logo` given on one `AC-*` slide is used on every `AC-*` slide, so give it once. In a multi-press carousel, give each `PC-02` its own outlet's logo. The logo file, or the outlet's typeset name when it has no usable logo, comes from the `press-logo` command and may be a PNG, JPEG, or SVG. The photos come from the `press-images` command. `subheading` holds the article's subheading or, when it has none, the rest of a long headline, and is left out when there is neither; it is never the date or byline, which go in `date` on `AC-02` and `AC-03` and in `byline`.
 
 ## What The Command Works Out
 

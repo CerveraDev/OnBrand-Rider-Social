@@ -158,6 +158,22 @@ async function fillInPage(slide) {
     element.style.setProperty('background-image', layers.join(', '), 'important');
     element.style.setProperty('background-size', sizes.join(', '), 'important');
     element.style.setProperty('background-position', positions.join(', '), 'important');
+    if (image.fluid) {
+      // The area takes the photo's own shape, between the heights the layout allows; the
+      // block beside it, when the two share their parent, takes the rest of the space.
+      const width = element.getBoundingClientRect().width;
+      const height = Math.round(Math.min(image.fluid.max_height,
+        Math.max(image.fluid.min_height, width * probe.naturalHeight / probe.naturalWidth)));
+      for (const [property, value] of Object.entries({
+        height: `${height}px`, 'min-height': `${height}px`, 'max-height': `${height}px`, flex: `0 0 ${height}px`,
+      })) element.style.setProperty(property, value, 'important');
+      const siblings = [...element.parentElement.children].filter((child) => child !== element);
+      if (siblings.length === 1) {
+        for (const [property, value] of Object.entries({ height: 'auto', 'min-height': '0', flex: '1 1 0' })) {
+          siblings[0].style.setProperty(property, value, 'important');
+        }
+      }
+    }
     images.push({ slot: image.slot, natural_width: probe.naturalWidth, natural_height: probe.naturalHeight });
   }
 

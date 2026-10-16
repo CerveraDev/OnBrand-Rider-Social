@@ -102,6 +102,7 @@ def render_package(
             images = []
             fits = {area["slot"]: area["fit"] for area in frame["image_slots"]}
             widths = {area["slot"]: area["width"] for area in frame["image_slots"]}
+            fluid = {area["slot"]: area["fluid"] for area in frame["image_slots"] if "fluid" in area}
             filled = {image["slot"] for image in slide["images"]}
             # Optional parts the post leaves out are taken off the slide.
             remove = sorted(
@@ -118,7 +119,10 @@ def render_package(
                     )
                 elif not src.startswith(("https://", "http://")):
                     src = (package_dir / src).as_uri()
-                images.append({"slot": image["slot"], "url": src, "max_width": widths[image["slot"]]})
+                entry = {"slot": image["slot"], "url": src, "max_width": widths[image["slot"]]}
+                if image["slot"] in fluid:
+                    entry["fluid"] = fluid[image["slot"]]
+                images.append(entry)
             text = [
                 {"slot": slot, "value": value, "italic_accent": frame["text_slots"][slot]["italic_accent"]}
                 for slot, value in slide["text"].items()

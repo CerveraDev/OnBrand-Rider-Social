@@ -9,8 +9,15 @@
 // serves it when that is an SVG, and otherwise as a transparent PNG of the logo
 // exactly as the page draws it. A logo with almost no dark ink is a white logo
 // made for a dark header and would vanish on a white slide, so it is passed over.
-// When the header has no usable logo, the publisher logo the article page names in
-// its structured data is tried.
+// When no visible logo is usable, logo pictures the page has hidden for now (some
+// sites keep the header invisible until a script reveals it) are downloaded and
+// checked, and then the publisher logo the article page names in its structured
+// data is tried.
+//
+// When no picture is usable, or the page cannot be read, the outlet's name is set
+// as a typeset wordmark instead: black Helvetica bold capitals on a transparent
+// background, on one line, or two when the name is long. The name is the one the
+// job gives, or else the site name the page gives for itself.
 //
 // Called by tools/social_runtime/press_logo.py, which writes the job file:
 //   node tools/social_runtime/find_press_logo.cjs --job <job.json>
@@ -39,18 +46,21 @@ async function main() {
     const context = await browser.newContext({
       viewport: VIEWPORT, deviceScaleFactor: SCALE, userAgent: USER_AGENT, locale: 'en-US',
     });
+    if (job.typeset_only) {
+      return finish(await notFound(context, job, { reason: 'the logo found on the page was not the outlet\'s own' }));
+    }
     const page = await context.newPage();
     try {
       await page.goto(job.url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     } catch (error) {
-      return finish({ found: false, reason: `the article page did not open (${error.message.split('\n')[0]})` });
+      return finish(await notFound(context, job, { reason: `the article page did not open (${error.message.split('\n')[0]})` }));
     }
     await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
     await page.waitForTimeout(1500);
     const title = (await page.title()).toLowerCase();
     const host = new URL(page.url()).hostname.replace(/^www\./, '');
     if (/just a moment|attention required|access denied|are you a robot|captcha/.test(title) || title === host) {
-      return finish({ found: false, reason: 'the site blocked the automated visit' });
+      return finish(await notFound(context, job, { reason: 'the site blocked the automated visit' }));
     }
     await page.evaluate(() => window.scrollTo(0, 0));
     const candidates = await page.evaluate(findCandidatesInPage, MAX_CANDIDATES);
@@ -81,9 +91,10 @@ async function main() {
         page_url: page.url(), passed_over: passed,
       });
     }
+    const hidden = await page.evaluate(hiddenLogosInPage);
     const published = await page.evaluate(publisherLogoInPage);
-    if (published) {
-      const fetched = await download(context, published);
+    for (const [url, where] of [...hidden.map((url) => [url, 'page header']), ...(published ? [[published, "article's publisher details"]] : [])]) {
+      const fetched = await download(context, url, page);
       if (fetched) {
         const shot = await pictureOf(context, fetched);
         const problem = shot ? await unusable(context, shot, true) : 'it could not be drawn';
@@ -93,17 +104,18 @@ async function main() {
           const file = `${job.output_stem}.${fetched.form}`;
           fs.writeFileSync(file, fetched.convert ? shot : fetched.body);
           return finish({
-            found: true, file, preview, form: fetched.form, where: "article's publisher details",
-            describe: published, page_url: page.url(), passed_over: passed,
+            found: true, file, preview, form: fetched.form, where,
+            describe: url, page_url: page.url(), passed_over: passed,
           });
         }
-        passed.push(`publisher logo: ${problem}`);
+        passed.push(`${url === published ? 'publisher logo' : 'hidden header logo'}: ${problem}`);
       }
     }
     const reason = passed.length
       ? `no usable logo on the article page (${passed.join('; ')})`
       : 'no logo in the page header or navigation';
-    return finish({ found: false, reason, page_url: page.url() });
+    const pageName = await page.evaluate(siteNameInPage);
+    return finish(await notFound(context, job, { reason, page_url: page.url() }, pageName));
   } finally {
     await browser.close();
   }
@@ -111,6 +123,63 @@ async function main() {
 
 function finish(result) {
   process.stdout.write(JSON.stringify(result) + '\n');
+}
+
+// No usable logo picture: the outlet's name as a typeset wordmark, when a name is known.
+async function notFound(context, job, result, pageName = null) {
+  const name = (job.name || pageName || '').trim();
+  if (!name) return { found: false, ...result };
+  const shot = await typeset(context, name);
+  if (!shot) return { found: false, ...result };
+  const file = `${job.output_stem}.png`;
+  const preview = `${job.output_stem}-preview.png`;
+  fs.writeFileSync(file, shot);
+  fs.writeFileSync(preview, shot);
+  return { found: true, file, preview, form: 'name', where: 'typeset name', describe: name, name, no_logo_reason: result.reason,
+    page_url: result.page_url || null };
+}
+
+// A transparent PNG of the name in black Helvetica bold capitals, split over two lines when long.
+async function typeset(context, name) {
+  const words = name.toUpperCase().split(/\s+/).filter(Boolean);
+  let lines = [words.join(' ')];
+  if (words.length > 1 && lines[0].length > 14) {
+    let best = null;
+    for (let cut = 1; cut < words.length; cut += 1) {
+      const pair = [words.slice(0, cut).join(' '), words.slice(cut).join(' ')];
+      const longest = Math.max(pair[0].length, pair[1].length);
+      if (!best || longest < best.longest) best = { pair, longest };
+    }
+    lines = best.pair;
+  }
+  const page = await context.newPage();
+  try {
+    await page.setContent(`<div id="name" style="display:inline-block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-weight:700;font-size:120px;line-height:1;letter-spacing:0.01em;color:#000;white-space:nowrap;padding:4px"></div>`);
+    await page.evaluate((text) => {
+      const box = document.getElementById('name');
+      text.forEach((line, index) => {
+        if (index) box.append(document.createElement('br'));
+        box.append(line);
+      });
+    }, lines);
+    return await page.locator('#name').screenshot({ omitBackground: true, type: 'png' });
+  } catch (error) {
+    return null;
+  } finally {
+    await page.close();
+  }
+}
+
+// Runs in the page. The name the site gives for itself, if any.
+function siteNameInPage() {
+  const meta = document.querySelector('meta[property="og:site_name"], meta[name="application-name"]');
+  if (meta && meta.content.trim()) return meta.content.trim();
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    const match = script.textContent.match(/"publisher"\s*:\s*\{[^}]*?"name"\s*:\s*"([^"]+)"/);
+    if (match) return match[1];
+  }
+  return null;
 }
 
 // Runs in the page. Returns the likeliest logos, best first, each tagged so it can be found again.
@@ -206,6 +275,34 @@ async function unusable(context, png, wordmark = false) {
   return null;
 }
 
+// Runs in the page. Logo pictures near the top of the page that are hidden right now,
+// named as a logo or after the site and linking to its front page, best first.
+function hiddenLogosInPage() {
+  const host = location.hostname.replace(/^www\./, '');
+  const siteName = (document.querySelector('meta[property="og:site_name"]')?.content || host.split('.')[0]).toLowerCase();
+  const tokens = siteName.split(/[^a-z0-9]+/).filter((token) => token.length > 2);
+  const urls = [];
+  for (const img of document.querySelectorAll('img[src]')) {
+    const style = getComputedStyle(img);
+    const rect = img.getBoundingClientRect();
+    if (style.visibility !== 'hidden' && Number(style.opacity) !== 0) continue;
+    if (rect.top > 400 || rect.width < 40 || rect.height < 10) continue;
+    const link = img.closest('a[href]');
+    let home = false;
+    try {
+      const target = link && new URL(link.href, location.href);
+      home = Boolean(target) && target.hostname.replace(/^www\./, '') === host && target.pathname.split('/').filter(Boolean).length <= 1;
+    } catch (error) {
+      home = false;
+    }
+    const label = [img.alt, img.className, img.getAttribute('src')].join(' ').toLowerCase();
+    if (!home || !(/logo|brand|wordmark/.test(label) || tokens.some((token) => label.includes(token)))) continue;
+    const url = new URL(img.currentSrc || img.src, location.href).href;
+    if (!urls.includes(url)) urls.push(url);
+  }
+  return urls.slice(0, 3);
+}
+
 // Runs in the page. The publisher logo the article names in its structured data, if any.
 function publisherLogoInPage() {
   const urls = [];
@@ -232,10 +329,37 @@ function publisherLogoInPage() {
   return found ? new URL(found, location.href).href : null;
 }
 
-async function download(context, url) {
+// Downloads a picture, first as the page itself would (some sites refuse other requests).
+async function download(context, url, page = null) {
   try {
-    const response = await context.request.get(url, { timeout: 20000 });
-    const body = await response.body();
+    let body = null;
+    let ok = false;
+    let headers = {};
+    if (page && !url.startsWith('data:')) {
+      const fetched = await page.evaluate(async (address) => {
+        try {
+          const response = await fetch(address, { credentials: 'include' });
+          const bytes = new Uint8Array(await response.arrayBuffer());
+          let binary = '';
+          for (let index = 0; index < bytes.length; index += 0x8000) binary += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
+          return { ok: response.ok, type: response.headers.get('content-type') || '', data: btoa(binary) };
+        } catch (error) {
+          return null;
+        }
+      }, url);
+      if (fetched && fetched.ok) {
+        body = Buffer.from(fetched.data, 'base64');
+        ok = true;
+        headers = { 'content-type': fetched.type };
+      }
+    }
+    if (!ok) {
+      const response = await context.request.get(url, { timeout: 20000 });
+      body = await response.body();
+      ok = response.ok();
+      headers = response.headers();
+    }
+    const response = { ok: () => ok, headers: () => headers };
     if (!response.ok() || body.length > 5_000_000) return null;
     if (body.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return { form: 'png', body };
     if (body[0] === 0xff && body[1] === 0xd8) return { form: 'jpg', body };

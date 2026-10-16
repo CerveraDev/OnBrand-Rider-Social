@@ -3,13 +3,13 @@
   "tool": "onbrand-social-scaffold-import",
   "source": {
     "url": "http://start-up.local/social-scaffolding/",
-    "imported": "2026-10-15",
-    "raw_page_sha256": "1b00eaecfa48351b43c43ac0015e286c57e16eaac6d8a100b49587751a76952d",
+    "imported": "2026-10-16",
+    "raw_page_sha256": "75be6f57575e67a68e1da561b25f1135032b198a74514e649c2a9054d86fc7fb",
     "viewport": {
       "width": 1512,
       "height": 900
     },
-    "additions_sha256": "dd8e07b890122eeba4a0b44e8eaa04290098658558688dfcdf256cb89a24d1f2"
+    "additions_sha256": "866424009484834112fc7cd915d2502809b9a75f3d4c27f72644a3f8b688e1c3"
   },
   "files": {
     "scaffold.html": {
@@ -2333,7 +2333,13 @@
         ],
         "optional": [
           "subheading"
-        ]
+        ],
+        "fluid": {
+          "image-1": {
+            "min_height": 250,
+            "max_height": 396
+          }
+        }
       },
       "label_corrections": [],
       "same_label_as": [],
@@ -2509,7 +2515,13 @@
         "optional": [
           "subheading",
           "publication-logo"
-        ]
+        ],
+        "fluid": {
+          "image-1": {
+            "min_height": 250,
+            "max_height": 396
+          }
+        }
       },
       "label_corrections": [],
       "same_label_as": [],
@@ -2683,7 +2695,13 @@
           "credit",
           "subheading",
           "publication-logo"
-        ]
+        ],
+        "fluid": {
+          "image-1": {
+            "min_height": 250,
+            "max_height": 450
+          }
+        }
       },
       "label_corrections": [],
       "same_label_as": [],
@@ -3019,7 +3037,13 @@
           "image-1",
           "body-2",
           "publication-logo"
-        ]
+        ],
+        "fluid": {
+          "image-1": {
+            "min_height": 225,
+            "max_height": 304
+          }
+        }
       },
       "label_corrections": [],
       "same_label_as": [],

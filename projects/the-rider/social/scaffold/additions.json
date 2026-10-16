@@ -14,7 +14,13 @@
       ],
       "optional": [
         "subheading"
-      ]
+      ],
+      "fluid": {
+        "image-1": {
+          "min_height": 250,
+          "max_height": 396
+        }
+      }
     },
     "SP-21": {
       "id": "PC-02",
@@ -36,7 +42,13 @@
             "style": "height: 24px; max-height: 24px; width: auto; max-width: none; padding: 5px; box-sizing: content-box; background-color: rgb(255, 255, 255);"
           }
         }
-      ]
+      ],
+      "fluid": {
+        "image-1": {
+          "min_height": 250,
+          "max_height": 396
+        }
+      }
     },
     "SP-22": {
       "id": "AC-01",
@@ -61,7 +73,13 @@
             "style": "height: 34px; width: auto;"
           }
         }
-      ]
+      ],
+      "fluid": {
+        "image-1": {
+          "min_height": 250,
+          "max_height": 450
+        }
+      }
     },
     "SP-23": {
       "id": "AC-02",
@@ -140,7 +158,13 @@
             "style": "height: 34px; width: auto;"
           }
         }
-      ]
+      ],
+      "fluid": {
+        "image-1": {
+          "min_height": 225,
+          "max_height": 304
+        }
+      }
     }
   },
   "new_frames": [

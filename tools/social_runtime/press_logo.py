@@ -3,7 +3,8 @@
 Press posts show the outlet's logo. Rather than ask for a file, the skill gives the
 article's address: the page is opened in the slide renderer's browser, the logo is
 taken from its header or navigation, and saved under `campaign-output/social/logos/`.
-When the page has no usable logo, nothing is saved and the logo area stays empty.
+When the page has no usable logo, or cannot be read, the outlet's name is typeset in its
+place, from the name the skill gives or the site name the page gives.
 """
 
 from __future__ import annotations
@@ -24,7 +25,8 @@ class PressLogoError(RuntimeError):
     """Raised when the logo finder cannot run."""
 
 
-def find_press_logo(url: str, *, output_dir: Path, finder=None) -> dict:
+def find_press_logo(url: str, *, output_dir: Path, name: str | None = None, typeset_only: bool = False,
+                    finder=None) -> dict:
     """Look for the publication's logo on an article page; return what was found and where it was saved."""
     parsed = urlparse(url)
     if parsed.scheme not in ("http", "https") or not parsed.hostname:
@@ -35,7 +37,10 @@ def find_press_logo(url: str, *, output_dir: Path, finder=None) -> dict:
         old.unlink()
     for old in output_dir.glob(f"{host}-preview.png"):
         old.unlink()
-    job = {"url": url, "output_stem": str(output_dir / host)}
+    name = (name or "").strip() or None
+    if typeset_only and not name:
+        raise PressLogoError("--typeset needs --name with the outlet's name")
+    job = {"url": url, "output_stem": str(output_dir / host), "name": name, "typeset_only": typeset_only}
     result = (finder or _run_finder)(job)
     result["outlet"] = host
     return result

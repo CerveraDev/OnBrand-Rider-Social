@@ -7,7 +7,7 @@ python3 -m tools.social_runtime.cli gallery --project <slug>
 python3 -m tools.social_runtime.cli images --project <slug> [--list] [--find <text>]
 python3 -m tools.social_runtime.cli layouts --project <slug>
 python3 -m tools.social_runtime.cli post --brief <path>
-python3 -m tools.social_runtime.cli press-logo --url <article address>
+python3 -m tools.social_runtime.cli press-logo --url <article address> --name <outlet name>
 python3 -m tools.social_runtime.cli press-images --url <article address>
 python3 -m tools.social_runtime.cli image --project <slug> --prompt <text> --shape <shape> --output <path>
 python3 -m tools.social_runtime.cli setup --project <slug>
@@ -62,6 +62,8 @@ def main(argv=None) -> int:
     post.add_argument("--no-open", action="store_true", help="Do not open the feed preview.")
     press_logo = commands.add_parser("press-logo", help="Find a publication's logo on one of its article pages.")
     press_logo.add_argument("--url", required=True, help="The article's web address.")
+    press_logo.add_argument("--name", help="The outlet's name, typeset in place of a logo when none is usable.")
+    press_logo.add_argument("--typeset", action="store_true", help="Typeset --name without looking for a logo picture.")
     press_logo.add_argument("--output", help=f"Folder to save the logo in (default: {LOGO_DIR}).")
     press_images = commands.add_parser("press-images", help="Save the photos of a press article for its carousel.")
     press_images.add_argument("--url", required=True, help="The article's web address.")
@@ -90,7 +92,7 @@ def main(argv=None) -> int:
     if args.command == "post":
         return _post(Path(args.brief), show=not args.no_open)
     if args.command == "press-logo":
-        return _press_logo(args.url, Path(args.output) if args.output else ROOT / LOGO_DIR)
+        return _press_logo(args.url, Path(args.output) if args.output else ROOT / LOGO_DIR, args.name, args.typeset)
     if args.command == "press-images":
         return _press_images(args.url, Path(args.output) if args.output else ROOT / ARTICLE_IMAGE_DIR)
     if args.command == "image":
@@ -121,18 +123,23 @@ def main(argv=None) -> int:
     return 0 if result.qa.passed else 1
 
 
-def _press_logo(url: str, output_dir: Path) -> int:
+def _press_logo(url: str, output_dir: Path, name: str | None = None, typeset: bool = False) -> int:
     try:
-        result = find_press_logo(url, output_dir=output_dir)
+        result = find_press_logo(url, output_dir=output_dir, name=name, typeset_only=typeset)
     except PressLogoError as err:
         print(f"press logo search refused: {err}", file=sys.stderr)
         return 2
+    if result["found"] and result.get("form") == "name":
+        print(f"No logo picture for {result['outlet']} ({result['no_logo_reason']}), so its name \"{result['name']}\" was typeset instead.")
+        print(f"Logo file: {result['file']}")
+        print(f"Look at it first: {result['preview']}")
+        return 0
     if result["found"]:
         print(f"Found the {result['outlet']} logo in the {result['where']}.")
         print(f"Logo file: {result['file']}")
         print(f"Look at it first: {result['preview']}")
         return 0
-    print(f"No logo found for {result['outlet']}: {result['reason']}. Leave the logo area empty.")
+    print(f"No logo found for {result['outlet']}: {result['reason']}. Run it again with --name and the outlet's name.")
     return 1
 
 

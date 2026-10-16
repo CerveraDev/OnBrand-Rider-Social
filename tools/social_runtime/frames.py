@@ -34,6 +34,8 @@ CONTAIN_MAX_WIDTH = 220
 TEXT_CHANNELS = ("on-image-text", "slide-text")
 FRAME_FIELDS = {"family", "canvas", "image_slots", "text_slots", "locked", "optional_marks"}
 IMAGE_SLOT_FIELDS = {"slot", "width", "height", "shape", "fit", "required"}
+# A photo area may follow its photo's shape: its height becomes the photo's, kept between these.
+FLUID_FIELDS = {"min_height", "max_height"}
 TEXT_SLOT_FIELDS = {"channel", "required", "max_lines", "max_chars", "italic_accent"}
 # Average glyph advance as a share of font size, used only to estimate draft limits.
 GLYPH_ADVANCE = {
@@ -84,6 +86,7 @@ def build_frame_definitions(catalog: dict, *, logo_label: str, limits: dict | No
                     "shape": slot["shape"],
                     "fit": "contain" if slot.get("element") == "img" else "cover",
                     "required": slot["slot"] not in rules["optional"],
+                    **({"fluid": rules["fluid"][slot["slot"]]} if slot["slot"] in rules.get("fluid", {}) else {}),
                 }
                 for slot in observed["image_slots"]
             ],
@@ -203,8 +206,13 @@ def _validate_frame(frame_id: str, frame: object) -> None:
     if not isinstance(images, list):
         raise FrameError(f"{label} image_slots must be an array")
     for slot in images:
-        if not isinstance(slot, dict) or set(slot) != IMAGE_SLOT_FIELDS:
-            raise FrameError(f"{label} image slots must define exactly: {', '.join(sorted(IMAGE_SLOT_FIELDS))}")
+        if not isinstance(slot, dict) or set(slot) - {"fluid"} != IMAGE_SLOT_FIELDS:
+            raise FrameError(f"{label} image slots must define exactly: {', '.join(sorted(IMAGE_SLOT_FIELDS))}, and may add fluid")
+        fluid = slot.get("fluid")
+        if fluid is not None and (not isinstance(fluid, dict) or set(fluid) != FLUID_FIELDS
+                                  or not all(_positive_int(v) for v in fluid.values())
+                                  or fluid["min_height"] > fluid["max_height"] or slot.get("fit") != "cover"):
+            raise FrameError(f"{label} image slot '{slot.get('slot')}' fluid must give min_height <= max_height on a cover area")
         if not isinstance(slot["slot"], str) or not slot["slot"] or slot["shape"] not in SHAPES + (ANY_SHAPE,):
             raise FrameError(f"{label} image slot has an invalid name or shape")
         if type(slot["required"]) is not bool or (slot["shape"] == ANY_SHAPE) != (slot["fit"] == "contain"):
